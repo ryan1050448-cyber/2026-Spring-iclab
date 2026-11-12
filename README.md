@@ -1,0 +1,2 @@
+# 2026-Spring-iclab
+非常非常扎實的一個學期，我使用的AI是gemini，基本上沒什麼用處頂多寫pattern需要用到的python，因此充分體驗到iclab讓人窒息的溺水式教育。
