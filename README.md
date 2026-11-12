@@ -9,6 +9,8 @@
 
 **最終成績:** **89.97** **(A+)**
 
+**Overall** **rank:** **25**
+
 ## Lab Results
 
 | Lab | 主題 | Rank | 分數 | Demo |
