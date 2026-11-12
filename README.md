@@ -4,19 +4,19 @@
 
 ## Lab Results
 
-| Lab | 主題 | Rank | 分數 |
-| --- | --- | :---: | :---: |
-| Lab1 | Combinational Circuit |  |  |
-| Lab2 | Sequential Circuit |  |  |
-| Lab3 | Pattern, DRAM control |  |  |
-| Lab4 | DesignWare IP |  |  |
-| Lab5 | SRAM |  |  |
-| Lab6 | Synthesis |  |  |
-| Lab7 | CDC |  |  |
-| Lab8 | Low Power |  |  |
-| Lab9 | SystemVerilog |  |  |
-| Lab10 | SystemVerilog |  |  |
-| Lab11 | APR |  |  |
-| Lab12 | IR Drop |  |  |
-| Mid Project | DCCPU |  |  |
-| Final Project | DCCPU + APR |  |  |
+| Lab | 主題 | Rank | 分數 | Demo |
+| --- | --- | :---: | :---: | :---: |
+| Lab1 | Combinational Circuit | 33 | 91.35 | 1st |
+| Lab2 | Sequential Circuit | 64 | 81.10 | 1st |
+| Lab3 | Pattern, DRAM control | 28 | 85.69 | 1st |
+| Lab4 | DesignWare IP | 51 | 82.56 | 1st |
+| Lab5 | SRAM | 4 | 98.57 | 1st |
+| Lab6 | Synthesis | 43 | 84.05 | 1st |
+| Lab7 | CDC | x | 95 | 1st |
+| Lab8 | Low Power | 33 | 92.29 | 1st |
+| Lab9 | SystemVerilog | 24 | 90.42 | 1st |
+| Lab10 | SystemVerilog | x | 100 | 1st |
+| Lab11 | APR | 62 | 74.93 | 1st |
+| Lab12 | IR Drop | x | 100 | 1st |
+| Mid Project | DCCPU | 35 | 92.11 | 1st |
+| Final Project | DCCPU + APR | 43/44 | 70.07 | 1st |
