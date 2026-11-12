@@ -27,3 +27,13 @@
 | Lab12 | IR Drop | x | 100 | 1st |
 | Mid Project | DCCPU | 35 | 92.11 | 1st |
 | Final Project | DCCPU + APR | 43/44 | 70.07 | 1st |
+
+
+## Exam Results
+| Exam | 分數 |
+| --- | :---: |
+| Midterm Exam | 82 |
+| OT | 50 |
+| Final Exam | 102 |
+
+
