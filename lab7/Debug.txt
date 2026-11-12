@@ -1,0 +1,1099 @@
+========================================================
+ DRAM Debug Trace & Hardware AXI Address Guide
+========================================================
+
+--- Pattern 0: CALC Mode, Bank 1, Row 16 (Golden: 644) ---
+[AXI:28000] ROOT 5000 [ADD (+)] Left:5001 Right:5006 (Raw: 8000000050015006)
+    [AXI:28008] ->  5001 [SUB (-)] Left:5002 Right:5003 (Raw: 8000000150025003)
+        [AXI:28010] ->  5002 [NUM] Val: 867 (Raw: 00000363ffffffff)
+        [AXI:28018] ->  5003 [SHIFT (>>>)] Left:5004 Right:5005 (Raw: 8000000350045005)
+            [AXI:28020] ->  5004 [NUM] Val: -105 (Raw: 7fffff97ffffffff)
+            [AXI:28028] ->  5005 [NUM] Val: 735 (Raw: 000002dfffffffff)
+           ==> Calc: -105 >> 31 = -1
+       ==> Calc: 867 - -1 = 868
+    [AXI:28030] ->  5006 [SUB (-)] Left:5007 Right:500e (Raw: 800000015007500e)
+        [AXI:28038] ->  5007 [SUB (-)] Left:5008 Right:500b (Raw: 800000015008500b)
+            [AXI:28040] ->  5008 [SUB (-)] Left:5009 Right:500a (Raw: 800000015009500a)
+                [AXI:28048] ->  5009 [NUM] Val: -133 (Raw: 7fffff7bffffffff)
+                [AXI:28050] ->  500a [NUM] Val: 103 (Raw: 00000067ffffffff)
+               ==> Calc: -133 - 103 = -236
+            [AXI:28058] ->  500b [SHIFT (>>>)] Left:500c Right:500d (Raw: 80000003500c500d)
+                [AXI:28060] ->  500c [NUM] Val: -91 (Raw: 7fffffa5ffffffff)
+                [AXI:28068] ->  500d [NUM] Val: -317 (Raw: 7ffffec3ffffffff)
+               ==> Calc: -91 >> 3 = -12
+           ==> Calc: -236 - -12 = -224
+        [AXI:28070] ->  500e [SHIFT (>>>)] Left:500f Right:5012 (Raw: 80000003500f5012)
+            [AXI:28078] ->  500f [SUB (-)] Left:5010 Right:5011 (Raw: 8000000150105011)
+                [AXI:28080] ->  5010 [NUM] Val: -11 (Raw: 7ffffff5ffffffff)
+                [AXI:28088] ->  5011 [NUM] Val: -822 (Raw: 7ffffccaffffffff)
+               ==> Calc: -11 - -822 = 811
+            [AXI:28090] ->  5012 [MULT (*)] Left:5013 Right:5014 (Raw: 8000000250135014)
+                [AXI:28098] ->  5013 [NUM] Val: 571 (Raw: 0000023bffffffff)
+                [AXI:280a0] ->  5014 [NUM] Val: 462 (Raw: 000001ceffffffff)
+               ==> Calc: 571 * 462 = 263802
+           ==> Calc: 811 >> 58 = 0
+       ==> Calc: -224 - 0 = -224
+   ==> Calc: 868 + -224 = 644
+
+--- Pattern 1: CALC Mode, Bank 1, Row 21 (Golden: -9) ---
+[AXI:2a800] ->  5500 [NUM] Val: -9 (Raw: 7ffffff7ffffffff)
+
+--- Pattern 2: CALC Mode, Bank 2, Row 59 (Golden: 1011) ---
+[AXI:5d800] ROOT bb00 [ADD (+)] Left:bb01 Right:bb02 (Raw: 80000000bb01bb02)
+    [AXI:5d808] ->  bb01 [NUM] Val: 196 (Raw: 000000c4ffffffff)
+    [AXI:5d810] ->  bb02 [NUM] Val: 815 (Raw: 0000032fffffffff)
+   ==> Calc: 196 + 815 = 1011
+
+--- Pattern 3: GAUSS Mode (Golden Mean: 134, Var: 3721) ---
+[Inputs] B0/R0: 38, B1/R1: 170, B2/R2: 130, B3/R3: 200
+   ==> Calc Mean: 538 / 4 = 134
+   ==> Calc Variance: Sum of Squared Differences / 4 = 3721
+
+--- Pattern 4: GAUSS Mode (Golden Mean: 151, Var: 1143) ---
+[Inputs] B0/R0: 112, B1/R1: 203, B2/R2: 133, B3/R3: 156
+   ==> Calc Mean: 604 / 4 = 151
+   ==> Calc Variance: Sum of Squared Differences / 4 = 1143
+
+--- Pattern 5: CALC Mode, Bank 0, Row 39 (Golden: 220662057) ---
+[AXI:13800] ROOT 2700 [MULT (*)] Left:2701 Right:2702 (Raw: 8000000227012702)
+    [AXI:13808] ->  2701 [NUM] Val: -913 (Raw: 7ffffc6fffffffff)
+    [AXI:13810] ->  2702 [MULT (*)] Left:2703 Right:2704 (Raw: 8000000227032704)
+        [AXI:13818] ->  2703 [NUM] Val: 677 (Raw: 000002a5ffffffff)
+        [AXI:13820] ->  2704 [NUM] Val: -357 (Raw: 7ffffe9bffffffff)
+       ==> Calc: 677 * -357 = -241689
+   ==> Calc: -913 * -241689 = 220662057
+
+--- Pattern 6: GAUSS Mode (Golden Mean: 87, Var: 3173) ---
+[Inputs] B0/R0: 41, B1/R1: 156, B2/R2: 130, B3/R3: 24
+   ==> Calc Mean: 351 / 4 = 87
+   ==> Calc Variance: Sum of Squared Differences / 4 = 3173
+
+--- Pattern 7: CALC Mode, Bank 0, Row 9 (Golden: -419) ---
+[AXI:04800] ROOT 900 [SUB (-)] Left:901 Right:910 (Raw: 8000000109010910)
+    [AXI:04808] ->  901 [MULT (*)] Left:902 Right:909 (Raw: 8000000209020909)
+        [AXI:04810] ->  902 [SHIFT (>>>)] Left:903 Right:906 (Raw: 8000000309030906)
+            [AXI:04818] ->  903 [MULT (*)] Left:904 Right:905 (Raw: 8000000209040905)
+                [AXI:04820] ->  904 [NUM] Val: -892 (Raw: 7ffffc84ffffffff)
+                [AXI:04828] ->  905 [NUM] Val: -927 (Raw: 7ffffc61ffffffff)
+               ==> Calc: -892 * -927 = 826884
+            [AXI:04830] ->  906 [SHIFT (>>>)] Left:907 Right:908 (Raw: 8000000309070908)
+                [AXI:04838] ->  907 [NUM] Val: -494 (Raw: 7ffffe12ffffffff)
+                [AXI:04840] ->  908 [NUM] Val: 772 (Raw: 00000304ffffffff)
+               ==> Calc: -494 >> 4 = -31
+           ==> Calc: 826884 >> 33 = 0
+        [AXI:04848] ->  909 [ADD (+)] Left:90a Right:90d (Raw: 80000000090a090d)
+            [AXI:04850] ->  90a [ADD (+)] Left:90b Right:90c (Raw: 80000000090b090c)
+                [AXI:04858] ->  90b [NUM] Val: 223 (Raw: 000000dfffffffff)
+                [AXI:04860] ->  90c [NUM] Val: 839 (Raw: 00000347ffffffff)
+               ==> Calc: 223 + 839 = 1062
+            [AXI:04868] ->  90d [ADD (+)] Left:90e Right:90f (Raw: 80000000090e090f)
+                [AXI:04870] ->  90e [NUM] Val: 931 (Raw: 000003a3ffffffff)
+                [AXI:04878] ->  90f [NUM] Val: 181 (Raw: 000000b5ffffffff)
+               ==> Calc: 931 + 181 = 1112
+           ==> Calc: 1062 + 1112 = 2174
+       ==> Calc: 0 * 2174 = 0
+    [AXI:04880] ->  910 [NUM] Val: 419 (Raw: 000001a3ffffffff)
+   ==> Calc: 0 - 419 = -419
+
+--- Pattern 8: CALC Mode, Bank 2, Row 8 (Golden: 138) ---
+[AXI:44000] ->  8800 [NUM] Val: 138 (Raw: 0000008affffffff)
+
+--- Pattern 9: GAUSS Mode (Golden Mean: 155, Var: 5473) ---
+[Inputs] B0/R0: 201, B1/R1: 234, B2/R2: 39, B3/R3: 146
+   ==> Calc Mean: 620 / 4 = 155
+   ==> Calc Variance: Sum of Squared Differences / 4 = 5473
+
+--- Pattern 10: GAUSS Mode (Golden Mean: 133, Var: 6174) ---
+[Inputs] B0/R0: 137, B1/R1: 127, B2/R2: 23, B3/R3: 245
+   ==> Calc Mean: 532 / 4 = 133
+   ==> Calc Variance: Sum of Squared Differences / 4 = 6174
+
+--- Pattern 11: GAUSS Mode (Golden Mean: 90, Var: 4186) ---
+[Inputs] B0/R0: 181, B1/R1: 19, B2/R2: 41, B3/R3: 122
+   ==> Calc Mean: 363 / 4 = 90
+   ==> Calc Variance: Sum of Squared Differences / 4 = 4186
+
+--- Pattern 12: CALC Mode, Bank 1, Row 36 (Golden: 252) ---
+[AXI:32000] ->  6400 [NUM] Val: 252 (Raw: 000000fcffffffff)
+
+--- Pattern 13: GAUSS Mode (Golden Mean: 81, Var: 3069) ---
+[Inputs] B0/R0: 71, B1/R1: 35, B2/R2: 175, B3/R3: 46
+   ==> Calc Mean: 327 / 4 = 81
+   ==> Calc Variance: Sum of Squared Differences / 4 = 3069
+
+--- Pattern 14: CALC Mode, Bank 0, Row 48 (Golden: 47) ---
+[AXI:18000] ->  3000 [NUM] Val: 47 (Raw: 0000002fffffffff)
+
+--- Pattern 15: CALC Mode, Bank 0, Row 1 (Golden: 110) ---
+[AXI:00800] ->  100 [NUM] Val: 110 (Raw: 0000006effffffff)
+
+--- Pattern 16: GAUSS Mode (Golden Mean: 135, Var: 5082) ---
+[Inputs] B0/R0: 46, B1/R1: 103, B2/R2: 154, B3/R3: 240
+   ==> Calc Mean: 543 / 4 = 135
+   ==> Calc Variance: Sum of Squared Differences / 4 = 5082
+
+--- Pattern 17: GAUSS Mode (Golden Mean: 108, Var: 1571) ---
+[Inputs] B0/R0: 55, B1/R1: 93, B2/R2: 163, B3/R3: 123
+   ==> Calc Mean: 434 / 4 = 108
+   ==> Calc Variance: Sum of Squared Differences / 4 = 1571
+
+--- Pattern 18: CALC Mode, Bank 1, Row 50 (Golden: -69) ---
+[AXI:39000] ROOT 7200 [ADD (+)] Left:7201 Right:7202 (Raw: 8000000072017202)
+    [AXI:39008] ->  7201 [NUM] Val: -155 (Raw: 7fffff65ffffffff)
+    [AXI:39010] ->  7202 [SHIFT (>>>)] Left:7203 Right:7206 (Raw: 8000000372037206)
+        [AXI:39018] ->  7203 [ADD (+)] Left:7204 Right:7205 (Raw: 8000000072047205)
+            [AXI:39020] ->  7204 [NUM] Val: 962 (Raw: 000003c2ffffffff)
+            [AXI:39028] ->  7205 [NUM] Val: 423 (Raw: 000001a7ffffffff)
+           ==> Calc: 962 + 423 = 1385
+        [AXI:39030] ->  7206 [MULT (*)] Left:7207 Right:720a (Raw: 800000027207720a)
+            [AXI:39038] ->  7207 [ADD (+)] Left:7208 Right:7209 (Raw: 8000000072087209)
+                [AXI:39040] ->  7208 [NUM] Val: 108 (Raw: 0000006cffffffff)
+                [AXI:39048] ->  7209 [NUM] Val: -736 (Raw: 7ffffd20ffffffff)
+               ==> Calc: 108 + -736 = -628
+            [AXI:39050] ->  720a [NUM] Val: 939 (Raw: 000003abffffffff)
+           ==> Calc: -628 * 939 = -589692
+       ==> Calc: 1385 >> 4 = 86
+   ==> Calc: -155 + 86 = -69
+
+--- Pattern 19: CALC Mode, Bank 3, Row 25 (Golden: 301178) ---
+[AXI:6c800] ROOT d900 [ADD (+)] Left:d901 Right:d910 (Raw: 80000000d901d910)
+    [AXI:6c808] ->  d901 [ADD (+)] Left:d902 Right:d909 (Raw: 80000000d902d909)
+        [AXI:6c810] ->  d902 [SHIFT (>>>)] Left:d903 Right:d906 (Raw: 80000003d903d906)
+            [AXI:6c818] ->  d903 [MULT (*)] Left:d904 Right:d905 (Raw: 80000002d904d905)
+                [AXI:6c820] ->  d904 [NUM] Val: -841 (Raw: 7ffffcb7ffffffff)
+                [AXI:6c828] ->  d905 [NUM] Val: 824 (Raw: 00000338ffffffff)
+               ==> Calc: -841 * 824 = -692984
+            [AXI:6c830] ->  d906 [SUB (-)] Left:d907 Right:d908 (Raw: 80000001d907d908)
+                [AXI:6c838] ->  d907 [NUM] Val: 847 (Raw: 0000034fffffffff)
+                [AXI:6c840] ->  d908 [NUM] Val: 915 (Raw: 00000393ffffffff)
+               ==> Calc: 847 - 915 = -68
+           ==> Calc: -692984 >> 60 = -1
+        [AXI:6c848] ->  d909 [MULT (*)] Left:d90a Right:d90d (Raw: 80000002d90ad90d)
+            [AXI:6c850] ->  d90a [SUB (-)] Left:d90b Right:d90c (Raw: 80000001d90bd90c)
+                [AXI:6c858] ->  d90b [NUM] Val: -554 (Raw: 7ffffdd6ffffffff)
+                [AXI:6c860] ->  d90c [NUM] Val: 186 (Raw: 000000baffffffff)
+               ==> Calc: -554 - 186 = -740
+            [AXI:6c868] ->  d90d [SUB (-)] Left:d90e Right:d90f (Raw: 80000001d90ed90f)
+                [AXI:6c870] ->  d90e [NUM] Val: -281 (Raw: 7ffffee7ffffffff)
+                [AXI:6c878] ->  d90f [NUM] Val: 126 (Raw: 0000007effffffff)
+               ==> Calc: -281 - 126 = -407
+           ==> Calc: -740 * -407 = 301180
+       ==> Calc: -1 + 301180 = 301179
+    [AXI:6c880] ->  d910 [SHIFT (>>>)] Left:d911 Right:d918 (Raw: 80000003d911d918)
+        [AXI:6c888] ->  d911 [ADD (+)] Left:d912 Right:d915 (Raw: 80000000d912d915)
+            [AXI:6c890] ->  d912 [MULT (*)] Left:d913 Right:d914 (Raw: 80000002d913d914)
+                [AXI:6c898] ->  d913 [NUM] Val: -64 (Raw: 7fffffc0ffffffff)
+                [AXI:6c8a0] ->  d914 [NUM] Val: 617 (Raw: 00000269ffffffff)
+               ==> Calc: -64 * 617 = -39488
+            [AXI:6c8a8] ->  d915 [SHIFT (>>>)] Left:d916 Right:d917 (Raw: 80000003d916d917)
+                [AXI:6c8b0] ->  d916 [NUM] Val: -165 (Raw: 7fffff5bffffffff)
+                [AXI:6c8b8] ->  d917 [NUM] Val: -976 (Raw: 7ffffc30ffffffff)
+               ==> Calc: -165 >> 48 = -1
+           ==> Calc: -39488 + -1 = -39489
+        [AXI:6c8c0] ->  d918 [NUM] Val: -521 (Raw: 7ffffdf7ffffffff)
+       ==> Calc: -39489 >> 55 = -1
+   ==> Calc: 301179 + -1 = 301178
+
+--- Pattern 20: CALC Mode, Bank 3, Row 7 (Golden: 632) ---
+[AXI:63800] ROOT c700 [MULT (*)] Left:c701 Right:c70e (Raw: 80000002c701c70e)
+    [AXI:63808] ->  c701 [ADD (+)] Left:c702 Right:c709 (Raw: 80000000c702c709)
+        [AXI:63810] ->  c702 [SHIFT (>>>)] Left:c703 Right:c706 (Raw: 80000003c703c706)
+            [AXI:63818] ->  c703 [SUB (-)] Left:c704 Right:c705 (Raw: 80000001c704c705)
+                [AXI:63820] ->  c704 [NUM] Val: -781 (Raw: 7ffffcf3ffffffff)
+                [AXI:63828] ->  c705 [NUM] Val: 243 (Raw: 000000f3ffffffff)
+               ==> Calc: -781 - 243 = -1024
+            [AXI:63830] ->  c706 [SHIFT (>>>)] Left:c707 Right:c708 (Raw: 80000003c707c708)
+                [AXI:63838] ->  c707 [NUM] Val: -481 (Raw: 7ffffe1fffffffff)
+                [AXI:63840] ->  c708 [NUM] Val: -347 (Raw: 7ffffea5ffffffff)
+               ==> Calc: -481 >> 37 = -1
+           ==> Calc: -1024 >> 63 = -1
+        [AXI:63848] ->  c709 [SUB (-)] Left:c70a Right:c70d (Raw: 80000001c70ac70d)
+            [AXI:63850] ->  c70a [SHIFT (>>>)] Left:c70b Right:c70c (Raw: 80000003c70bc70c)
+                [AXI:63858] ->  c70b [NUM] Val: -832 (Raw: 7ffffcc0ffffffff)
+                [AXI:63860] ->  c70c [NUM] Val: 495 (Raw: 000001efffffffff)
+               ==> Calc: -832 >> 47 = -1
+            [AXI:63868] ->  c70d [NUM] Val: 630 (Raw: 00000276ffffffff)
+           ==> Calc: -1 - 630 = -631
+       ==> Calc: -1 + -631 = -632
+    [AXI:63870] ->  c70e [SHIFT (>>>)] Left:c70f Right:c712 (Raw: 80000003c70fc712)
+        [AXI:63878] ->  c70f [ADD (+)] Left:c710 Right:c711 (Raw: 80000000c710c711)
+            [AXI:63880] ->  c710 [NUM] Val: -605 (Raw: 7ffffda3ffffffff)
+            [AXI:63888] ->  c711 [NUM] Val: 280 (Raw: 00000118ffffffff)
+           ==> Calc: -605 + 280 = -325
+        [AXI:63890] ->  c712 [NUM] Val: -162 (Raw: 7fffff5effffffff)
+       ==> Calc: -325 >> 30 = -1
+   ==> Calc: -632 * -1 = 632
+
+--- Pattern 21: CALC Mode, Bank 0, Row 36 (Golden: -450776) ---
+[AXI:12000] ROOT 2400 [MULT (*)] Left:2401 Right:2402 (Raw: 8000000224012402)
+    [AXI:12008] ->  2401 [NUM] Val: 841 (Raw: 00000349ffffffff)
+    [AXI:12010] ->  2402 [NUM] Val: -536 (Raw: 7ffffde8ffffffff)
+   ==> Calc: 841 * -536 = -450776
+
+--- Pattern 22: GAUSS Mode (Golden Mean: 81, Var: 1172) ---
+[Inputs] B0/R0: 77, B1/R1: 68, B2/R2: 137, B3/R3: 44
+   ==> Calc Mean: 326 / 4 = 81
+   ==> Calc Variance: Sum of Squared Differences / 4 = 1172
+
+--- Pattern 23: GAUSS Mode (Golden Mean: 118, Var: 3972) ---
+[Inputs] B0/R0: 167, B1/R1: 193, B2/R2: 41, B3/R3: 74
+   ==> Calc Mean: 475 / 4 = 118
+   ==> Calc Variance: Sum of Squared Differences / 4 = 3972
+
+--- Pattern 24: GAUSS Mode (Golden Mean: 78, Var: 3188) ---
+[Inputs] B0/R0: 124, B1/R1: 144, B2/R2: 24, B3/R3: 20
+   ==> Calc Mean: 312 / 4 = 78
+   ==> Calc Variance: Sum of Squared Differences / 4 = 3188
+
+--- Pattern 25: CALC Mode, Bank 1, Row 33 (Golden: 386) ---
+[AXI:30800] ROOT 6100 [MULT (*)] Left:6101 Right:610a (Raw: 800000026101610a)
+    [AXI:30808] ->  6101 [SHIFT (>>>)] Left:6102 Right:6103 (Raw: 8000000361026103)
+        [AXI:30810] ->  6102 [NUM] Val: -683 (Raw: 7ffffd55ffffffff)
+        [AXI:30818] ->  6103 [ADD (+)] Left:6104 Right:6107 (Raw: 8000000061046107)
+            [AXI:30820] ->  6104 [SUB (-)] Left:6105 Right:6106 (Raw: 8000000161056106)
+                [AXI:30828] ->  6105 [NUM] Val: -736 (Raw: 7ffffd20ffffffff)
+                [AXI:30830] ->  6106 [NUM] Val: -683 (Raw: 7ffffd55ffffffff)
+               ==> Calc: -736 - -683 = -53
+            [AXI:30838] ->  6107 [MULT (*)] Left:6108 Right:6109 (Raw: 8000000261086109)
+                [AXI:30840] ->  6108 [NUM] Val: -4 (Raw: 7ffffffcffffffff)
+                [AXI:30848] ->  6109 [NUM] Val: -129 (Raw: 7fffff7fffffffff)
+               ==> Calc: -4 * -129 = 516
+           ==> Calc: -53 + 516 = 463
+       ==> Calc: -683 >> 15 = -1
+    [AXI:30850] ->  610a [MULT (*)] Left:610b Right:6112 (Raw: 80000002610b6112)
+        [AXI:30858] ->  610b [SHIFT (>>>)] Left:610c Right:610f (Raw: 80000003610c610f)
+            [AXI:30860] ->  610c [SUB (-)] Left:610d Right:610e (Raw: 80000001610d610e)
+                [AXI:30868] ->  610d [NUM] Val: -226 (Raw: 7fffff1effffffff)
+                [AXI:30870] ->  610e [NUM] Val: -23 (Raw: 7fffffe9ffffffff)
+               ==> Calc: -226 - -23 = -203
+            [AXI:30878] ->  610f [SHIFT (>>>)] Left:6110 Right:6111 (Raw: 8000000361106111)
+                [AXI:30880] ->  6110 [NUM] Val: -783 (Raw: 7ffffcf1ffffffff)
+                [AXI:30888] ->  6111 [NUM] Val: -293 (Raw: 7ffffedbffffffff)
+               ==> Calc: -783 >> 27 = -1
+           ==> Calc: -203 >> 63 = -1
+        [AXI:30890] ->  6112 [ADD (+)] Left:6113 Right:6116 (Raw: 8000000061136116)
+            [AXI:30898] ->  6113 [SHIFT (>>>)] Left:6114 Right:6115 (Raw: 8000000361146115)
+                [AXI:308a0] ->  6114 [NUM] Val: 501 (Raw: 000001f5ffffffff)
+                [AXI:308a8] ->  6115 [NUM] Val: 164 (Raw: 000000a4ffffffff)
+               ==> Calc: 501 >> 36 = 0
+            [AXI:308b0] ->  6116 [NUM] Val: 386 (Raw: 00000182ffffffff)
+           ==> Calc: 0 + 386 = 386
+       ==> Calc: -1 * 386 = -386
+   ==> Calc: -1 * -386 = 386
+
+--- Pattern 26: CALC Mode, Bank 3, Row 28 (Golden: 40) ---
+[AXI:6e000] ROOT dc00 [MULT (*)] Left:dc01 Right:dc06 (Raw: 80000002dc01dc06)
+    [AXI:6e008] ->  dc01 [SHIFT (>>>)] Left:dc02 Right:dc05 (Raw: 80000003dc02dc05)
+        [AXI:6e010] ->  dc02 [SUB (-)] Left:dc03 Right:dc04 (Raw: 80000001dc03dc04)
+            [AXI:6e018] ->  dc03 [NUM] Val: 115 (Raw: 00000073ffffffff)
+            [AXI:6e020] ->  dc04 [NUM] Val: 274 (Raw: 00000112ffffffff)
+           ==> Calc: 115 - 274 = -159
+        [AXI:6e028] ->  dc05 [NUM] Val: -925 (Raw: 7ffffc63ffffffff)
+       ==> Calc: -159 >> 35 = -1
+    [AXI:6e030] ->  dc06 [SHIFT (>>>)] Left:dc07 Right:dc0e (Raw: 80000003dc07dc0e)
+        [AXI:6e038] ->  dc07 [SUB (-)] Left:dc08 Right:dc0b (Raw: 80000001dc08dc0b)
+            [AXI:6e040] ->  dc08 [SHIFT (>>>)] Left:dc09 Right:dc0a (Raw: 80000003dc09dc0a)
+                [AXI:6e048] ->  dc09 [NUM] Val: -869 (Raw: 7ffffc9bffffffff)
+                [AXI:6e050] ->  dc0a [NUM] Val: -749 (Raw: 7ffffd13ffffffff)
+               ==> Calc: -869 >> 19 = -1
+            [AXI:6e058] ->  dc0b [SUB (-)] Left:dc0c Right:dc0d (Raw: 80000001dc0cdc0d)
+                [AXI:6e060] ->  dc0c [NUM] Val: 587 (Raw: 0000024bffffffff)
+                [AXI:6e068] ->  dc0d [NUM] Val: 431 (Raw: 000001afffffffff)
+               ==> Calc: 587 - 431 = 156
+           ==> Calc: -1 - 156 = -157
+        [AXI:6e070] ->  dc0e [ADD (+)] Left:dc0f Right:dc12 (Raw: 80000000dc0fdc12)
+            [AXI:6e078] ->  dc0f [MULT (*)] Left:dc10 Right:dc11 (Raw: 80000002dc10dc11)
+                [AXI:6e080] ->  dc10 [NUM] Val: 955 (Raw: 000003bbffffffff)
+                [AXI:6e088] ->  dc11 [NUM] Val: 619 (Raw: 0000026bffffffff)
+               ==> Calc: 955 * 619 = 591145
+            [AXI:6e090] ->  dc12 [ADD (+)] Left:dc13 Right:dc14 (Raw: 80000000dc13dc14)
+                [AXI:6e098] ->  dc13 [NUM] Val: 388 (Raw: 00000184ffffffff)
+                [AXI:6e0a0] ->  dc14 [NUM] Val: -43 (Raw: 7fffffd5ffffffff)
+               ==> Calc: 388 + -43 = 345
+           ==> Calc: 591145 + 345 = 591490
+       ==> Calc: -157 >> 2 = -40
+   ==> Calc: -1 * -40 = 40
+
+--- Pattern 27: GAUSS Mode (Golden Mean: 160, Var: 6626) ---
+[Inputs] B0/R0: 221, B1/R1: 39, B2/R2: 136, B3/R3: 247
+   ==> Calc Mean: 643 / 4 = 160
+   ==> Calc Variance: Sum of Squared Differences / 4 = 6626
+
+--- Pattern 28: GAUSS Mode (Golden Mean: 131, Var: 4678) ---
+[Inputs] B0/R0: 38, B1/R1: 177, B2/R2: 96, B3/R3: 213
+   ==> Calc Mean: 524 / 4 = 131
+   ==> Calc Variance: Sum of Squared Differences / 4 = 4678
+
+--- Pattern 29: GAUSS Mode (Golden Mean: 170, Var: 3050) ---
+[Inputs] B0/R0: 199, B1/R1: 235, B2/R2: 86, B3/R3: 161
+   ==> Calc Mean: 681 / 4 = 170
+   ==> Calc Variance: Sum of Squared Differences / 4 = 3050
+
+--- Pattern 30: GAUSS Mode (Golden Mean: 157, Var: 5342) ---
+[Inputs] B0/R0: 180, B1/R1: 36, B2/R2: 232, B3/R3: 181
+   ==> Calc Mean: 629 / 4 = 157
+   ==> Calc Variance: Sum of Squared Differences / 4 = 5342
+
+--- Pattern 31: GAUSS Mode (Golden Mean: 113, Var: 5272) ---
+[Inputs] B0/R0: 0, B1/R1: 99, B2/R2: 182, B3/R3: 171
+   ==> Calc Mean: 452 / 4 = 113
+   ==> Calc Variance: Sum of Squared Differences / 4 = 5272
+
+--- Pattern 32: GAUSS Mode (Golden Mean: 134, Var: 9242) ---
+[Inputs] B0/R0: 67, B1/R1: 210, B2/R2: 15, B3/R3: 246
+   ==> Calc Mean: 538 / 4 = 134
+   ==> Calc Variance: Sum of Squared Differences / 4 = 9242
+
+--- Pattern 33: GAUSS Mode (Golden Mean: 55, Var: 298) ---
+[Inputs] B0/R0: 27, B1/R1: 71, B2/R2: 58, B3/R3: 67
+   ==> Calc Mean: 223 / 4 = 55
+   ==> Calc Variance: Sum of Squared Differences / 4 = 298
+
+--- Pattern 34: GAUSS Mode (Golden Mean: 179, Var: 693) ---
+[Inputs] B0/R0: 145, B1/R1: 199, B2/R2: 163, B3/R3: 210
+   ==> Calc Mean: 717 / 4 = 179
+   ==> Calc Variance: Sum of Squared Differences / 4 = 693
+
+--- Pattern 35: GAUSS Mode (Golden Mean: 56, Var: 421) ---
+[Inputs] B0/R0: 78, B1/R1: 32, B2/R2: 76, B3/R3: 41
+   ==> Calc Mean: 227 / 4 = 56
+   ==> Calc Variance: Sum of Squared Differences / 4 = 421
+
+--- Pattern 36: CALC Mode, Bank 0, Row 3 (Golden: 0) ---
+[AXI:01800] ROOT 300 [MULT (*)] Left:301 Right:302 (Raw: 8000000203010302)
+    [AXI:01808] ->  301 [NUM] Val: 394 (Raw: 0000018affffffff)
+    [AXI:01810] ->  302 [SHIFT (>>>)] Left:303 Right:304 (Raw: 8000000303030304)
+        [AXI:01818] ->  303 [NUM] Val: 136 (Raw: 00000088ffffffff)
+        [AXI:01820] ->  304 [ADD (+)] Left:305 Right:308 (Raw: 8000000003050308)
+            [AXI:01828] ->  305 [SHIFT (>>>)] Left:306 Right:307 (Raw: 8000000303060307)
+                [AXI:01830] ->  306 [NUM] Val: 686 (Raw: 000002aeffffffff)
+                [AXI:01838] ->  307 [NUM] Val: -779 (Raw: 7ffffcf5ffffffff)
+               ==> Calc: 686 >> 53 = 0
+            [AXI:01840] ->  308 [NUM] Val: 190 (Raw: 000000beffffffff)
+           ==> Calc: 0 + 190 = 190
+       ==> Calc: 136 >> 62 = 0
+   ==> Calc: 394 * 0 = 0
+
+--- Pattern 37: CALC Mode, Bank 3, Row 10 (Golden: 726915) ---
+[AXI:65000] ROOT ca00 [MULT (*)] Left:ca01 Right:ca0a (Raw: 80000002ca01ca0a)
+    [AXI:65008] ->  ca01 [SHIFT (>>>)] Left:ca02 Right:ca03 (Raw: 80000003ca02ca03)
+        [AXI:65010] ->  ca02 [NUM] Val: 735 (Raw: 000002dfffffffff)
+        [AXI:65018] ->  ca03 [SHIFT (>>>)] Left:ca04 Right:ca07 (Raw: 80000003ca04ca07)
+            [AXI:65020] ->  ca04 [MULT (*)] Left:ca05 Right:ca06 (Raw: 80000002ca05ca06)
+                [AXI:65028] ->  ca05 [NUM] Val: -891 (Raw: 7ffffc85ffffffff)
+                [AXI:65030] ->  ca06 [NUM] Val: -525 (Raw: 7ffffdf3ffffffff)
+               ==> Calc: -891 * -525 = 467775
+            [AXI:65038] ->  ca07 [MULT (*)] Left:ca08 Right:ca09 (Raw: 80000002ca08ca09)
+                [AXI:65040] ->  ca08 [NUM] Val: -115 (Raw: 7fffff8dffffffff)
+                [AXI:65048] ->  ca09 [NUM] Val: 150 (Raw: 00000096ffffffff)
+               ==> Calc: -115 * 150 = -17250
+           ==> Calc: 467775 >> 30 = 0
+       ==> Calc: 735 >> 0 = 735
+    [AXI:65050] ->  ca0a [ADD (+)] Left:ca0b Right:ca12 (Raw: 80000000ca0bca12)
+        [AXI:65058] ->  ca0b [SHIFT (>>>)] Left:ca0c Right:ca0f (Raw: 80000003ca0cca0f)
+            [AXI:65060] ->  ca0c [MULT (*)] Left:ca0d Right:ca0e (Raw: 80000002ca0dca0e)
+                [AXI:65068] ->  ca0d [NUM] Val: -724 (Raw: 7ffffd2cffffffff)
+                [AXI:65070] ->  ca0e [NUM] Val: -939 (Raw: 7ffffc55ffffffff)
+               ==> Calc: -724 * -939 = 679836
+            [AXI:65078] ->  ca0f [SHIFT (>>>)] Left:ca10 Right:ca11 (Raw: 80000003ca10ca11)
+                [AXI:65080] ->  ca10 [NUM] Val: -173 (Raw: 7fffff53ffffffff)
+                [AXI:65088] ->  ca11 [NUM] Val: -551 (Raw: 7ffffdd9ffffffff)
+               ==> Calc: -173 >> 25 = -1
+           ==> Calc: 679836 >> 63 = 0
+        [AXI:65090] ->  ca12 [NUM] Val: 989 (Raw: 000003ddffffffff)
+       ==> Calc: 0 + 989 = 989
+   ==> Calc: 735 * 989 = 726915
+
+--- Pattern 38: CALC Mode, Bank 1, Row 9 (Golden: 0) ---
+[AXI:24800] ROOT 4900 [SHIFT (>>>)] Left:4901 Right:490a (Raw: 800000034901490a)
+    [AXI:24808] ->  4901 [MULT (*)] Left:4902 Right:4903 (Raw: 8000000249024903)
+        [AXI:24810] ->  4902 [NUM] Val: 578 (Raw: 00000242ffffffff)
+        [AXI:24818] ->  4903 [MULT (*)] Left:4904 Right:4907 (Raw: 8000000249044907)
+            [AXI:24820] ->  4904 [SHIFT (>>>)] Left:4905 Right:4906 (Raw: 8000000349054906)
+                [AXI:24828] ->  4905 [NUM] Val: 444 (Raw: 000001bcffffffff)
+                [AXI:24830] ->  4906 [NUM] Val: 94 (Raw: 0000005effffffff)
+               ==> Calc: 444 >> 30 = 0
+            [AXI:24838] ->  4907 [SHIFT (>>>)] Left:4908 Right:4909 (Raw: 8000000349084909)
+                [AXI:24840] ->  4908 [NUM] Val: 282 (Raw: 0000011affffffff)
+                [AXI:24848] ->  4909 [NUM] Val: -352 (Raw: 7ffffea0ffffffff)
+               ==> Calc: 282 >> 32 = 0
+           ==> Calc: 0 * 0 = 0
+       ==> Calc: 578 * 0 = 0
+    [AXI:24850] ->  490a [ADD (+)] Left:490b Right:4912 (Raw: 80000000490b4912)
+        [AXI:24858] ->  490b [MULT (*)] Left:490c Right:490f (Raw: 80000002490c490f)
+            [AXI:24860] ->  490c [SUB (-)] Left:490d Right:490e (Raw: 80000001490d490e)
+                [AXI:24868] ->  490d [NUM] Val: -882 (Raw: 7ffffc8effffffff)
+                [AXI:24870] ->  490e [NUM] Val: 644 (Raw: 00000284ffffffff)
+               ==> Calc: -882 - 644 = -1526
+            [AXI:24878] ->  490f [ADD (+)] Left:4910 Right:4911 (Raw: 8000000049104911)
+                [AXI:24880] ->  4910 [NUM] Val: -558 (Raw: 7ffffdd2ffffffff)
+                [AXI:24888] ->  4911 [NUM] Val: -569 (Raw: 7ffffdc7ffffffff)
+               ==> Calc: -558 + -569 = -1127
+           ==> Calc: -1526 * -1127 = 1719802
+        [AXI:24890] ->  4912 [ADD (+)] Left:4913 Right:4916 (Raw: 8000000049134916)
+            [AXI:24898] ->  4913 [MULT (*)] Left:4914 Right:4915 (Raw: 8000000249144915)
+                [AXI:248a0] ->  4914 [NUM] Val: 972 (Raw: 000003ccffffffff)
+                [AXI:248a8] ->  4915 [NUM] Val: -878 (Raw: 7ffffc92ffffffff)
+               ==> Calc: 972 * -878 = -853416
+            [AXI:248b0] ->  4916 [ADD (+)] Left:4917 Right:4918 (Raw: 8000000049174918)
+                [AXI:248b8] ->  4917 [NUM] Val: 10 (Raw: 0000000affffffff)
+                [AXI:248c0] ->  4918 [NUM] Val: -937 (Raw: 7ffffc57ffffffff)
+               ==> Calc: 10 + -937 = -927
+           ==> Calc: -853416 + -927 = -854343
+       ==> Calc: 1719802 + -854343 = 865459
+   ==> Calc: 0 >> 51 = 0
+
+--- Pattern 39: CALC Mode, Bank 1, Row 1 (Golden: 8403850) ---
+[AXI:20800] ROOT 4100 [MULT (*)] Left:4101 Right:410e (Raw: 800000024101410e)
+    [AXI:20808] ->  4101 [ADD (+)] Left:4102 Right:4107 (Raw: 8000000041024107)
+        [AXI:20810] ->  4102 [MULT (*)] Left:4103 Right:4104 (Raw: 8000000241034104)
+            [AXI:20818] ->  4103 [NUM] Val: 190 (Raw: 000000beffffffff)
+            [AXI:20820] ->  4104 [ADD (+)] Left:4105 Right:4106 (Raw: 8000000041054106)
+                [AXI:20828] ->  4105 [NUM] Val: -511 (Raw: 7ffffe01ffffffff)
+                [AXI:20830] ->  4106 [NUM] Val: 602 (Raw: 0000025affffffff)
+               ==> Calc: -511 + 602 = 91
+           ==> Calc: 190 * 91 = 17290
+        [AXI:20838] ->  4107 [SHIFT (>>>)] Left:4108 Right:410b (Raw: 800000034108410b)
+            [AXI:20840] ->  4108 [SUB (-)] Left:4109 Right:410a (Raw: 800000014109410a)
+                [AXI:20848] ->  4109 [NUM] Val: 444 (Raw: 000001bcffffffff)
+                [AXI:20850] ->  410a [NUM] Val: -736 (Raw: 7ffffd20ffffffff)
+               ==> Calc: 444 - -736 = 1180
+            [AXI:20858] ->  410b [SHIFT (>>>)] Left:410c Right:410d (Raw: 80000003410c410d)
+                [AXI:20860] ->  410c [NUM] Val: 774 (Raw: 00000306ffffffff)
+                [AXI:20868] ->  410d [NUM] Val: -948 (Raw: 7ffffc4cffffffff)
+               ==> Calc: 774 >> 12 = 0
+           ==> Calc: 1180 >> 0 = 1180
+       ==> Calc: 17290 + 1180 = 18470
+    [AXI:20870] ->  410e [NUM] Val: 455 (Raw: 000001c7ffffffff)
+   ==> Calc: 18470 * 455 = 8403850
+
+--- Pattern 40: GAUSS Mode (Golden Mean: 141, Var: 2898) ---
+[Inputs] B0/R0: 99, B1/R1: 210, B2/R2: 79, B3/R3: 176
+   ==> Calc Mean: 564 / 4 = 141
+   ==> Calc Variance: Sum of Squared Differences / 4 = 2898
+
+--- Pattern 41: CALC Mode, Bank 1, Row 50 (Golden: 865) ---
+[AXI:39000] ->  7200 [NUM] Val: 865 (Raw: 00000361ffffffff)
+
+--- Pattern 42: GAUSS Mode (Golden Mean: 165, Var: 6834) ---
+[Inputs] B0/R0: 37, B1/R1: 232, B2/R2: 150, B3/R3: 244
+   ==> Calc Mean: 663 / 4 = 165
+   ==> Calc Variance: Sum of Squared Differences / 4 = 6834
+
+--- Pattern 43: CALC Mode, Bank 2, Row 59 (Golden: 293) ---
+[AXI:5d800] ->  bb00 [NUM] Val: 293 (Raw: 00000125ffffffff)
+
+--- Pattern 44: GAUSS Mode (Golden Mean: 165, Var: 2717) ---
+[Inputs] B0/R0: 131, B1/R1: 180, B2/R2: 108, B3/R3: 244
+   ==> Calc Mean: 663 / 4 = 165
+   ==> Calc Variance: Sum of Squared Differences / 4 = 2717
+
+--- Pattern 45: CALC Mode, Bank 2, Row 6 (Golden: -675) ---
+[AXI:43000] ->  8600 [NUM] Val: -675 (Raw: 7ffffd5dffffffff)
+
+--- Pattern 46: CALC Mode, Bank 0, Row 19 (Golden: -1464) ---
+[AXI:09800] ROOT 1300 [SUB (-)] Left:1301 Right:1302 (Raw: 8000000113011302)
+    [AXI:09808] ->  1301 [NUM] Val: -514 (Raw: 7ffffdfeffffffff)
+    [AXI:09810] ->  1302 [NUM] Val: 950 (Raw: 000003b6ffffffff)
+   ==> Calc: -514 - 950 = -1464
+
+--- Pattern 47: GAUSS Mode (Golden Mean: 128, Var: 728) ---
+[Inputs] B0/R0: 152, B1/R1: 84, B2/R2: 128, B3/R3: 148
+   ==> Calc Mean: 512 / 4 = 128
+   ==> Calc Variance: Sum of Squared Differences / 4 = 728
+
+--- Pattern 48: CALC Mode, Bank 1, Row 4 (Golden: -946) ---
+[AXI:22000] ROOT 4400 [ADD (+)] Left:4401 Right:440a (Raw: 800000004401440a)
+    [AXI:22008] ->  4401 [SHIFT (>>>)] Left:4402 Right:4409 (Raw: 8000000344024409)
+        [AXI:22010] ->  4402 [SUB (-)] Left:4403 Right:4406 (Raw: 8000000144034406)
+            [AXI:22018] ->  4403 [MULT (*)] Left:4404 Right:4405 (Raw: 8000000244044405)
+                [AXI:22020] ->  4404 [NUM] Val: -88 (Raw: 7fffffa8ffffffff)
+                [AXI:22028] ->  4405 [NUM] Val: -567 (Raw: 7ffffdc9ffffffff)
+               ==> Calc: -88 * -567 = 49896
+            [AXI:22030] ->  4406 [ADD (+)] Left:4407 Right:4408 (Raw: 8000000044074408)
+                [AXI:22038] ->  4407 [NUM] Val: 147 (Raw: 00000093ffffffff)
+                [AXI:22040] ->  4408 [NUM] Val: 594 (Raw: 00000252ffffffff)
+               ==> Calc: 147 + 594 = 741
+           ==> Calc: 49896 - 741 = 49155
+        [AXI:22048] ->  4409 [NUM] Val: 589 (Raw: 0000024dffffffff)
+       ==> Calc: 49155 >> 13 = 6
+    [AXI:22050] ->  440a [MULT (*)] Left:440b Right:440c (Raw: 80000002440b440c)
+        [AXI:22058] ->  440b [NUM] Val: 952 (Raw: 000003b8ffffffff)
+        [AXI:22060] ->  440c [SHIFT (>>>)] Left:440d Right:4410 (Raw: 80000003440d4410)
+            [AXI:22068] ->  440d [MULT (*)] Left:440e Right:440f (Raw: 80000002440e440f)
+                [AXI:22070] ->  440e [NUM] Val: -661 (Raw: 7ffffd6bffffffff)
+                [AXI:22078] ->  440f [NUM] Val: 809 (Raw: 00000329ffffffff)
+               ==> Calc: -661 * 809 = -534749
+            [AXI:22080] ->  4410 [ADD (+)] Left:4411 Right:4412 (Raw: 8000000044114412)
+                [AXI:22088] ->  4411 [NUM] Val: 381 (Raw: 0000017dffffffff)
+                [AXI:22090] ->  4412 [NUM] Val: 766 (Raw: 000002feffffffff)
+               ==> Calc: 381 + 766 = 1147
+           ==> Calc: -534749 >> 59 = -1
+       ==> Calc: 952 * -1 = -952
+   ==> Calc: 6 + -952 = -946
+
+--- Pattern 49: GAUSS Mode (Golden Mean: 129, Var: 4655) ---
+[Inputs] B0/R0: 183, B1/R1: 17, B2/R2: 185, B3/R3: 134
+   ==> Calc Mean: 519 / 4 = 129
+   ==> Calc Variance: Sum of Squared Differences / 4 = 4655
+
+--- Pattern 50: CALC Mode, Bank 3, Row 25 (Golden: -993) ---
+[AXI:6c800] ->  d900 [NUM] Val: -993 (Raw: 7ffffc1fffffffff)
+
+--- Pattern 51: CALC Mode, Bank 3, Row 61 (Golden: -490) ---
+[AXI:7e800] ROOT fd00 [SUB (-)] Left:fd01 Right:fd08 (Raw: 80000001fd01fd08)
+    [AXI:7e808] ->  fd01 [ADD (+)] Left:fd02 Right:fd03 (Raw: 80000000fd02fd03)
+        [AXI:7e810] ->  fd02 [NUM] Val: -787 (Raw: 7ffffcedffffffff)
+        [AXI:7e818] ->  fd03 [SUB (-)] Left:fd04 Right:fd05 (Raw: 80000001fd04fd05)
+            [AXI:7e820] ->  fd04 [NUM] Val: -486 (Raw: 7ffffe1affffffff)
+            [AXI:7e828] ->  fd05 [ADD (+)] Left:fd06 Right:fd07 (Raw: 80000000fd06fd07)
+                [AXI:7e830] ->  fd06 [NUM] Val: -159 (Raw: 7fffff61ffffffff)
+                [AXI:7e838] ->  fd07 [NUM] Val: -623 (Raw: 7ffffd91ffffffff)
+               ==> Calc: -159 + -623 = -782
+           ==> Calc: -486 - -782 = 296
+       ==> Calc: -787 + 296 = -491
+    [AXI:7e840] ->  fd08 [SHIFT (>>>)] Left:fd09 Right:fd10 (Raw: 80000003fd09fd10)
+        [AXI:7e848] ->  fd09 [SHIFT (>>>)] Left:fd0a Right:fd0d (Raw: 80000003fd0afd0d)
+            [AXI:7e850] ->  fd0a [SUB (-)] Left:fd0b Right:fd0c (Raw: 80000001fd0bfd0c)
+                [AXI:7e858] ->  fd0b [NUM] Val: -96 (Raw: 7fffffa0ffffffff)
+                [AXI:7e860] ->  fd0c [NUM] Val: 886 (Raw: 00000376ffffffff)
+               ==> Calc: -96 - 886 = -982
+            [AXI:7e868] ->  fd0d [ADD (+)] Left:fd0e Right:fd0f (Raw: 80000000fd0efd0f)
+                [AXI:7e870] ->  fd0e [NUM] Val: 146 (Raw: 00000092ffffffff)
+                [AXI:7e878] ->  fd0f [NUM] Val: -940 (Raw: 7ffffc54ffffffff)
+               ==> Calc: 146 + -940 = -794
+           ==> Calc: -982 >> 38 = -1
+        [AXI:7e880] ->  fd10 [SHIFT (>>>)] Left:fd11 Right:fd14 (Raw: 80000003fd11fd14)
+            [AXI:7e888] ->  fd11 [SHIFT (>>>)] Left:fd12 Right:fd13 (Raw: 80000003fd12fd13)
+                [AXI:7e890] ->  fd12 [NUM] Val: -471 (Raw: 7ffffe29ffffffff)
+                [AXI:7e898] ->  fd13 [NUM] Val: -275 (Raw: 7ffffeedffffffff)
+               ==> Calc: -471 >> 45 = -1
+            [AXI:7e8a0] ->  fd14 [SUB (-)] Left:fd15 Right:fd16 (Raw: 80000001fd15fd16)
+                [AXI:7e8a8] ->  fd15 [NUM] Val: 31 (Raw: 0000001fffffffff)
+                [AXI:7e8b0] ->  fd16 [NUM] Val: -497 (Raw: 7ffffe0fffffffff)
+               ==> Calc: 31 - -497 = 528
+           ==> Calc: -1 >> 16 = -1
+       ==> Calc: -1 >> 63 = -1
+   ==> Calc: -491 - -1 = -490
+
+--- Pattern 52: CALC Mode, Bank 3, Row 63 (Golden: 0) ---
+[AXI:7f800] ROOT ff00 [SHIFT (>>>)] Left:ff01 Right:ff0a (Raw: 80000003ff01ff0a)
+    [AXI:7f808] ->  ff01 [SHIFT (>>>)] Left:ff02 Right:ff03 (Raw: 80000003ff02ff03)
+        [AXI:7f810] ->  ff02 [NUM] Val: 180 (Raw: 000000b4ffffffff)
+        [AXI:7f818] ->  ff03 [SUB (-)] Left:ff04 Right:ff07 (Raw: 80000001ff04ff07)
+            [AXI:7f820] ->  ff04 [SUB (-)] Left:ff05 Right:ff06 (Raw: 80000001ff05ff06)
+                [AXI:7f828] ->  ff05 [NUM] Val: 412 (Raw: 0000019cffffffff)
+                [AXI:7f830] ->  ff06 [NUM] Val: -845 (Raw: 7ffffcb3ffffffff)
+               ==> Calc: 412 - -845 = 1257
+            [AXI:7f838] ->  ff07 [SHIFT (>>>)] Left:ff08 Right:ff09 (Raw: 80000003ff08ff09)
+                [AXI:7f840] ->  ff08 [NUM] Val: 625 (Raw: 00000271ffffffff)
+                [AXI:7f848] ->  ff09 [NUM] Val: 481 (Raw: 000001e1ffffffff)
+               ==> Calc: 625 >> 33 = 0
+           ==> Calc: 1257 - 0 = 1257
+       ==> Calc: 180 >> 41 = 0
+    [AXI:7f850] ->  ff0a [MULT (*)] Left:ff0b Right:ff0c (Raw: 80000002ff0bff0c)
+        [AXI:7f858] ->  ff0b [NUM] Val: -339 (Raw: 7ffffeadffffffff)
+        [AXI:7f860] ->  ff0c [SHIFT (>>>)] Left:ff0d Right:ff10 (Raw: 80000003ff0dff10)
+            [AXI:7f868] ->  ff0d [SUB (-)] Left:ff0e Right:ff0f (Raw: 80000001ff0eff0f)
+                [AXI:7f870] ->  ff0e [NUM] Val: 960 (Raw: 000003c0ffffffff)
+                [AXI:7f878] ->  ff0f [NUM] Val: 198 (Raw: 000000c6ffffffff)
+               ==> Calc: 960 - 198 = 762
+            [AXI:7f880] ->  ff10 [SHIFT (>>>)] Left:ff11 Right:ff12 (Raw: 80000003ff11ff12)
+                [AXI:7f888] ->  ff11 [NUM] Val: 505 (Raw: 000001f9ffffffff)
+                [AXI:7f890] ->  ff12 [NUM] Val: -671 (Raw: 7ffffd61ffffffff)
+               ==> Calc: 505 >> 33 = 0
+           ==> Calc: 762 >> 0 = 762
+       ==> Calc: -339 * 762 = -258318
+   ==> Calc: 0 >> 50 = 0
+
+--- Pattern 53: GAUSS Mode (Golden Mean: 111, Var: 3374) ---
+[Inputs] B0/R0: 53, B1/R1: 111, B2/R2: 205, B3/R3: 75
+   ==> Calc Mean: 444 / 4 = 111
+   ==> Calc Variance: Sum of Squared Differences / 4 = 3374
+
+--- Pattern 54: CALC Mode, Bank 0, Row 16 (Golden: -403) ---
+[AXI:08000] ->  1000 [NUM] Val: -403 (Raw: 7ffffe6dffffffff)
+
+--- Pattern 55: CALC Mode, Bank 1, Row 34 (Golden: 0) ---
+[AXI:31000] ROOT 6200 [MULT (*)] Left:6201 Right:6204 (Raw: 8000000262016204)
+    [AXI:31008] ->  6201 [SHIFT (>>>)] Left:6202 Right:6203 (Raw: 8000000362026203)
+        [AXI:31010] ->  6202 [NUM] Val: 550 (Raw: 00000226ffffffff)
+        [AXI:31018] ->  6203 [NUM] Val: -691 (Raw: 7ffffd4dffffffff)
+       ==> Calc: 550 >> 13 = 0
+    [AXI:31020] ->  6204 [NUM] Val: 628 (Raw: 00000274ffffffff)
+   ==> Calc: 0 * 628 = 0
+
+--- Pattern 56: GAUSS Mode (Golden Mean: 151, Var: 7381) ---
+[Inputs] B0/R0: 243, B1/R1: 127, B2/R2: 213, B3/R3: 22
+   ==> Calc Mean: 605 / 4 = 151
+   ==> Calc Variance: Sum of Squared Differences / 4 = 7381
+
+--- Pattern 57: GAUSS Mode (Golden Mean: 169, Var: 8422) ---
+[Inputs] B0/R0: 13, B1/R1: 218, B2/R2: 201, B3/R3: 246
+   ==> Calc Mean: 678 / 4 = 169
+   ==> Calc Variance: Sum of Squared Differences / 4 = 8422
+
+--- Pattern 58: CALC Mode, Bank 0, Row 57 (Golden: 607) ---
+[AXI:1c800] ->  3900 [NUM] Val: 607 (Raw: 0000025fffffffff)
+
+--- Pattern 59: GAUSS Mode (Golden Mean: 132, Var: 7775) ---
+[Inputs] B0/R0: 6, B1/R1: 112, B2/R2: 250, B3/R3: 162
+   ==> Calc Mean: 530 / 4 = 132
+   ==> Calc Variance: Sum of Squared Differences / 4 = 7775
+
+--- Pattern 60: CALC Mode, Bank 2, Row 13 (Golden: -140) ---
+[AXI:46800] ->  8d00 [NUM] Val: -140 (Raw: 7fffff74ffffffff)
+
+--- Pattern 61: CALC Mode, Bank 2, Row 6 (Golden: 912) ---
+[AXI:43000] ROOT 8600 [SUB (-)] Left:8601 Right:8602 (Raw: 8000000186018602)
+    [AXI:43008] ->  8601 [NUM] Val: 143 (Raw: 0000008fffffffff)
+    [AXI:43010] ->  8602 [SUB (-)] Left:8603 Right:860a (Raw: 800000018603860a)
+        [AXI:43018] ->  8603 [SUB (-)] Left:8604 Right:8607 (Raw: 8000000186048607)
+            [AXI:43020] ->  8604 [SUB (-)] Left:8605 Right:8606 (Raw: 8000000186058606)
+                [AXI:43028] ->  8605 [NUM] Val: 337 (Raw: 00000151ffffffff)
+                [AXI:43030] ->  8606 [NUM] Val: 402 (Raw: 00000192ffffffff)
+               ==> Calc: 337 - 402 = -65
+            [AXI:43038] ->  8607 [SHIFT (>>>)] Left:8608 Right:8609 (Raw: 8000000386088609)
+                [AXI:43040] ->  8608 [NUM] Val: 379 (Raw: 0000017bffffffff)
+                [AXI:43048] ->  8609 [NUM] Val: -293 (Raw: 7ffffedbffffffff)
+               ==> Calc: 379 >> 27 = 0
+           ==> Calc: -65 - 0 = -65
+        [AXI:43050] ->  860a [NUM] Val: 704 (Raw: 000002c0ffffffff)
+       ==> Calc: -65 - 704 = -769
+   ==> Calc: 143 - -769 = 912
+
+--- Pattern 62: CALC Mode, Bank 0, Row 62 (Golden: -637) ---
+[AXI:1f000] ROOT 3e00 [MULT (*)] Left:3e01 Right:3e06 (Raw: 800000023e013e06)
+    [AXI:1f008] ->  3e01 [SHIFT (>>>)] Left:3e02 Right:3e03 (Raw: 800000033e023e03)
+        [AXI:1f010] ->  3e02 [NUM] Val: -919 (Raw: 7ffffc69ffffffff)
+        [AXI:1f018] ->  3e03 [MULT (*)] Left:3e04 Right:3e05 (Raw: 800000023e043e05)
+            [AXI:1f020] ->  3e04 [NUM] Val: 936 (Raw: 000003a8ffffffff)
+            [AXI:1f028] ->  3e05 [NUM] Val: 734 (Raw: 000002deffffffff)
+           ==> Calc: 936 * 734 = 687024
+       ==> Calc: -919 >> 48 = -1
+    [AXI:1f030] ->  3e06 [SUB (-)] Left:3e07 Right:3e0e (Raw: 800000013e073e0e)
+        [AXI:1f038] ->  3e07 [SUB (-)] Left:3e08 Right:3e0b (Raw: 800000013e083e0b)
+            [AXI:1f040] ->  3e08 [SUB (-)] Left:3e09 Right:3e0a (Raw: 800000013e093e0a)
+                [AXI:1f048] ->  3e09 [NUM] Val: -692 (Raw: 7ffffd4cffffffff)
+                [AXI:1f050] ->  3e0a [NUM] Val: -945 (Raw: 7ffffc4fffffffff)
+               ==> Calc: -692 - -945 = 253
+            [AXI:1f058] ->  3e0b [SUB (-)] Left:3e0c Right:3e0d (Raw: 800000013e0c3e0d)
+                [AXI:1f060] ->  3e0c [NUM] Val: 418 (Raw: 000001a2ffffffff)
+                [AXI:1f068] ->  3e0d [NUM] Val: 842 (Raw: 0000034affffffff)
+               ==> Calc: 418 - 842 = -424
+           ==> Calc: 253 - -424 = 677
+        [AXI:1f070] ->  3e0e [NUM] Val: 40 (Raw: 00000028ffffffff)
+       ==> Calc: 677 - 40 = 637
+   ==> Calc: -1 * 637 = -637
+
+--- Pattern 63: GAUSS Mode (Golden Mean: 84, Var: 1401) ---
+[Inputs] B0/R0: 63, B1/R1: 134, B2/R2: 36, B3/R3: 103
+   ==> Calc Mean: 336 / 4 = 84
+   ==> Calc Variance: Sum of Squared Differences / 4 = 1401
+
+--- Pattern 64: GAUSS Mode (Golden Mean: 123, Var: 2405) ---
+[Inputs] B0/R0: 123, B1/R1: 176, B2/R2: 45, B3/R3: 150
+   ==> Calc Mean: 494 / 4 = 123
+   ==> Calc Variance: Sum of Squared Differences / 4 = 2405
+
+--- Pattern 65: GAUSS Mode (Golden Mean: 116, Var: 2755) ---
+[Inputs] B0/R0: 160, B1/R1: 157, B2/R2: 30, B3/R3: 119
+   ==> Calc Mean: 466 / 4 = 116
+   ==> Calc Variance: Sum of Squared Differences / 4 = 2755
+
+--- Pattern 66: CALC Mode, Bank 3, Row 16 (Golden: -409) ---
+[AXI:68000] ROOT d000 [SUB (-)] Left:d001 Right:d002 (Raw: 80000001d001d002)
+    [AXI:68008] ->  d001 [NUM] Val: -409 (Raw: 7ffffe67ffffffff)
+    [AXI:68010] ->  d002 [MULT (*)] Left:d003 Right:d008 (Raw: 80000002d003d008)
+        [AXI:68018] ->  d003 [ADD (+)] Left:d004 Right:d005 (Raw: 80000000d004d005)
+            [AXI:68020] ->  d004 [NUM] Val: -158 (Raw: 7fffff62ffffffff)
+            [AXI:68028] ->  d005 [SHIFT (>>>)] Left:d006 Right:d007 (Raw: 80000003d006d007)
+                [AXI:68030] ->  d006 [NUM] Val: 828 (Raw: 0000033cffffffff)
+                [AXI:68038] ->  d007 [NUM] Val: -775 (Raw: 7ffffcf9ffffffff)
+               ==> Calc: 828 >> 57 = 0
+           ==> Calc: -158 + 0 = -158
+        [AXI:68040] ->  d008 [SHIFT (>>>)] Left:d009 Right:d00a (Raw: 80000003d009d00a)
+            [AXI:68048] ->  d009 [NUM] Val: 515 (Raw: 00000203ffffffff)
+            [AXI:68050] ->  d00a [MULT (*)] Left:d00b Right:d00c (Raw: 80000002d00bd00c)
+                [AXI:68058] ->  d00b [NUM] Val: 177 (Raw: 000000b1ffffffff)
+                [AXI:68060] ->  d00c [NUM] Val: -352 (Raw: 7ffffea0ffffffff)
+               ==> Calc: 177 * -352 = -62304
+           ==> Calc: 515 >> 32 = 0
+       ==> Calc: -158 * 0 = 0
+   ==> Calc: -409 - 0 = -409
+
+--- Pattern 67: CALC Mode, Bank 0, Row 7 (Golden: -1) ---
+[AXI:03800] ROOT 700 [SHIFT (>>>)] Left:701 Right:70c (Raw: 800000030701070c)
+    [AXI:03808] ->  701 [SHIFT (>>>)] Left:702 Right:707 (Raw: 8000000307020707)
+        [AXI:03810] ->  702 [ADD (+)] Left:703 Right:706 (Raw: 8000000007030706)
+            [AXI:03818] ->  703 [SHIFT (>>>)] Left:704 Right:705 (Raw: 8000000307040705)
+                [AXI:03820] ->  704 [NUM] Val: 293 (Raw: 00000125ffffffff)
+                [AXI:03828] ->  705 [NUM] Val: 120 (Raw: 00000078ffffffff)
+               ==> Calc: 293 >> 56 = 0
+            [AXI:03830] ->  706 [NUM] Val: -576 (Raw: 7ffffdc0ffffffff)
+           ==> Calc: 0 + -576 = -576
+        [AXI:03838] ->  707 [SHIFT (>>>)] Left:708 Right:709 (Raw: 8000000307080709)
+            [AXI:03840] ->  708 [NUM] Val: 75 (Raw: 0000004bffffffff)
+            [AXI:03848] ->  709 [MULT (*)] Left:70a Right:70b (Raw: 80000002070a070b)
+                [AXI:03850] ->  70a [NUM] Val: 246 (Raw: 000000f6ffffffff)
+                [AXI:03858] ->  70b [NUM] Val: 90 (Raw: 0000005affffffff)
+               ==> Calc: 246 * 90 = 22140
+           ==> Calc: 75 >> 60 = 0
+       ==> Calc: -576 >> 0 = -576
+    [AXI:03860] ->  70c [NUM] Val: -219 (Raw: 7fffff25ffffffff)
+   ==> Calc: -576 >> 37 = -1
+
+--- Pattern 68: CALC Mode, Bank 3, Row 9 (Golden: 0) ---
+[AXI:64800] ROOT c900 [SHIFT (>>>)] Left:c901 Right:c90e (Raw: 80000003c901c90e)
+    [AXI:64808] ->  c901 [MULT (*)] Left:c902 Right:c907 (Raw: 80000002c902c907)
+        [AXI:64810] ->  c902 [ADD (+)] Left:c903 Right:c906 (Raw: 80000000c903c906)
+            [AXI:64818] ->  c903 [SUB (-)] Left:c904 Right:c905 (Raw: 80000001c904c905)
+                [AXI:64820] ->  c904 [NUM] Val: -284 (Raw: 7ffffee4ffffffff)
+                [AXI:64828] ->  c905 [NUM] Val: 809 (Raw: 00000329ffffffff)
+               ==> Calc: -284 - 809 = -1093
+            [AXI:64830] ->  c906 [NUM] Val: -222 (Raw: 7fffff22ffffffff)
+           ==> Calc: -1093 + -222 = -1315
+        [AXI:64838] ->  c907 [SHIFT (>>>)] Left:c908 Right:c90b (Raw: 80000003c908c90b)
+            [AXI:64840] ->  c908 [SUB (-)] Left:c909 Right:c90a (Raw: 80000001c909c90a)
+                [AXI:64848] ->  c909 [NUM] Val: -767 (Raw: 7ffffd01ffffffff)
+                [AXI:64850] ->  c90a [NUM] Val: 939 (Raw: 000003abffffffff)
+               ==> Calc: -767 - 939 = -1706
+            [AXI:64858] ->  c90b [MULT (*)] Left:c90c Right:c90d (Raw: 80000002c90cc90d)
+                [AXI:64860] ->  c90c [NUM] Val: -916 (Raw: 7ffffc6cffffffff)
+                [AXI:64868] ->  c90d [NUM] Val: 189 (Raw: 000000bdffffffff)
+               ==> Calc: -916 * 189 = -173124
+           ==> Calc: -1706 >> 60 = -1
+       ==> Calc: -1315 * -1 = 1315
+    [AXI:64870] ->  c90e [SUB (-)] Left:c90f Right:c914 (Raw: 80000001c90fc914)
+        [AXI:64878] ->  c90f [ADD (+)] Left:c910 Right:c913 (Raw: 80000000c910c913)
+            [AXI:64880] ->  c910 [SUB (-)] Left:c911 Right:c912 (Raw: 80000001c911c912)
+                [AXI:64888] ->  c911 [NUM] Val: 566 (Raw: 00000236ffffffff)
+                [AXI:64890] ->  c912 [NUM] Val: 676 (Raw: 000002a4ffffffff)
+               ==> Calc: 566 - 676 = -110
+            [AXI:64898] ->  c913 [NUM] Val: 587 (Raw: 0000024bffffffff)
+           ==> Calc: -110 + 587 = 477
+        [AXI:648a0] ->  c914 [SUB (-)] Left:c915 Right:c918 (Raw: 80000001c915c918)
+            [AXI:648a8] ->  c915 [ADD (+)] Left:c916 Right:c917 (Raw: 80000000c916c917)
+                [AXI:648b0] ->  c916 [NUM] Val: 694 (Raw: 000002b6ffffffff)
+                [AXI:648b8] ->  c917 [NUM] Val: -495 (Raw: 7ffffe11ffffffff)
+               ==> Calc: 694 + -495 = 199
+            [AXI:648c0] ->  c918 [SUB (-)] Left:c919 Right:c91a (Raw: 80000001c919c91a)
+                [AXI:648c8] ->  c919 [NUM] Val: 120 (Raw: 00000078ffffffff)
+                [AXI:648d0] ->  c91a [NUM] Val: 622 (Raw: 0000026effffffff)
+               ==> Calc: 120 - 622 = -502
+           ==> Calc: 199 - -502 = 701
+       ==> Calc: 477 - 701 = -224
+   ==> Calc: 1315 >> 32 = 0
+
+--- Pattern 69: GAUSS Mode (Golden Mean: 148, Var: 6707) ---
+[Inputs] B0/R0: 11, B1/R1: 211, B2/R2: 211, B3/R3: 159
+   ==> Calc Mean: 592 / 4 = 148
+   ==> Calc Variance: Sum of Squared Differences / 4 = 6707
+
+--- Pattern 70: CALC Mode, Bank 0, Row 56 (Golden: 108676) ---
+[AXI:1c000] ROOT 3800 [MULT (*)] Left:3801 Right:3802 (Raw: 8000000238013802)
+    [AXI:1c008] ->  3801 [NUM] Val: -404 (Raw: 7ffffe6cffffffff)
+    [AXI:1c010] ->  3802 [NUM] Val: -269 (Raw: 7ffffef3ffffffff)
+   ==> Calc: -404 * -269 = 108676
+
+--- Pattern 71: CALC Mode, Bank 1, Row 48 (Golden: 276503877) ---
+[AXI:38000] ROOT 7000 [MULT (*)] Left:7001 Right:700e (Raw: 800000027001700e)
+    [AXI:38008] ->  7001 [ADD (+)] Left:7002 Right:7009 (Raw: 8000000070027009)
+        [AXI:38010] ->  7002 [SUB (-)] Left:7003 Right:7006 (Raw: 8000000170037006)
+            [AXI:38018] ->  7003 [SUB (-)] Left:7004 Right:7005 (Raw: 8000000170047005)
+                [AXI:38020] ->  7004 [NUM] Val: -965 (Raw: 7ffffc3bffffffff)
+                [AXI:38028] ->  7005 [NUM] Val: -137 (Raw: 7fffff77ffffffff)
+               ==> Calc: -965 - -137 = -828
+            [AXI:38030] ->  7006 [MULT (*)] Left:7007 Right:7008 (Raw: 8000000270077008)
+                [AXI:38038] ->  7007 [NUM] Val: -635 (Raw: 7ffffd85ffffffff)
+                [AXI:38040] ->  7008 [NUM] Val: -815 (Raw: 7ffffcd1ffffffff)
+               ==> Calc: -635 * -815 = 517525
+           ==> Calc: -828 - 517525 = -518353
+        [AXI:38048] ->  7009 [SUB (-)] Left:700a Right:700b (Raw: 80000001700a700b)
+            [AXI:38050] ->  700a [NUM] Val: -107 (Raw: 7fffff95ffffffff)
+            [AXI:38058] ->  700b [SUB (-)] Left:700c Right:700d (Raw: 80000001700c700d)
+                [AXI:38060] ->  700c [NUM] Val: 434 (Raw: 000001b2ffffffff)
+                [AXI:38068] ->  700d [NUM] Val: 125 (Raw: 0000007dffffffff)
+               ==> Calc: 434 - 125 = 309
+           ==> Calc: -107 - 309 = -416
+       ==> Calc: -518353 + -416 = -518769
+    [AXI:38070] ->  700e [NUM] Val: -533 (Raw: 7ffffdebffffffff)
+   ==> Calc: -518769 * -533 = 276503877
+
+--- Pattern 72: CALC Mode, Bank 3, Row 33 (Golden: 170) ---
+[AXI:70800] ->  e100 [NUM] Val: 170 (Raw: 000000aaffffffff)
+
+--- Pattern 73: CALC Mode, Bank 3, Row 23 (Golden: -1) ---
+[AXI:6b800] ROOT d700 [SHIFT (>>>)] Left:d701 Right:d706 (Raw: 80000003d701d706)
+    [AXI:6b808] ->  d701 [SUB (-)] Left:d702 Right:d703 (Raw: 80000001d702d703)
+        [AXI:6b810] ->  d702 [NUM] Val: 1 (Raw: 00000001ffffffff)
+        [AXI:6b818] ->  d703 [ADD (+)] Left:d704 Right:d705 (Raw: 80000000d704d705)
+            [AXI:6b820] ->  d704 [NUM] Val: 805 (Raw: 00000325ffffffff)
+            [AXI:6b828] ->  d705 [NUM] Val: -231 (Raw: 7fffff19ffffffff)
+           ==> Calc: 805 + -231 = 574
+       ==> Calc: 1 - 574 = -573
+    [AXI:6b830] ->  d706 [ADD (+)] Left:d707 Right:d708 (Raw: 80000000d707d708)
+        [AXI:6b838] ->  d707 [NUM] Val: -458 (Raw: 7ffffe36ffffffff)
+        [AXI:6b840] ->  d708 [MULT (*)] Left:d709 Right:d70c (Raw: 80000002d709d70c)
+            [AXI:6b848] ->  d709 [ADD (+)] Left:d70a Right:d70b (Raw: 80000000d70ad70b)
+                [AXI:6b850] ->  d70a [NUM] Val: 215 (Raw: 000000d7ffffffff)
+                [AXI:6b858] ->  d70b [NUM] Val: -927 (Raw: 7ffffc61ffffffff)
+               ==> Calc: 215 + -927 = -712
+            [AXI:6b860] ->  d70c [NUM] Val: -192 (Raw: 7fffff40ffffffff)
+           ==> Calc: -712 * -192 = 136704
+       ==> Calc: -458 + 136704 = 136246
+   ==> Calc: -573 >> 54 = -1
+
+--- Pattern 74: CALC Mode, Bank 2, Row 28 (Golden: -84) ---
+[AXI:4e000] ROOT 9c00 [SUB (-)] Left:9c01 Right:9c0c (Raw: 800000019c019c0c)
+    [AXI:4e008] ->  9c01 [SHIFT (>>>)] Left:9c02 Right:9c07 (Raw: 800000039c029c07)
+        [AXI:4e010] ->  9c02 [ADD (+)] Left:9c03 Right:9c06 (Raw: 800000009c039c06)
+            [AXI:4e018] ->  9c03 [SHIFT (>>>)] Left:9c04 Right:9c05 (Raw: 800000039c049c05)
+                [AXI:4e020] ->  9c04 [NUM] Val: -91 (Raw: 7fffffa5ffffffff)
+                [AXI:4e028] ->  9c05 [NUM] Val: -50 (Raw: 7fffffceffffffff)
+               ==> Calc: -91 >> 14 = -1
+            [AXI:4e030] ->  9c06 [NUM] Val: 499 (Raw: 000001f3ffffffff)
+           ==> Calc: -1 + 499 = 498
+        [AXI:4e038] ->  9c07 [SUB (-)] Left:9c08 Right:9c0b (Raw: 800000019c089c0b)
+            [AXI:4e040] ->  9c08 [ADD (+)] Left:9c09 Right:9c0a (Raw: 800000009c099c0a)
+                [AXI:4e048] ->  9c09 [NUM] Val: 978 (Raw: 000003d2ffffffff)
+                [AXI:4e050] ->  9c0a [NUM] Val: -975 (Raw: 7ffffc31ffffffff)
+               ==> Calc: 978 + -975 = 3
+            [AXI:4e058] ->  9c0b [NUM] Val: 546 (Raw: 00000222ffffffff)
+           ==> Calc: 3 - 546 = -543
+       ==> Calc: 498 >> 33 = 0
+    [AXI:4e060] ->  9c0c [SUB (-)] Left:9c0d Right:9c14 (Raw: 800000019c0d9c14)
+        [AXI:4e068] ->  9c0d [SHIFT (>>>)] Left:9c0e Right:9c11 (Raw: 800000039c0e9c11)
+            [AXI:4e070] ->  9c0e [ADD (+)] Left:9c0f Right:9c10 (Raw: 800000009c0f9c10)
+                [AXI:4e078] ->  9c0f [NUM] Val: -777 (Raw: 7ffffcf7ffffffff)
+                [AXI:4e080] ->  9c10 [NUM] Val: -325 (Raw: 7ffffebbffffffff)
+               ==> Calc: -777 + -325 = -1102
+            [AXI:4e088] ->  9c11 [SUB (-)] Left:9c12 Right:9c13 (Raw: 800000019c129c13)
+                [AXI:4e090] ->  9c12 [NUM] Val: 730 (Raw: 000002daffffffff)
+                [AXI:4e098] ->  9c13 [NUM] Val: 23 (Raw: 00000017ffffffff)
+               ==> Calc: 730 - 23 = 707
+           ==> Calc: -1102 >> 3 = -138
+        [AXI:4e0a0] ->  9c14 [SUB (-)] Left:9c15 Right:9c18 (Raw: 800000019c159c18)
+            [AXI:4e0a8] ->  9c15 [SUB (-)] Left:9c16 Right:9c17 (Raw: 800000019c169c17)
+                [AXI:4e0b0] ->  9c16 [NUM] Val: 236 (Raw: 000000ecffffffff)
+                [AXI:4e0b8] ->  9c17 [NUM] Val: 458 (Raw: 000001caffffffff)
+               ==> Calc: 236 - 458 = -222
+            [AXI:4e0c0] ->  9c18 [SHIFT (>>>)] Left:9c19 Right:9c1a (Raw: 800000039c199c1a)
+                [AXI:4e0c8] ->  9c19 [NUM] Val: 580 (Raw: 00000244ffffffff)
+                [AXI:4e0d0] ->  9c1a [NUM] Val: -389 (Raw: 7ffffe7bffffffff)
+               ==> Calc: 580 >> 59 = 0
+           ==> Calc: -222 - 0 = -222
+       ==> Calc: -138 - -222 = 84
+   ==> Calc: 0 - 84 = -84
+
+--- Pattern 75: CALC Mode, Bank 1, Row 50 (Golden: -675) ---
+[AXI:39000] ->  7200 [NUM] Val: -675 (Raw: 7ffffd5dffffffff)
+
+--- Pattern 76: CALC Mode, Bank 1, Row 22 (Golden: 301) ---
+[AXI:2b000] ROOT 5600 [SUB (-)] Left:5601 Right:5602 (Raw: 8000000156015602)
+    [AXI:2b008] ->  5601 [NUM] Val: 175 (Raw: 000000afffffffff)
+    [AXI:2b010] ->  5602 [NUM] Val: -126 (Raw: 7fffff82ffffffff)
+   ==> Calc: 175 - -126 = 301
+
+--- Pattern 77: CALC Mode, Bank 3, Row 6 (Golden: -14823184) ---
+[AXI:63000] ROOT c600 [SUB (-)] Left:c601 Right:c60a (Raw: 80000001c601c60a)
+    [AXI:63008] ->  c601 [MULT (*)] Left:c602 Right:c603 (Raw: 80000002c602c603)
+        [AXI:63010] ->  c602 [NUM] Val: 519 (Raw: 00000207ffffffff)
+        [AXI:63018] ->  c603 [MULT (*)] Left:c604 Right:c607 (Raw: 80000002c604c607)
+            [AXI:63020] ->  c604 [SUB (-)] Left:c605 Right:c606 (Raw: 80000001c605c606)
+                [AXI:63028] ->  c605 [NUM] Val: -424 (Raw: 7ffffe58ffffffff)
+                [AXI:63030] ->  c606 [NUM] Val: -144 (Raw: 7fffff70ffffffff)
+               ==> Calc: -424 - -144 = -280
+            [AXI:63038] ->  c607 [ADD (+)] Left:c608 Right:c609 (Raw: 80000000c608c609)
+                [AXI:63040] ->  c608 [NUM] Val: -382 (Raw: 7ffffe82ffffffff)
+                [AXI:63048] ->  c609 [NUM] Val: 484 (Raw: 000001e4ffffffff)
+               ==> Calc: -382 + 484 = 102
+           ==> Calc: -280 * 102 = -28560
+       ==> Calc: 519 * -28560 = -14822640
+    [AXI:63050] ->  c60a [SUB (-)] Left:c60b Right:c610 (Raw: 80000001c60bc610)
+        [AXI:63058] ->  c60b [SHIFT (>>>)] Left:c60c Right:c60f (Raw: 80000003c60cc60f)
+            [AXI:63060] ->  c60c [MULT (*)] Left:c60d Right:c60e (Raw: 80000002c60dc60e)
+                [AXI:63068] ->  c60d [NUM] Val: -964 (Raw: 7ffffc3cffffffff)
+                [AXI:63070] ->  c60e [NUM] Val: -135 (Raw: 7fffff79ffffffff)
+               ==> Calc: -964 * -135 = 130140
+            [AXI:63078] ->  c60f [NUM] Val: 19 (Raw: 00000013ffffffff)
+           ==> Calc: 130140 >> 19 = 0
+        [AXI:63080] ->  c610 [NUM] Val: -544 (Raw: 7ffffde0ffffffff)
+       ==> Calc: 0 - -544 = 544
+   ==> Calc: -14822640 - 544 = -14823184
+
+--- Pattern 78: CALC Mode, Bank 0, Row 9 (Golden: -630) ---
+[AXI:04800] ROOT 900 [ADD (+)] Left:901 Right:90e (Raw: 800000000901090e)
+    [AXI:04808] ->  901 [ADD (+)] Left:902 Right:909 (Raw: 8000000009020909)
+        [AXI:04810] ->  902 [SHIFT (>>>)] Left:903 Right:906 (Raw: 8000000309030906)
+            [AXI:04818] ->  903 [ADD (+)] Left:904 Right:905 (Raw: 8000000009040905)
+                [AXI:04820] ->  904 [NUM] Val: -993 (Raw: 7ffffc1fffffffff)
+                [AXI:04828] ->  905 [NUM] Val: 396 (Raw: 0000018cffffffff)
+               ==> Calc: -993 + 396 = -597
+            [AXI:04830] ->  906 [SHIFT (>>>)] Left:907 Right:908 (Raw: 8000000309070908)
+                [AXI:04838] ->  907 [NUM] Val: -372 (Raw: 7ffffe8cffffffff)
+                [AXI:04840] ->  908 [NUM] Val: 880 (Raw: 00000370ffffffff)
+               ==> Calc: -372 >> 48 = -1
+           ==> Calc: -597 >> 63 = -1
+        [AXI:04848] ->  909 [ADD (+)] Left:90a Right:90d (Raw: 80000000090a090d)
+            [AXI:04850] ->  90a [SHIFT (>>>)] Left:90b Right:90c (Raw: 80000003090b090c)
+                [AXI:04858] ->  90b [NUM] Val: 620 (Raw: 0000026cffffffff)
+                [AXI:04860] ->  90c [NUM] Val: 403 (Raw: 00000193ffffffff)
+               ==> Calc: 620 >> 19 = 0
+            [AXI:04868] ->  90d [NUM] Val: -471 (Raw: 7ffffe29ffffffff)
+           ==> Calc: 0 + -471 = -471
+       ==> Calc: -1 + -471 = -472
+    [AXI:04870] ->  90e [SUB (-)] Left:90f Right:916 (Raw: 80000001090f0916)
+        [AXI:04878] ->  90f [SHIFT (>>>)] Left:910 Right:913 (Raw: 8000000309100913)
+            [AXI:04880] ->  910 [ADD (+)] Left:911 Right:912 (Raw: 8000000009110912)
+                [AXI:04888] ->  911 [NUM] Val: 353 (Raw: 00000161ffffffff)
+                [AXI:04890] ->  912 [NUM] Val: -82 (Raw: 7fffffaeffffffff)
+               ==> Calc: 353 + -82 = 271
+            [AXI:04898] ->  913 [SHIFT (>>>)] Left:914 Right:915 (Raw: 8000000309140915)
+                [AXI:048a0] ->  914 [NUM] Val: -804 (Raw: 7ffffcdcffffffff)
+                [AXI:048a8] ->  915 [NUM] Val: -507 (Raw: 7ffffe05ffffffff)
+               ==> Calc: -804 >> 5 = -26
+           ==> Calc: 271 >> 38 = 0
+        [AXI:048b0] ->  916 [NUM] Val: 158 (Raw: 0000009effffffff)
+       ==> Calc: 0 - 158 = -158
+   ==> Calc: -472 + -158 = -630
+
+--- Pattern 79: GAUSS Mode (Golden Mean: 104, Var: 4312) ---
+[Inputs] B0/R0: 55, B1/R1: 217, B2/R2: 84, B3/R3: 63
+   ==> Calc Mean: 419 / 4 = 104
+   ==> Calc Variance: Sum of Squared Differences / 4 = 4312
+
+--- Pattern 80: GAUSS Mode (Golden Mean: 142, Var: 2243) ---
+[Inputs] B0/R0: 164, B1/R1: 114, B2/R2: 207, B3/R3: 83
+   ==> Calc Mean: 568 / 4 = 142
+   ==> Calc Variance: Sum of Squared Differences / 4 = 2243
+
+--- Pattern 81: GAUSS Mode (Golden Mean: 108, Var: 9726) ---
+[Inputs] B0/R0: 22, B1/R1: 170, B2/R2: 3, B3/R3: 237
+   ==> Calc Mean: 432 / 4 = 108
+   ==> Calc Variance: Sum of Squared Differences / 4 = 9726
+
+--- Pattern 82: GAUSS Mode (Golden Mean: 152, Var: 2459) ---
+[Inputs] B0/R0: 168, B1/R1: 69, B2/R2: 174, B3/R3: 199
+   ==> Calc Mean: 610 / 4 = 152
+   ==> Calc Variance: Sum of Squared Differences / 4 = 2459
+
+--- Pattern 83: CALC Mode, Bank 2, Row 51 (Golden: -357) ---
+[AXI:59800] ROOT b300 [SUB (-)] Left:b301 Right:b302 (Raw: 80000001b301b302)
+    [AXI:59808] ->  b301 [NUM] Val: -682 (Raw: 7ffffd56ffffffff)
+    [AXI:59810] ->  b302 [NUM] Val: -325 (Raw: 7ffffebbffffffff)
+   ==> Calc: -682 - -325 = -357
+
+--- Pattern 84: GAUSS Mode (Golden Mean: 137, Var: 6512) ---
+[Inputs] B0/R0: 0, B1/R1: 172, B2/R2: 207, B3/R3: 171
+   ==> Calc Mean: 550 / 4 = 137
+   ==> Calc Variance: Sum of Squared Differences / 4 = 6512
+
+--- Pattern 85: CALC Mode, Bank 1, Row 18 (Golden: -2) ---
+[AXI:29000] ROOT 5200 [SHIFT (>>>)] Left:5201 Right:520e (Raw: 800000035201520e)
+    [AXI:29008] ->  5201 [ADD (+)] Left:5202 Right:5207 (Raw: 8000000052025207)
+        [AXI:29010] ->  5202 [MULT (*)] Left:5203 Right:5206 (Raw: 8000000252035206)
+            [AXI:29018] ->  5203 [SUB (-)] Left:5204 Right:5205 (Raw: 8000000152045205)
+                [AXI:29020] ->  5204 [NUM] Val: -946 (Raw: 7ffffc4effffffff)
+                [AXI:29028] ->  5205 [NUM] Val: 496 (Raw: 000001f0ffffffff)
+               ==> Calc: -946 - 496 = -1442
+            [AXI:29030] ->  5206 [NUM] Val: 217 (Raw: 000000d9ffffffff)
+           ==> Calc: -1442 * 217 = -312914
+        [AXI:29038] ->  5207 [MULT (*)] Left:5208 Right:520b (Raw: 800000025208520b)
+            [AXI:29040] ->  5208 [SHIFT (>>>)] Left:5209 Right:520a (Raw: 800000035209520a)
+                [AXI:29048] ->  5209 [NUM] Val: -377 (Raw: 7ffffe87ffffffff)
+                [AXI:29050] ->  520a [NUM] Val: -547 (Raw: 7ffffdddffffffff)
+               ==> Calc: -377 >> 29 = -1
+            [AXI:29058] ->  520b [ADD (+)] Left:520c Right:520d (Raw: 80000000520c520d)
+                [AXI:29060] ->  520c [NUM] Val: -25 (Raw: 7fffffe7ffffffff)
+                [AXI:29068] ->  520d [NUM] Val: -593 (Raw: 7ffffdafffffffff)
+               ==> Calc: -25 + -593 = -618
+           ==> Calc: -1 * -618 = 618
+       ==> Calc: -312914 + 618 = -312296
+    [AXI:29070] ->  520e [NUM] Val: -686 (Raw: 7ffffd52ffffffff)
+   ==> Calc: -312296 >> 18 = -2
+
+--- Pattern 86: GAUSS Mode (Golden Mean: 117, Var: 2522) ---
+[Inputs] B0/R0: 32, B1/R1: 152, B2/R2: 131, B3/R3: 155
+   ==> Calc Mean: 470 / 4 = 117
+   ==> Calc Variance: Sum of Squared Differences / 4 = 2522
+
+--- Pattern 87: GAUSS Mode (Golden Mean: 171, Var: 2175) ---
+[Inputs] B0/R0: 102, B1/R1: 232, B2/R2: 166, B3/R3: 185
+   ==> Calc Mean: 685 / 4 = 171
+   ==> Calc Variance: Sum of Squared Differences / 4 = 2175
+
+--- Pattern 88: CALC Mode, Bank 1, Row 18 (Golden: -431) ---
+[AXI:29000] ->  5200 [NUM] Val: -431 (Raw: 7ffffe51ffffffff)
+
+--- Pattern 89: GAUSS Mode (Golden Mean: 79, Var: 3909) ---
+[Inputs] B0/R0: 184, B1/R1: 18, B2/R2: 56, B3/R3: 60
+   ==> Calc Mean: 318 / 4 = 79
+   ==> Calc Variance: Sum of Squared Differences / 4 = 3909
+
+--- Pattern 90: GAUSS Mode (Golden Mean: 157, Var: 2626) ---
+[Inputs] B0/R0: 69, B1/R1: 193, B2/R2: 186, B3/R3: 182
+   ==> Calc Mean: 630 / 4 = 157
+   ==> Calc Variance: Sum of Squared Differences / 4 = 2626
+
+--- Pattern 91: GAUSS Mode (Golden Mean: 164, Var: 6415) ---
+[Inputs] B0/R0: 27, B1/R1: 225, B2/R2: 195, B3/R3: 211
+   ==> Calc Mean: 658 / 4 = 164
+   ==> Calc Variance: Sum of Squared Differences / 4 = 6415
+
+--- Pattern 92: CALC Mode, Bank 0, Row 2 (Golden: -460) ---
+[AXI:01000] ->  200 [NUM] Val: -460 (Raw: 7ffffe34ffffffff)
+
+--- Pattern 93: GAUSS Mode (Golden Mean: 82, Var: 7455) ---
+[Inputs] B0/R0: 231, B1/R1: 32, B2/R2: 22, B3/R3: 43
+   ==> Calc Mean: 328 / 4 = 82
+   ==> Calc Variance: Sum of Squared Differences / 4 = 7455
+
+--- Pattern 94: GAUSS Mode (Golden Mean: 174, Var: 2724) ---
+[Inputs] B0/R0: 93, B1/R1: 234, B2/R2: 171, B3/R3: 201
+   ==> Calc Mean: 699 / 4 = 174
+   ==> Calc Variance: Sum of Squared Differences / 4 = 2724
+
+--- Pattern 95: CALC Mode, Bank 3, Row 1 (Golden: -599) ---
+[AXI:60800] ->  c100 [NUM] Val: -599 (Raw: 7ffffda9ffffffff)
+
+--- Pattern 96: GAUSS Mode (Golden Mean: 175, Var: 4617) ---
+[Inputs] B0/R0: 73, B1/R1: 250, B2/R2: 221, B3/R3: 157
+   ==> Calc Mean: 701 / 4 = 175
+   ==> Calc Variance: Sum of Squared Differences / 4 = 4617
+
+--- Pattern 97: CALC Mode, Bank 2, Row 32 (Golden: 0) ---
+[AXI:50000] ROOT a000 [SHIFT (>>>)] Left:a001 Right:a004 (Raw: 80000003a001a004)
+    [AXI:50008] ->  a001 [SHIFT (>>>)] Left:a002 Right:a003 (Raw: 80000003a002a003)
+        [AXI:50010] ->  a002 [NUM] Val: 364 (Raw: 0000016cffffffff)
+        [AXI:50018] ->  a003 [NUM] Val: 89 (Raw: 00000059ffffffff)
+       ==> Calc: 364 >> 25 = 0
+    [AXI:50020] ->  a004 [NUM] Val: -556 (Raw: 7ffffdd4ffffffff)
+   ==> Calc: 0 >> 20 = 0
+
+--- Pattern 98: GAUSS Mode (Golden Mean: 134, Var: 6186) ---
+[Inputs] B0/R0: 42, B1/R1: 255, B2/R2: 145, B3/R3: 95
+   ==> Calc Mean: 537 / 4 = 134
+   ==> Calc Variance: Sum of Squared Differences / 4 = 6186
+
+--- Pattern 99: CALC Mode, Bank 0, Row 52 (Golden: 63218) ---
+[AXI:1a000] ROOT 3400 [MULT (*)] Left:3401 Right:3402 (Raw: 8000000234013402)
+    [AXI:1a008] ->  3401 [NUM] Val: -866 (Raw: 7ffffc9effffffff)
+    [AXI:1a010] ->  3402 [ADD (+)] Left:3403 Right:3408 (Raw: 8000000034033408)
+        [AXI:1a018] ->  3403 [MULT (*)] Left:3404 Right:3407 (Raw: 8000000234043407)
+            [AXI:1a020] ->  3404 [SHIFT (>>>)] Left:3405 Right:3406 (Raw: 8000000334053406)
+                [AXI:1a028] ->  3405 [NUM] Val: -892 (Raw: 7ffffc84ffffffff)
+                [AXI:1a030] ->  3406 [NUM] Val: 796 (Raw: 0000031cffffffff)
+               ==> Calc: -892 >> 28 = -1
+            [AXI:1a038] ->  3407 [NUM] Val: 670 (Raw: 0000029effffffff)
+           ==> Calc: -1 * 670 = -670
+        [AXI:1a040] ->  3408 [ADD (+)] Left:3409 Right:340a (Raw: 800000003409340a)
+            [AXI:1a048] ->  3409 [NUM] Val: 722 (Raw: 000002d2ffffffff)
+            [AXI:1a050] ->  340a [ADD (+)] Left:340b Right:340c (Raw: 80000000340b340c)
+                [AXI:1a058] ->  340b [NUM] Val: 150 (Raw: 00000096ffffffff)
+                [AXI:1a060] ->  340c [NUM] Val: -275 (Raw: 7ffffeedffffffff)
+               ==> Calc: 150 + -275 = -125
+           ==> Calc: 722 + -125 = 597
+       ==> Calc: -670 + 597 = -73
+   ==> Calc: -866 * -73 = 63218
+

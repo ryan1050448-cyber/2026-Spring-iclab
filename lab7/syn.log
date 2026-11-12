@@ -1,0 +1,1375 @@
+#======================================================
+#
+# Synopsys Synthesis Scripts (Design Vision dctcl mode)
+#
+#======================================================
+#======================================================
+# (A) Global Parameters
+#======================================================
+set DESIGN "HARVESTER_TOP"
+HARVESTER_TOP
+set SYNCHRONIZER "NDFF_syn"
+NDFF_syn
+set CYCLE1 20.1
+20.1
+set CYCLE2 11.3
+11.3
+set CYCLE3 34.7
+34.7
+set INPUT_DLY [expr 0.5*$CYCLE1]
+10.05
+set OUTPUT_DLY [expr 0.5*$CYCLE1]
+10.05
+set OUTPUT_DLY_CLK2 [expr 0.5*$CYCLE2]
+5.65
+set OUTPUT_DLY_CLK3 [expr 0.5*$CYCLE3]
+17.35
+set INPUT_DLY_CLK3 [expr 0.5*$CYCLE3]
+17.35
+#======================================================
+# (B) Read RTL Code
+#======================================================
+# (B-1) analyze + elaborate
+set hdlin_auto_save_templates TRUE
+TRUE
+analyze -f sverilog $SYNCHRONIZER\.v 
+Running PRESTO HDLC
+Compiling source file ../01_RTL/synchronizer/NDFF_syn.v
+Presto compilation completed successfully.
+Loading db file '/RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_generic_core_ss1p62v125c.db'
+Loading db file '/RAID2/COURSE/2026_Spring/iclab/iclab132/Lab07_2026/Exercise/04_MEM/DUAL_64X32X1BM1_WC.db'
+Loading db file '/usr/cad/synopsys/synthesis/cur/libraries/syn/dw_foundation.sldb'
+Loading db file '/usr/cad/synopsys/synthesis/cur/libraries/syn/standard.sldb'
+1
+elaborate $SYNCHRONIZER  
+Loading db file '/usr/cad/synopsys/synthesis/2022.03/libraries/syn/gtech.db'
+Loading db file '/usr/cad/synopsys/synthesis/2022.03/libraries/syn/standard.sldb'
+  Loading link library 'fsa0m_a_generic_core_ss1p62v125c'
+  Loading link library 'DUAL_64X32X1BM1_WC'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+
+Inferred memory devices in process
+        in routine NDFF_syn line 13 in file
+                '../01_RTL/synchronizer/NDFF_syn.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       A1_reg        | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine NDFF_syn line 21 in file
+                '../01_RTL/synchronizer/NDFF_syn.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       A2_reg        | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (NDFF_syn)
+Elaborated 1 design.
+Current design is now 'NDFF_syn'.
+1
+analyze -f sverilog $DESIGN\.v 
+Running PRESTO HDLC
+Compiling source file ../01_RTL/HARVESTER_TOP.v
+Opening include file ../01_RTL/DESIGN_module.v
+Warning:  ../01_RTL/DESIGN_module.v:336: the undeclared symbol 'r_flag_wclk_to_fifo' assumed to have the default net type, which is 'wire'. (VER-936)
+Opening include file ../01_RTL/synchronizer/Handshake_syn.v
+Opening include file ../01_RTL/synchronizer/FIFO_syn.v
+Opening include file ../01_RTL/synchronizer/NDFF_syn.v
+Opening include file ../01_RTL/synchronizer/NDFF_BUS_syn.v
+Presto compilation completed successfully.
+1
+elaborate $DESIGN  
+Running PRESTO HDLC
+Presto compilation completed successfully. (HARVESTER_TOP)
+Elaborated 1 design.
+Current design is now 'HARVESTER_TOP'.
+Information: Building the design 'CLK_1_MODULE'. (HDL-193)
+Warning:  ../01_RTL/DESIGN_module.v:64: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../01_RTL/DESIGN_module.v:67: signed to unsigned assignment occurs. (VER-318)
+
+Statistics for case statements in always block at line 58 in file
+        '../01_RTL/DESIGN_module.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            62            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+        in routine CLK_1_MODULE line 163 in file
+                '../01_RTL/DESIGN_module.v'.
+================================================================================
+|    Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================
+|     out_half_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    out_lower_reg     | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       bank_reg       | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     src_row_reg      | Flip-flop |  24   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       mode_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+| handshake_sready_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  handshake_din_reg   | Flip-flop |   9   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       h_ct_reg       | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      in_ct_reg       | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      state_reg       | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    out_valid_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     out_data_reg     | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+================================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+| CLK_1_MODULE/105 |   4    |    2    |      2       |
+| CLK_1_MODULE/105 |   4    |    6    |      2       |
+| CLK_1_MODULE/118 |   4    |    2    |      2       |
+| CLK_1_MODULE/118 |   4    |    6    |      2       |
+======================================================
+Presto compilation completed successfully. (CLK_1_MODULE)
+Information: Building the design 'Handshake_syn' instantiated from design 'HARVESTER_TOP' with
+        the parameters "WIDTH=9". (HDL-193)
+
+Inferred memory devices in process
+        in routine Handshake_syn_WIDTH9 line 60 in file
+                '../01_RTL/synchronizer/Handshake_syn.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      sreq_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine Handshake_syn_WIDTH9 line 84 in file
+                '../01_RTL/synchronizer/Handshake_syn.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      data_reg       | Flip-flop |   9   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine Handshake_syn_WIDTH9 line 112 in file
+                '../01_RTL/synchronizer/Handshake_syn.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      dack_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine Handshake_syn_WIDTH9 line 154 in file
+                '../01_RTL/synchronizer/Handshake_syn.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     dvalid_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   dvalid_temp_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine Handshake_syn_WIDTH9 line 180 in file
+                '../01_RTL/synchronizer/Handshake_syn.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      dout_reg       | Flip-flop |   9   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (Handshake_syn_WIDTH9)
+Information: Building the design 'FIFO_syn' instantiated from design 'HARVESTER_TOP' with
+        the parameters "WIDTH=32,WORDS=64". (HDL-193)
+Warning:  ../01_RTL/synchronizer/FIFO_syn.v:140: signed to unsigned conversion occurs. (VER-318)
+
+Inferred memory devices in process
+        in routine FIFO_syn_WIDTH32_WORDS64 line 81 in file
+                '../01_RTL/synchronizer/FIFO_syn.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      waddr_reg      | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine FIFO_syn_WIDTH32_WORDS64 line 97 in file
+                '../01_RTL/synchronizer/FIFO_syn.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      wptr_reg       | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine FIFO_syn_WIDTH32_WORDS64 line 147 in file
+                '../01_RTL/synchronizer/FIFO_syn.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     wafull_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine FIFO_syn_WIDTH32_WORDS64 line 168 in file
+                '../01_RTL/synchronizer/FIFO_syn.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      wfull_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine FIFO_syn_WIDTH32_WORDS64 line 191 in file
+                '../01_RTL/synchronizer/FIFO_syn.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      raddr_reg      | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine FIFO_syn_WIDTH32_WORDS64 line 207 in file
+                '../01_RTL/synchronizer/FIFO_syn.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      rptr_reg       | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine FIFO_syn_WIDTH32_WORDS64 line 234 in file
+                '../01_RTL/synchronizer/FIFO_syn.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     rempty_reg      | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine FIFO_syn_WIDTH32_WORDS64 line 255 in file
+                '../01_RTL/synchronizer/FIFO_syn.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       ren_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine FIFO_syn_WIDTH32_WORDS64 line 278 in file
+                '../01_RTL/synchronizer/FIFO_syn.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     rvalid_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine FIFO_syn_WIDTH32_WORDS64 line 290 in file
+                '../01_RTL/synchronizer/FIFO_syn.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      rdata_reg      | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (FIFO_syn_WIDTH32_WORDS64)
+Information: Building the design 'CLK_2_MODULE'. (HDL-193)
+Warning:  ../01_RTL/DESIGN_module.v:594: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../01_RTL/DESIGN_module.v:595: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../01_RTL/DESIGN_module.v:600: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../01_RTL/DESIGN_module.v:603: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../01_RTL/DESIGN_module.v:718: signed to unsigned assignment occurs. (VER-318)
+
+Statistics for case statements in always block at line 363 in file
+        '../01_RTL/DESIGN_module.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           367            |     no/auto      |
+===============================================
+
+Statistics for case statements in always block at line 553 in file
+        '../01_RTL/DESIGN_module.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           596            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+        in routine CLK_2_MODULE line 798 in file
+                '../01_RTL/DESIGN_module.v'.
+================================================================================
+|    Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================
+|      term1_reg       | Flip-flop |  86   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     src_row_reg      | Flip-flop |  24   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       bank_reg       | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      stack_reg       | Flip-flop | 1056  |  Y  | N  | Y  | N  | N  | N  | N  |
+|      term2_reg       | Flip-flop |  86   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   calc_result_reg    | Flip-flop |  256  |  Y  | N  | Y  | N  | N  | N  | N  |
+|       mode_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      rcv_ct_reg      | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      state_reg       | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      ar_ct_reg       | Flip-flop |  12   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       r_ct_reg       | Flip-flop |  12   |  Y  | N  | Y  | N  | N  | N  | N  |
+| start_tree_valid_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     calc_ct_reg      | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   wait_data_ct_reg   | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      out_ct_reg      | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       n_ct_reg       | Flip-flop |  12   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       sum_reg        | Flip-flop |  42   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      sq_sum_reg      | Flip-flop |  74   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    threshold_reg     | Flip-flop |  86   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  guass_abs_diff_reg  | Flip-flop |  43   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    pipe_valid_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    rdata_temp_reg    | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      req_ct_reg      | Flip-flop |  12   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    pipe_last_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    read_half_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   rdata_lower_reg    | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    write_half_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|  pedding_upper_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    upper_data_reg    | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+================================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+| CLK_2_MODULE/434 |   4    |    2    |      2       |
+| CLK_2_MODULE/434 |   4    |    6    |      2       |
+| CLK_2_MODULE/453 |   4    |    2    |      2       |
+| CLK_2_MODULE/453 |   4    |    6    |      2       |
+| CLK_2_MODULE/761 |   4    |   64    |      2       |
+======================================================
+Presto compilation completed successfully. (CLK_2_MODULE)
+Information: Building the design 'CLK_3_MODULE'. (HDL-193)
+Warning:  ../01_RTL/DESIGN_module.v:1278: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../01_RTL/DESIGN_module.v:1287: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../01_RTL/DESIGN_module.v:1298: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../01_RTL/DESIGN_module.v:1307: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../01_RTL/DESIGN_module.v:1318: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../01_RTL/DESIGN_module.v:1327: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../01_RTL/DESIGN_module.v:1338: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../01_RTL/DESIGN_module.v:1347: signed to unsigned assignment occurs. (VER-318)
+
+Statistics for case statements in always block at line 1268 in file
+        '../01_RTL/DESIGN_module.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           1275           |    auto/auto     |
+|           1295           |    auto/auto     |
+|           1315           |    auto/auto     |
+|           1335           |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+        in routine CLK_3_MODULE line 1179 in file
+                '../01_RTL/DESIGN_module.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    c3_valid_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    c3_ready_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|       q0_reg        | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       q1_reg        | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       q2_reg        | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       q3_reg        | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    c0_valid_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    c1_valid_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    c2_valid_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      q0_ct_reg      | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      q1_ct_reg      | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      q2_ct_reg      | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      q3_ct_reg      | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    c0_ready_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    c1_ready_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    c2_ready_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine CLK_3_MODULE line 1538 in file
+                '../01_RTL/DESIGN_module.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    as_active_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   queue_addr_reg    | Flip-flop |  136  |  Y  | N  | Y  | N  | N  | N  | N  |
+|  stall_signal_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   queue_rdata_reg   | Flip-flop |  512  |  Y  | N  | Y  | N  | N  | N  | N  |
+|    dram_cmd_reg     | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     dram_ba_reg     | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    dram_addr_reg    | Flip-flop |  11   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   dram_wdata_reg    | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    state_b0_reg     | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    state_b1_reg     | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    state_b2_reg     | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    state_b3_reg     | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    queue_ct_reg     | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+| queue_rdata_ct_reg  | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     b0_row_reg      | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     b1_row_reg      | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     b2_row_reg      | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     b3_row_reg      | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   push_state_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   r_data_temp_reg   | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (CLK_3_MODULE)
+Information: Building the design 'NDFF_BUS_syn' instantiated from design 'FIFO_syn_WIDTH32_WORDS64' with
+        the parameters "WIDTH=7". (HDL-193)
+Presto compilation completed successfully. (NDFF_BUS_syn_WIDTH7)
+1
+# (B-2) read_sverilog
+#read_sverilog $DESIGN\.v
+# (B-3) set current design
+current_design $SYNCHRONIZER
+Current design is 'NDFF_syn'.
+{NDFF_syn}
+link
+
+  Linking design 'NDFF_syn'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (8 designs)               /RAID2/COURSE/2026_Spring/iclab/iclab132/Lab07_2026/Exercise/02_SYN/NDFF_syn.db, etc
+  fsa0m_a_generic_core_ss1p62v125c (library) /RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_generic_core_ss1p62v125c.db
+  DUAL_64X32X1BM1_WC (library) /RAID2/COURSE/2026_Spring/iclab/iclab132/Lab07_2026/Exercise/04_MEM/DUAL_64X32X1BM1_WC.db
+  dw_foundation.sldb (library) /usr/cad/synopsys/synthesis/cur/libraries/syn/dw_foundation.sldb
+
+1
+compile
+Information: Checking out the license 'DesignWare'. (SEC-104)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | S-2021.06-DWBB_202106.0 |     *     |
+| Licensed DW Building Blocks        | S-2021.06-DWBB_202106.0 |     *     |
+============================================================================
+
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler NXT                                                               |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 3                                      |
+| Number of User Hierarchies                              | 0                                      |
+| Sequential Cell Count                                   | 2                                      |
+| Macro Count                                             | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 1                                      |
+| Number of VT class                                      | 0                                      |
+| Number of Clocks                                        | 0                                      |
+| Number of Dont Touch cells                              | 0                                      |
+| Number of Dont Touch nets                               | 0                                      |
+| Number of size only cells                               | 0                                      |
+| Design with UPF Data                                    | false                                  |
+====================================================================================================
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'NDFF_syn'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'NDFF_syn' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00     118.7      0.00       0.0       0.0                          
+    0:00:00     118.7      0.00       0.0       0.0                          
+    0:00:00     118.7      0.00       0.0       0.0                          
+    0:00:01     118.7      0.00       0.0       0.0                          
+    0:00:01     118.7      0.00       0.0       0.0                          
+    0:00:01     118.7      0.00       0.0       0.0                          
+    0:00:01     118.7      0.00       0.0       0.0                          
+    0:00:01     118.7      0.00       0.0       0.0                          
+    0:00:01     118.7      0.00       0.0       0.0                          
+    0:00:01     118.7      0.00       0.0       0.0                          
+    0:00:01     118.7      0.00       0.0       0.0                          
+    0:00:01     118.7      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     118.7      0.00       0.0       0.0                          
+    0:00:01     118.7      0.00       0.0       0.0                          
+    0:00:01     118.7      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01     118.7      0.00       0.0       0.0                          
+    0:00:01     118.7      0.00       0.0       0.0                          
+    0:00:01     118.7      0.00       0.0       0.0                          
+    0:00:01     118.7      0.00       0.0       0.0                          
+    0:00:01     118.7      0.00       0.0       0.0                          
+    0:00:01     118.7      0.00       0.0       0.0                          
+    0:00:01     118.7      0.00       0.0       0.0                          
+    0:00:01     118.7      0.00       0.0       0.0                          
+    0:00:01     118.7      0.00       0.0       0.0                          
+    0:00:01     118.7      0.00       0.0       0.0                          
+    0:00:01     118.7      0.00       0.0       0.0                          
+Loading db file '/RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_generic_core_ss1p62v125c.db'
+Loading db file '/RAID2/COURSE/2026_Spring/iclab/iclab132/Lab07_2026/Exercise/04_MEM/DUAL_64X32X1BM1_WC.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+set_dont_touch $SYNCHRONIZER
+1
+current_design $DESIGN
+Current design is 'HARVESTER_TOP'.
+{HARVESTER_TOP}
+link
+
+  Linking design 'HARVESTER_TOP'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (8 designs)               /RAID2/COURSE/2026_Spring/iclab/iclab132/Lab07_2026/Exercise/02_SYN/HARVESTER_TOP.db, etc
+  fsa0m_a_generic_core_ss1p62v125c (library) /RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_generic_core_ss1p62v125c.db
+  DUAL_64X32X1BM1_WC (library) /RAID2/COURSE/2026_Spring/iclab/iclab132/Lab07_2026/Exercise/04_MEM/DUAL_64X32X1BM1_WC.db
+  dw_foundation.sldb (library) /usr/cad/synopsys/synthesis/cur/libraries/syn/dw_foundation.sldb
+
+1
+#======================================================
+#  (C) Global Setting
+#======================================================
+set_wire_load_mode top
+1
+# set_operating_conditions -max WCCOM -min BCCOM
+# set_wire_load_model -name umc18_wl10 -library slow
+#======================================================
+#  (D) Set Design Constraints
+#======================================================
+# (D-1) Setting Clock Constraints
+create_clock -name clk1 -period $CYCLE1 [get_ports clk1] 
+1
+create_clock -name clk2 -period $CYCLE2 [get_ports clk2]
+1
+create_clock -name clk3 -period $CYCLE3 [get_ports clk3]
+1
+set_dont_touch_network             [all_clocks] 
+1
+set_fix_hold                       [all_clocks] 
+1
+set_clock_uncertainty       0.1    [all_clocks] 
+1
+# set_clock_latency   -source 0      [get_clocks clk]
+# set_clock_latency           1      [get_clocks clk] 
+set_input_transition        0.5    [all_inputs] 
+1
+set_clock_transition        0.1    [all_clocks] 
+1
+read_sdc $DESIGN\.sdc
+
+Reading SDC version 2.1...
+1
+# (D-2) Setting in/out Constraints
+set clk2_ports [get_ports "*clk2*"]
+{ar_addr_clk2[31] ar_addr_clk2[30] ar_addr_clk2[29] ar_addr_clk2[28] ar_addr_clk2[27] ar_addr_clk2[26] ar_addr_clk2[25] ar_addr_clk2[24] ar_addr_clk2[23] ar_addr_clk2[22] ar_addr_clk2[21] ar_addr_clk2[20] ar_addr_clk2[19] ar_addr_clk2[18] ar_addr_clk2[17] ar_addr_clk2[16] ar_addr_clk2[15] ar_addr_clk2[14] ar_addr_clk2[13] ar_addr_clk2[12] ar_addr_clk2[11] ar_addr_clk2[10] ar_addr_clk2[9] ar_addr_clk2[8] ar_addr_clk2[7] ar_addr_clk2[6] ar_addr_clk2[5] ar_addr_clk2[4] ar_addr_clk2[3] ar_addr_clk2[2] ar_addr_clk2[1] ar_addr_clk2[0] r_data_clk2[63] r_data_clk2[62] r_data_clk2[61] r_data_clk2[60] r_data_clk2[59] r_data_clk2[58] r_data_clk2[57] r_data_clk2[56] r_data_clk2[55] r_data_clk2[54] r_data_clk2[53] r_data_clk2[52] r_data_clk2[51] r_data_clk2[50] r_data_clk2[49] r_data_clk2[48] r_data_clk2[47] r_data_clk2[46] r_data_clk2[45] r_data_clk2[44] r_data_clk2[43] r_data_clk2[42] r_data_clk2[41] r_data_clk2[40] r_data_clk2[39] r_data_clk2[38] r_data_clk2[37] r_data_clk2[36] r_data_clk2[35] r_data_clk2[34] r_data_clk2[33] r_data_clk2[32] r_data_clk2[31] r_data_clk2[30] r_data_clk2[29] r_data_clk2[28] r_data_clk2[27] r_data_clk2[26] r_data_clk2[25] r_data_clk2[24] r_data_clk2[23] r_data_clk2[22] r_data_clk2[21] r_data_clk2[20] r_data_clk2[19] r_data_clk2[18] r_data_clk2[17] r_data_clk2[16] r_data_clk2[15] r_data_clk2[14] r_data_clk2[13] r_data_clk2[12] r_data_clk2[11] r_data_clk2[10] r_data_clk2[9] r_data_clk2[8] r_data_clk2[7] r_data_clk2[6] r_data_clk2[5] r_data_clk2[4] r_data_clk2[3] r_data_clk2[2] r_data_clk2[1] r_data_clk2[0] clk2 ar_valid_clk2 ar_ready_clk2 r_valid_clk2 ...}
+set clk3_ports [get_ports "*clk3*"]
+{ar_addr_clk3[31] ar_addr_clk3[30] ar_addr_clk3[29] ar_addr_clk3[28] ar_addr_clk3[27] ar_addr_clk3[26] ar_addr_clk3[25] ar_addr_clk3[24] ar_addr_clk3[23] ar_addr_clk3[22] ar_addr_clk3[21] ar_addr_clk3[20] ar_addr_clk3[19] ar_addr_clk3[18] ar_addr_clk3[17] ar_addr_clk3[16] ar_addr_clk3[15] ar_addr_clk3[14] ar_addr_clk3[13] ar_addr_clk3[12] ar_addr_clk3[11] ar_addr_clk3[10] ar_addr_clk3[9] ar_addr_clk3[8] ar_addr_clk3[7] ar_addr_clk3[6] ar_addr_clk3[5] ar_addr_clk3[4] ar_addr_clk3[3] ar_addr_clk3[2] ar_addr_clk3[1] ar_addr_clk3[0] r_data_clk3[63] r_data_clk3[62] r_data_clk3[61] r_data_clk3[60] r_data_clk3[59] r_data_clk3[58] r_data_clk3[57] r_data_clk3[56] r_data_clk3[55] r_data_clk3[54] r_data_clk3[53] r_data_clk3[52] r_data_clk3[51] r_data_clk3[50] r_data_clk3[49] r_data_clk3[48] r_data_clk3[47] r_data_clk3[46] r_data_clk3[45] r_data_clk3[44] r_data_clk3[43] r_data_clk3[42] r_data_clk3[41] r_data_clk3[40] r_data_clk3[39] r_data_clk3[38] r_data_clk3[37] r_data_clk3[36] r_data_clk3[35] r_data_clk3[34] r_data_clk3[33] r_data_clk3[32] r_data_clk3[31] r_data_clk3[30] r_data_clk3[29] r_data_clk3[28] r_data_clk3[27] r_data_clk3[26] r_data_clk3[25] r_data_clk3[24] r_data_clk3[23] r_data_clk3[22] r_data_clk3[21] r_data_clk3[20] r_data_clk3[19] r_data_clk3[18] r_data_clk3[17] r_data_clk3[16] r_data_clk3[15] r_data_clk3[14] r_data_clk3[13] r_data_clk3[12] r_data_clk3[11] r_data_clk3[10] r_data_clk3[9] r_data_clk3[8] r_data_clk3[7] r_data_clk3[6] r_data_clk3[5] r_data_clk3[4] r_data_clk3[3] r_data_clk3[2] r_data_clk3[1] r_data_clk3[0] dram_cmd_clk3[3] dram_cmd_clk3[2] dram_cmd_clk3[1] dram_cmd_clk3[0] ...}
+set non_clk1_ports [add_to_collection $clk2_ports $clk3_ports]
+{ar_addr_clk2[31] ar_addr_clk2[30] ar_addr_clk2[29] ar_addr_clk2[28] ar_addr_clk2[27] ar_addr_clk2[26] ar_addr_clk2[25] ar_addr_clk2[24] ar_addr_clk2[23] ar_addr_clk2[22] ar_addr_clk2[21] ar_addr_clk2[20] ar_addr_clk2[19] ar_addr_clk2[18] ar_addr_clk2[17] ar_addr_clk2[16] ar_addr_clk2[15] ar_addr_clk2[14] ar_addr_clk2[13] ar_addr_clk2[12] ar_addr_clk2[11] ar_addr_clk2[10] ar_addr_clk2[9] ar_addr_clk2[8] ar_addr_clk2[7] ar_addr_clk2[6] ar_addr_clk2[5] ar_addr_clk2[4] ar_addr_clk2[3] ar_addr_clk2[2] ar_addr_clk2[1] ar_addr_clk2[0] r_data_clk2[63] r_data_clk2[62] r_data_clk2[61] r_data_clk2[60] r_data_clk2[59] r_data_clk2[58] r_data_clk2[57] r_data_clk2[56] r_data_clk2[55] r_data_clk2[54] r_data_clk2[53] r_data_clk2[52] r_data_clk2[51] r_data_clk2[50] r_data_clk2[49] r_data_clk2[48] r_data_clk2[47] r_data_clk2[46] r_data_clk2[45] r_data_clk2[44] r_data_clk2[43] r_data_clk2[42] r_data_clk2[41] r_data_clk2[40] r_data_clk2[39] r_data_clk2[38] r_data_clk2[37] r_data_clk2[36] r_data_clk2[35] r_data_clk2[34] r_data_clk2[33] r_data_clk2[32] r_data_clk2[31] r_data_clk2[30] r_data_clk2[29] r_data_clk2[28] r_data_clk2[27] r_data_clk2[26] r_data_clk2[25] r_data_clk2[24] r_data_clk2[23] r_data_clk2[22] r_data_clk2[21] r_data_clk2[20] r_data_clk2[19] r_data_clk2[18] r_data_clk2[17] r_data_clk2[16] r_data_clk2[15] r_data_clk2[14] r_data_clk2[13] r_data_clk2[12] r_data_clk2[11] r_data_clk2[10] r_data_clk2[9] r_data_clk2[8] r_data_clk2[7] r_data_clk2[6] r_data_clk2[5] r_data_clk2[4] r_data_clk2[3] r_data_clk2[2] r_data_clk2[1] r_data_clk2[0] clk2 ar_valid_clk2 ar_ready_clk2 r_valid_clk2 ...}
+set clk1_outputs   [remove_from_collection [all_outputs] $non_clk1_ports]
+{out_valid out_data[63] out_data[62] out_data[61] out_data[60] out_data[59] out_data[58] out_data[57] out_data[56] out_data[55] out_data[54] out_data[53] out_data[52] out_data[51] out_data[50] out_data[49] out_data[48] out_data[47] out_data[46] out_data[45] out_data[44] out_data[43] out_data[42] out_data[41] out_data[40] out_data[39] out_data[38] out_data[37] out_data[36] out_data[35] out_data[34] out_data[33] out_data[32] out_data[31] out_data[30] out_data[29] out_data[28] out_data[27] out_data[26] out_data[25] out_data[24] out_data[23] out_data[22] out_data[21] out_data[20] out_data[19] out_data[18] out_data[17] out_data[16] out_data[15] out_data[14] out_data[13] out_data[12] out_data[11] out_data[10] out_data[9] out_data[8] out_data[7] out_data[6] out_data[5] out_data[4] out_data[3] out_data[2] out_data[1] out_data[0]}
+set_input_delay   -max  $INPUT_DLY  -clock clk1   [all_inputs] ;  # set_up time check 
+1
+set_input_delay   -min  0           -clock clk1   [all_inputs] ;  # hold   time check 
+1
+set_output_delay  -max  $OUTPUT_DLY -clock clk1   $clk1_outputs ; # set_up time check 
+1
+set_output_delay  -min  0           -clock clk1   $clk1_outputs ; # hold   time check 
+1
+set clk3_outputs [filter_collection $clk3_ports "direction == out"]
+{ar_addr_clk3[31] ar_addr_clk3[30] ar_addr_clk3[29] ar_addr_clk3[28] ar_addr_clk3[27] ar_addr_clk3[26] ar_addr_clk3[25] ar_addr_clk3[24] ar_addr_clk3[23] ar_addr_clk3[22] ar_addr_clk3[21] ar_addr_clk3[20] ar_addr_clk3[19] ar_addr_clk3[18] ar_addr_clk3[17] ar_addr_clk3[16] ar_addr_clk3[15] ar_addr_clk3[14] ar_addr_clk3[13] ar_addr_clk3[12] ar_addr_clk3[11] ar_addr_clk3[10] ar_addr_clk3[9] ar_addr_clk3[8] ar_addr_clk3[7] ar_addr_clk3[6] ar_addr_clk3[5] ar_addr_clk3[4] ar_addr_clk3[3] ar_addr_clk3[2] ar_addr_clk3[1] ar_addr_clk3[0] r_data_clk3[63] r_data_clk3[62] r_data_clk3[61] r_data_clk3[60] r_data_clk3[59] r_data_clk3[58] r_data_clk3[57] r_data_clk3[56] r_data_clk3[55] r_data_clk3[54] r_data_clk3[53] r_data_clk3[52] r_data_clk3[51] r_data_clk3[50] r_data_clk3[49] r_data_clk3[48] r_data_clk3[47] r_data_clk3[46] r_data_clk3[45] r_data_clk3[44] r_data_clk3[43] r_data_clk3[42] r_data_clk3[41] r_data_clk3[40] r_data_clk3[39] r_data_clk3[38] r_data_clk3[37] r_data_clk3[36] r_data_clk3[35] r_data_clk3[34] r_data_clk3[33] r_data_clk3[32] r_data_clk3[31] r_data_clk3[30] r_data_clk3[29] r_data_clk3[28] r_data_clk3[27] r_data_clk3[26] r_data_clk3[25] r_data_clk3[24] r_data_clk3[23] r_data_clk3[22] r_data_clk3[21] r_data_clk3[20] r_data_clk3[19] r_data_clk3[18] r_data_clk3[17] r_data_clk3[16] r_data_clk3[15] r_data_clk3[14] r_data_clk3[13] r_data_clk3[12] r_data_clk3[11] r_data_clk3[10] r_data_clk3[9] r_data_clk3[8] r_data_clk3[7] r_data_clk3[6] r_data_clk3[5] r_data_clk3[4] r_data_clk3[3] r_data_clk3[2] r_data_clk3[1] r_data_clk3[0] dram_cmd_clk3[3] dram_cmd_clk3[2] dram_cmd_clk3[1] dram_cmd_clk3[0] ...}
+set clk2_outputs [filter_collection $clk2_ports "direction == out"]
+{ar_addr_clk2[31] ar_addr_clk2[30] ar_addr_clk2[29] ar_addr_clk2[28] ar_addr_clk2[27] ar_addr_clk2[26] ar_addr_clk2[25] ar_addr_clk2[24] ar_addr_clk2[23] ar_addr_clk2[22] ar_addr_clk2[21] ar_addr_clk2[20] ar_addr_clk2[19] ar_addr_clk2[18] ar_addr_clk2[17] ar_addr_clk2[16] ar_addr_clk2[15] ar_addr_clk2[14] ar_addr_clk2[13] ar_addr_clk2[12] ar_addr_clk2[11] ar_addr_clk2[10] ar_addr_clk2[9] ar_addr_clk2[8] ar_addr_clk2[7] ar_addr_clk2[6] ar_addr_clk2[5] ar_addr_clk2[4] ar_addr_clk2[3] ar_addr_clk2[2] ar_addr_clk2[1] ar_addr_clk2[0] r_data_clk2[63] r_data_clk2[62] r_data_clk2[61] r_data_clk2[60] r_data_clk2[59] r_data_clk2[58] r_data_clk2[57] r_data_clk2[56] r_data_clk2[55] r_data_clk2[54] r_data_clk2[53] r_data_clk2[52] r_data_clk2[51] r_data_clk2[50] r_data_clk2[49] r_data_clk2[48] r_data_clk2[47] r_data_clk2[46] r_data_clk2[45] r_data_clk2[44] r_data_clk2[43] r_data_clk2[42] r_data_clk2[41] r_data_clk2[40] r_data_clk2[39] r_data_clk2[38] r_data_clk2[37] r_data_clk2[36] r_data_clk2[35] r_data_clk2[34] r_data_clk2[33] r_data_clk2[32] r_data_clk2[31] r_data_clk2[30] r_data_clk2[29] r_data_clk2[28] r_data_clk2[27] r_data_clk2[26] r_data_clk2[25] r_data_clk2[24] r_data_clk2[23] r_data_clk2[22] r_data_clk2[21] r_data_clk2[20] r_data_clk2[19] r_data_clk2[18] r_data_clk2[17] r_data_clk2[16] r_data_clk2[15] r_data_clk2[14] r_data_clk2[13] r_data_clk2[12] r_data_clk2[11] r_data_clk2[10] r_data_clk2[9] r_data_clk2[8] r_data_clk2[7] r_data_clk2[6] r_data_clk2[5] r_data_clk2[4] r_data_clk2[3] r_data_clk2[2] r_data_clk2[1] r_data_clk2[0] ar_valid_clk2 ar_ready_clk2 r_valid_clk2 r_ready_clk2}
+set_output_delay -max $OUTPUT_DLY_CLK3  -clock clk3 $clk3_outputs
+1
+set_output_delay -min 0                 -clock clk3 $clk3_outputs
+1
+set_output_delay -max $OUTPUT_DLY_CLK2  -clock clk2 $clk2_outputs
+1
+set_output_delay -min 0                 -clock clk2 $clk2_outputs
+1
+set clk3_in_ports [get_ports "*dram*_clk3*"]
+{dram_cmd_clk3[3] dram_cmd_clk3[2] dram_cmd_clk3[1] dram_cmd_clk3[0] dram_ba_clk3[1] dram_ba_clk3[0] dram_addr_clk3[10] dram_addr_clk3[9] dram_addr_clk3[8] dram_addr_clk3[7] dram_addr_clk3[6] dram_addr_clk3[5] dram_addr_clk3[4] dram_addr_clk3[3] dram_addr_clk3[2] dram_addr_clk3[1] dram_addr_clk3[0] dram_wdata_clk3[63] dram_wdata_clk3[62] dram_wdata_clk3[61] dram_wdata_clk3[60] dram_wdata_clk3[59] dram_wdata_clk3[58] dram_wdata_clk3[57] dram_wdata_clk3[56] dram_wdata_clk3[55] dram_wdata_clk3[54] dram_wdata_clk3[53] dram_wdata_clk3[52] dram_wdata_clk3[51] dram_wdata_clk3[50] dram_wdata_clk3[49] dram_wdata_clk3[48] dram_wdata_clk3[47] dram_wdata_clk3[46] dram_wdata_clk3[45] dram_wdata_clk3[44] dram_wdata_clk3[43] dram_wdata_clk3[42] dram_wdata_clk3[41] dram_wdata_clk3[40] dram_wdata_clk3[39] dram_wdata_clk3[38] dram_wdata_clk3[37] dram_wdata_clk3[36] dram_wdata_clk3[35] dram_wdata_clk3[34] dram_wdata_clk3[33] dram_wdata_clk3[32] dram_wdata_clk3[31] dram_wdata_clk3[30] dram_wdata_clk3[29] dram_wdata_clk3[28] dram_wdata_clk3[27] dram_wdata_clk3[26] dram_wdata_clk3[25] dram_wdata_clk3[24] dram_wdata_clk3[23] dram_wdata_clk3[22] dram_wdata_clk3[21] dram_wdata_clk3[20] dram_wdata_clk3[19] dram_wdata_clk3[18] dram_wdata_clk3[17] dram_wdata_clk3[16] dram_wdata_clk3[15] dram_wdata_clk3[14] dram_wdata_clk3[13] dram_wdata_clk3[12] dram_wdata_clk3[11] dram_wdata_clk3[10] dram_wdata_clk3[9] dram_wdata_clk3[8] dram_wdata_clk3[7] dram_wdata_clk3[6] dram_wdata_clk3[5] dram_wdata_clk3[4] dram_wdata_clk3[3] dram_wdata_clk3[2] dram_wdata_clk3[1] dram_wdata_clk3[0] dram_rdata_clk3[63] dram_rdata_clk3[62] dram_rdata_clk3[61] dram_rdata_clk3[60] dram_rdata_clk3[59] dram_rdata_clk3[58] dram_rdata_clk3[57] dram_rdata_clk3[56] dram_rdata_clk3[55] dram_rdata_clk3[54] dram_rdata_clk3[53] dram_rdata_clk3[52] dram_rdata_clk3[51] dram_rdata_clk3[50] dram_rdata_clk3[49] dram_rdata_clk3[48] dram_rdata_clk3[47] dram_rdata_clk3[46] dram_rdata_clk3[45] ...}
+set clk3_inputs [filter_collection $clk3_in_ports "direction == in"]
+{dram_rdata_clk3[63] dram_rdata_clk3[62] dram_rdata_clk3[61] dram_rdata_clk3[60] dram_rdata_clk3[59] dram_rdata_clk3[58] dram_rdata_clk3[57] dram_rdata_clk3[56] dram_rdata_clk3[55] dram_rdata_clk3[54] dram_rdata_clk3[53] dram_rdata_clk3[52] dram_rdata_clk3[51] dram_rdata_clk3[50] dram_rdata_clk3[49] dram_rdata_clk3[48] dram_rdata_clk3[47] dram_rdata_clk3[46] dram_rdata_clk3[45] dram_rdata_clk3[44] dram_rdata_clk3[43] dram_rdata_clk3[42] dram_rdata_clk3[41] dram_rdata_clk3[40] dram_rdata_clk3[39] dram_rdata_clk3[38] dram_rdata_clk3[37] dram_rdata_clk3[36] dram_rdata_clk3[35] dram_rdata_clk3[34] dram_rdata_clk3[33] dram_rdata_clk3[32] dram_rdata_clk3[31] dram_rdata_clk3[30] dram_rdata_clk3[29] dram_rdata_clk3[28] dram_rdata_clk3[27] dram_rdata_clk3[26] dram_rdata_clk3[25] dram_rdata_clk3[24] dram_rdata_clk3[23] dram_rdata_clk3[22] dram_rdata_clk3[21] dram_rdata_clk3[20] dram_rdata_clk3[19] dram_rdata_clk3[18] dram_rdata_clk3[17] dram_rdata_clk3[16] dram_rdata_clk3[15] dram_rdata_clk3[14] dram_rdata_clk3[13] dram_rdata_clk3[12] dram_rdata_clk3[11] dram_rdata_clk3[10] dram_rdata_clk3[9] dram_rdata_clk3[8] dram_rdata_clk3[7] dram_rdata_clk3[6] dram_rdata_clk3[5] dram_rdata_clk3[4] dram_rdata_clk3[3] dram_rdata_clk3[2] dram_rdata_clk3[1] dram_rdata_clk3[0] dram_valid_clk3}
+set_input_delay   -max  $INPUT_DLY_CLK3  -clock clk3   $clk3_inputs ;  # set_up time check 
+1
+set_input_delay   -min  0                -clock clk3   $clk3_inputs ;  # hold   time check 
+1
+set_input_delay 0 -clock clk1 clk1
+1
+set_input_delay 0 -clock clk2 clk2
+1
+set_input_delay 0 -clock clk3 clk3
+1
+set_input_delay 0 -clock clk1 rst_n
+1
+#set_max_delay $CYCLE -from [all_inputs] -to [all_outputs]
+# (D-3) Setting Design Environment
+# set_driving_cell -library umc18io3v5v_slow -lib_cell P2C    -pin {Y}  [get_ports clk]
+# set_driving_cell -library umc18io3v5v_slow -lib_cell P2C    -pin {Y}  [remove_from_collection [all_inputs] [get_ports clk]]
+# set_load  [load_of "umc18io3v5v_slow/P8C/A"]       [all_outputs] ; # ~= 0.038
+set_load 0.05 [all_outputs]
+1
+# (D-4) Setting DRC Constraint
+#set_max_delay           0     ; # Optimize delay max effort                 
+#set_max_area            0      ; # Optimize area max effort           
+set_max_transition      3       [all_inputs]   ; # U18 LUT Max Transition Value  
+1
+set_max_capacitance     0.15    [all_inputs]   ; # U18 LUT Max Capacitance Value
+1
+set_max_fanout          10      [all_inputs]
+1
+# set_dont_use slow/JKFF*
+#set_dont_touch [get_cells core_reg_macro]
+#set hdlin_ff_always_sync_set_reset true
+# (D-5) Report Clock skew
+report_clock -skew clk1
+Information: Changed wire load model for 'alt1' from '(none)' to 'G5K'. (OPT-170)
+Information: Changed wire load model for 'apparch' from '(none)' to 'G5K'. (OPT-170)
+Information: Changed wire load model for 'alt1' from '(none)' to 'G5K'. (OPT-170)
+Information: Changed wire load model for 'astr' from '(none)' to 'G5K'. (OPT-170)
+Information: Changed wire load model for 'alt1' from '(none)' to 'G5K'. (OPT-170)
+Information: Changed wire load model for 'apparch' from '(none)' to 'G5K'. (OPT-170)
+Information: Changed wire load model for 'alt1' from '(none)' to 'G5K'. (OPT-170)
+Information: Changed wire load model for 'apparch' from '(none)' to 'G5K'. (OPT-170)
+Information: Changed wire load model for 'alt1' from '(none)' to 'G5K'. (OPT-170)
+Information: Changed wire load model for 'apparch' from '(none)' to 'G5K'. (OPT-170)
+Information: Changed wire load model for 'alt1' from '(none)' to 'G5K'. (OPT-170)
+Information: Changed wire load model for 'apparch' from '(none)' to 'G5K'. (OPT-170)
+Information: Changed wire load model for 'alt1' from '(none)' to 'G5K'. (OPT-170)
+Information: Changed wire load model for 'apparch' from '(none)' to 'G5K'. (OPT-170)
+Information: Changed wire load model for 'alt1' from '(none)' to 'G5K'. (OPT-170)
+Information: Changed wire load model for 'apparch' from '(none)' to 'G5K'. (OPT-170)
+Information: Changed wire load model for 'alt1' from '(none)' to 'G5K'. (OPT-170)
+Information: Changed wire load model for 'apparch' from '(none)' to 'G5K'. (OPT-170)
+Information: Updating design information... (UID-85)
+Warning: Design 'HARVESTER_TOP' contains 8 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : clock_skew
+Design : HARVESTER_TOP
+Version: T-2022.03
+Date   : Tue Apr 28 15:02:02 2026
+****************************************
+
+                 Rise      Fall  Min Rise  Min fall        Uncertainty
+Object          Delay     Delay     Delay     Delay     Plus      Minus
+--------------------------------------------------------------------------------
+clk1                -         -         -         -      0.10      0.10
+
+                 Max Transition      Min Transition
+Object           Rise      Fall      Rise      Fall
+-------------------------------------------------------
+clk1             0.10      0.10      0.10      0.10
+1
+report_clock -skew clk2
+ 
+****************************************
+Report : clock_skew
+Design : HARVESTER_TOP
+Version: T-2022.03
+Date   : Tue Apr 28 15:02:02 2026
+****************************************
+
+                 Rise      Fall  Min Rise  Min fall        Uncertainty
+Object          Delay     Delay     Delay     Delay     Plus      Minus
+--------------------------------------------------------------------------------
+clk2                -         -         -         -      0.10      0.10
+
+                 Max Transition      Min Transition
+Object           Rise      Fall      Rise      Fall
+-------------------------------------------------------
+clk2             0.10      0.10      0.10      0.10
+1
+report_clock -skew clk3
+ 
+****************************************
+Report : clock_skew
+Design : HARVESTER_TOP
+Version: T-2022.03
+Date   : Tue Apr 28 15:02:02 2026
+****************************************
+
+                 Rise      Fall  Min Rise  Min fall        Uncertainty
+Object          Delay     Delay     Delay     Delay     Plus      Minus
+--------------------------------------------------------------------------------
+clk3                -         -         -         -      0.10      0.10
+
+                 Max Transition      Min Transition
+Object           Rise      Fall      Rise      Fall
+-------------------------------------------------------
+clk3             0.10      0.10      0.10      0.10
+1
+check_timing
+
+Information: Checking generated_clocks...
+
+Information: Checking loops...
+
+Information: Checking no_input_delay...
+
+Information: Checking unconstrained_endpoints...
+
+Information: Checking pulse_clock_cell_type...
+
+Information: Checking no_driving_cell...
+
+Information: Checking partial_input_delay...
+1
+#======================================================
+#  (E) Optimization
+#======================================================
+check_design > Report/$DESIGN\.check
+set_fix_multiple_port_nets -all -buffer_constants [get_designs *]
+1
+set_fix_hold [all_clocks]
+1
+compile_ultra
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Running optimization using a maximum of 8 cores. (OPT-1500)
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler NXT WLM                                                           |
+| Comand line  | compile_ultra                                                                     |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 7666                                   |
+| Number of User Hierarchies                              | 57                                     |
+| Sequential Cell Count                                   | 3503                                   |
+| Macro Count                                             | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 4                                      |
+| Number of VT class                                      | 0                                      |
+| Number of Clocks                                        | 3                                      |
+| Number of Dont Touch cells                              | 815                                    |
+| Number of Dont Touch nets                               | 240                                    |
+| Number of size only cells                               | 0                                      |
+| Design with UPF Data                                    | false                                  |
+----------------------------------------------------------------------------------------------------
+| Variables                                               | Value                                  |
+----------------------------------------------------------------------------------------------------
+| set_fix_multiple_port_nets                              | -all -buffer_constants                 |
+====================================================================================================
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+
+Information: There are 240 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+Information: Uniquified 3 instances of design 'FIFO_syn_WIDTH32_WORDS64'. (OPT-1056)
+Information: Uniquified 6 instances of design 'NDFF_BUS_syn_WIDTH7'. (OPT-1056)
+  Simplifying Design 'HARVESTER_TOP'
+Information: The register 'u_FIFO_syn_AR/wafull_reg' will be removed. (OPT-1207)
+Information: The register 'u_FIFO_syn_R/wafull_reg' will be removed. (OPT-1207)
+Information: The register 'u_FIFO_syn_output/wafull_reg' will be removed. (OPT-1207)
+
+Loading db file '/RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_generic_core_ss1p62v125c.db'
+Loading db file '/RAID2/COURSE/2026_Spring/iclab/iclab132/Lab07_2026/Exercise/04_MEM/DUAL_64X32X1BM1_WC.db'
+  Loading target library 'DUAL_64X32X1BM1_WC'
+Loaded alib file './alib-52/fsa0m_a_generic_core_ss1p62v125c.db.alib'
+Loaded alib file './alib-52/DUAL_64X32X1BM1_WC.db.alib' (placeholder)
+  Building model 'DW01_NAND2'
+Information: Ungrouping hierarchy u_input_output before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy u_Handshake_syn before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy u_FIFO_syn_output before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy u_FIFO_syn_R before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy u_FIFO_syn_AR before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy u_FIFO_syn_output/NDFF_BUS_SYN_R2W before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy u_FIFO_syn_R/NDFF_BUS_SYN_W2R before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy u_FIFO_syn_R/NDFF_BUS_SYN_R2W before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy u_FIFO_syn_AR/NDFF_BUS_SYN_W2R before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy u_FIFO_syn_AR/NDFF_BUS_SYN_R2W before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy u_FIFO_syn_output/NDFF_BUS_SYN_W2R before Pass 1 (OPT-776)
+Information: Ungrouping 11 of 58 hierarchies before Pass 1 (OPT-775)
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+....
+  Processing 'CLK_2_MODULE'
+Information: Added key list 'DesignWare' to design 'CLK_2_MODULE'. (DDB-72)
+Information: The register 'term2_reg[84]' is a constant and will be removed. (OPT-1206)
+Information: The register 'term2_reg[85]' is a constant and will be removed. (OPT-1206)
+ Implement Synthetic for 'CLK_2_MODULE'.
+  Processing 'CLK_3_MODULE'
+Information: Added key list 'DesignWare' to design 'CLK_3_MODULE'. (DDB-72)
+Information: The register 'dram_cmd_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'queue_addr_reg[0][16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_addr_reg[10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_addr_reg[9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_addr_reg[8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[63]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[62]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[61]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[60]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[59]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[58]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[57]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[56]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[55]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[54]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[53]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[52]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[51]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[50]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[49]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[48]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[47]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[46]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[45]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[44]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[43]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[42]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[41]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[40]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[39]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[38]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[37]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[36]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[35]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[34]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[33]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[32]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[31]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[30]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[29]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[28]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[27]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[26]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[25]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[24]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[23]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[22]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[21]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[20]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[19]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[18]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[17]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[15]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[14]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[13]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[12]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'dram_wdata_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'queue_addr_reg[1][16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'queue_addr_reg[2][16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'queue_addr_reg[3][16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'queue_addr_reg[4][16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'queue_addr_reg[5][16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'queue_addr_reg[6][16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'queue_addr_reg[7][16]' is a constant and will be removed. (OPT-1206)
+ Implement Synthetic for 'CLK_3_MODULE'.
+  Processing 'HARVESTER_TOP'
+Information: Added key list 'DesignWare' to design 'HARVESTER_TOP'. (DDB-72)
+Information: The register 'u_input_output/state_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: In design 'HARVESTER_TOP', the register 'u_FIFO_syn_output/waddr_reg[6]' is removed because it is merged to 'u_FIFO_syn_output/wptr_reg[6]'. (OPT-1215)
+Information: In design 'HARVESTER_TOP', the register 'u_FIFO_syn_output/raddr_reg[6]' is removed because it is merged to 'u_FIFO_syn_output/rptr_reg[6]'. (OPT-1215)
+Information: In design 'HARVESTER_TOP', the register 'u_FIFO_syn_R/raddr_reg[6]' is removed because it is merged to 'u_FIFO_syn_R/rptr_reg[6]'. (OPT-1215)
+Information: In design 'HARVESTER_TOP', the register 'u_FIFO_syn_R/waddr_reg[6]' is removed because it is merged to 'u_FIFO_syn_R/wptr_reg[6]'. (OPT-1215)
+Information: In design 'HARVESTER_TOP', the register 'u_FIFO_syn_AR/raddr_reg[6]' is removed because it is merged to 'u_FIFO_syn_AR/rptr_reg[6]'. (OPT-1215)
+Information: In design 'HARVESTER_TOP', the register 'u_FIFO_syn_AR/waddr_reg[6]' is removed because it is merged to 'u_FIFO_syn_AR/wptr_reg[6]'. (OPT-1215)
+ Implement Synthetic for 'HARVESTER_TOP'.
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The library cell 'TIE1' in the library 'fsa0m_a_generic_core_ss1p62v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'TIE0' in the library 'fsa0m_a_generic_core_ss1p62v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'BHD1' in the library 'fsa0m_a_generic_core_ss1p62v125c' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+Information: Complementing port 'ar_valid' in design 'CLK_3_MODULE'.
+         The new name of the port is 'ar_valid_BAR'. (OPT-319)
+Information: Complementing port 'r_fifo_empty' in design 'CLK_2_MODULE'.
+         The new name of the port is 'r_fifo_empty_BAR'. (OPT-319)
+Information: The register 'u_input_output/h_ct_reg[2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'u_HARVESTER/rcv_ct_reg[2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'u_HARVESTER/term2_reg[1]' is a constant and will be removed. (OPT-1206)
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+Information: Ungrouping hierarchy u_HARVESTER 'CLK_2_MODULE' #insts = 12024. (OPT-777)
+  Mapping Optimization (Phase 1)
+  Mapping Optimization (Phase 2)
+Information: The register 'u_HARVESTER/ar_ct_reg[11]' is a constant and will be removed. (OPT-1206)
+
+                                  TOTAL                                                            
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE   MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER      COST    
+  --------- --------- --------- --------- --------- ------------------------- --------- -----------
+    0:01:49 2104916.8      2.33     237.7   18422.2                           139550960.0000      0.00  
+    0:01:51 2104538.7      2.92     257.1   18422.5                           139521632.0000      0.00  
+
+  Beginning Constant Register Removal
+  -----------------------------------
+    0:01:52 2104841.9      2.92     257.1   18422.5                           139558208.0000      0.00  
+    0:01:53 2104841.9      2.92     257.1   18422.5                           139558208.0000      0.00  
+
+  Beginning Global Optimizations
+  ------------------------------
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+  Global Optimization (Phase 31)
+  Mapping 'HARVESTER_TOP_DW_mult_uns_6'
+  Mapping 'HARVESTER_TOP_DP_OP_146J1_122_3491_3'
+
+  Beginning Isolate Ports
+  -----------------------
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:02:04 1490387.4      1.08      81.5    4405.7                           79807368.0000      0.00  
+    0:02:05 1494505.9      0.00       0.0    4556.7                           80213632.0000      0.00  
+    0:02:05 1494505.9      0.00       0.0    4556.7                           80213632.0000      0.00  
+    0:02:05 1494505.9      0.00       0.0    4556.7                           80213632.0000      0.00  
+    0:02:17 1489700.0      0.00       0.0    4607.3                           79790960.0000      0.00  
+    0:02:19 1489068.8      0.52      11.5    4574.8                           79737088.0000      0.00  
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:02:33 1474401.0      0.52       9.8    3088.3                           78256128.0000      0.00  
+    0:02:36 1462561.1      0.31       7.3    3071.0                           77080408.0000      0.00  
+    0:02:37 1456880.2      0.00       0.0    3071.0                           76494472.0000      0.00  
+    0:02:37 1456880.2      0.00       0.0    3071.0                           76494472.0000      0.00  
+    0:02:39 1391400.0      0.00       0.0     711.1                           70778208.0000      0.00  
+    0:02:40 1391400.0      0.00       0.0     711.1                           70778208.0000      0.00  
+    0:02:40 1391400.0      0.00       0.0     711.1                           70778208.0000      0.00  
+    0:02:40 1391400.0      0.00       0.0     711.1                           70778208.0000      0.00  
+    0:02:40 1391400.0      0.00       0.0     711.1                           70778208.0000      0.00  
+    0:02:40 1391400.0      0.00       0.0     711.1                           70778208.0000      0.00  
+    0:02:40 1391400.0      0.00       0.0     711.1                           70778208.0000      0.00  
+    0:02:40 1391400.0      0.00       0.0     711.1                           70778208.0000      0.00  
+    0:02:40 1391400.0      0.00       0.0     711.1                           70778208.0000      0.00  
+    0:02:40 1391400.0      0.00       0.0     711.1                           70778208.0000      0.00  
+    0:02:40 1391400.0      0.00       0.0     711.1                           70778208.0000      0.00  
+    0:02:40 1391400.0      0.00       0.0     711.1                           70778208.0000      0.00  
+    0:02:40 1391400.0      0.00       0.0     711.1                           70778208.0000      0.00  
+    0:02:40 1391400.0      0.00       0.0     711.1                           70778208.0000      0.00  
+    0:02:40 1391400.0      0.00       0.0     711.1                           70778208.0000      0.00  
+    0:02:40 1391400.0      0.00       0.0     711.1                           70778208.0000      0.00  
+    0:02:40 1391400.0      0.00       0.0     711.1                           70778208.0000      0.00  
+    0:02:40 1391400.0      0.00       0.0     711.1                           70778208.0000      0.00  
+    0:02:40 1391400.0      0.00       0.0     711.1                           70778208.0000      0.00  
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                                            
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE   MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER      COST    
+  --------- --------- --------- --------- --------- ------------------------- --------- -----------
+    0:02:40 1391400.0      0.00       0.0     711.1                           70778208.0000      0.00  
+  Global Optimization (Phase 32)
+  Global Optimization (Phase 33)
+  Global Optimization (Phase 34)
+    0:02:40 1391584.4      0.00       0.0       0.0                           70789424.0000      0.00  
+    0:02:40 1391584.4      0.00       0.0       0.0                           70789424.0000      0.00  
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                            
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE   MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER      COST    
+  --------- --------- --------- --------- --------- ------------------------- --------- -----------
+    0:02:40 1391584.4      0.00       0.0       0.0                           70789424.0000      0.00  
+  Global Optimization (Phase 35)
+  Global Optimization (Phase 36)
+  Global Optimization (Phase 37)
+  Global Optimization (Phase 38)
+  Global Optimization (Phase 39)
+  Global Optimization (Phase 40)
+  Global Optimization (Phase 41)
+  Global Optimization (Phase 42)
+  Global Optimization (Phase 43)
+  Global Optimization (Phase 44)
+  Global Optimization (Phase 45)
+  Global Optimization (Phase 46)
+  Global Optimization (Phase 47)
+  Global Optimization (Phase 48)
+  Global Optimization (Phase 49)
+  Global Optimization (Phase 50)
+Information: Complementing port 'ar_valid_BAR' in design 'CLK_3_MODULE'.
+         The new name of the port is 'ar_valid'. (OPT-319)
+    0:02:52 1334422.4      0.00       0.0       6.6                           64109552.0000      0.00  
+    0:02:52 1334422.4      0.00       0.0       6.6                           64109552.0000      0.00  
+    0:02:52 1334422.4      0.00       0.0       6.6                           64109552.0000      0.00  
+    0:02:54 1329007.1      0.00       0.0       6.6                           63475020.0000      0.00  
+    0:02:54 1329007.1      0.00       0.0       6.6                           63475020.0000      0.00  
+    0:02:54 1329007.1      0.00       0.0       6.6                           63475020.0000      0.00  
+    0:02:54 1329007.1      0.00       0.0       6.6                           63475020.0000      0.00  
+    0:02:54 1329007.1      0.00       0.0       6.6                           63475020.0000      0.00  
+    0:02:54 1329007.1      0.00       0.0       6.6                           63475020.0000      0.00  
+    0:02:54 1329007.1      0.00       0.0       6.6                           63475020.0000      0.00  
+    0:02:54 1329007.1      0.00       0.0       6.6                           63475020.0000      0.00  
+    0:02:54 1329007.1      0.00       0.0       6.6                           63475020.0000      0.00  
+    0:02:54 1329007.1      0.00       0.0       6.6                           63475020.0000      0.00  
+    0:02:54 1329007.1      0.00       0.0       6.6                           63475020.0000      0.00  
+    0:02:54 1329007.1      0.00       0.0       6.6                           63475020.0000      0.00  
+    0:02:54 1329007.1      0.00       0.0       6.6                           63475020.0000      0.00  
+    0:02:54 1329007.1      0.00       0.0       6.6                           63475020.0000      0.00  
+    0:02:54 1329007.1      0.00       0.0       6.6                           63475020.0000      0.00  
+    0:02:54 1329007.1      0.00       0.0       6.6                           63475020.0000      0.00  
+    0:02:54 1329007.1      0.00       0.0       6.6                           63475020.0000      0.00  
+    0:02:54 1329007.1      0.00       0.0       6.6                           63475020.0000      0.00  
+    0:02:54 1329007.1      0.00       0.0       6.6                           63475020.0000      0.00  
+
+                                  TOTAL                                                            
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE   MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER      COST    
+  --------- --------- --------- --------- --------- ------------------------- --------- -----------
+    0:02:55 1329532.1      0.00       0.0       6.6                           63507596.0000      0.00  
+    0:02:58 1318673.4      0.00       0.0       0.1                           62578516.0000      0.00  
+    0:02:58 1318673.4      0.00       0.0       0.1                           62578516.0000      0.00  
+    0:02:58 1318673.4      0.00       0.0       0.1                           62578516.0000      0.00  
+    0:03:00 1318048.5      0.00       0.0       0.1                           62521428.0000      0.00  
+    0:03:03 1315317.4      0.00       0.0       0.1                           62261884.0000      0.00  
+    0:03:04 1314161.2      0.00       0.0       0.0                           62128412.0000      0.00  
+    0:03:04 1314161.2      0.00       0.0       0.0                           62128412.0000      0.00  
+    0:03:04 1314161.2      0.00       0.0       0.0                           62128412.0000      0.00  
+    0:03:04 1314161.2      0.00       0.0       0.0                           62128412.0000      0.00  
+    0:03:04 1314161.2      0.00       0.0       0.0                           62128412.0000      0.00  
+    0:03:04 1314161.2      0.00       0.0       0.0                           62128412.0000      0.00  
+    0:03:06 1307414.8      0.00       0.0       0.0                           61432276.0000      0.00  
+Loading db file '/RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_generic_core_ss1p62v125c.db'
+Loading db file '/RAID2/COURSE/2026_Spring/iclab/iclab132/Lab07_2026/Exercise/04_MEM/DUAL_64X32X1BM1_WC.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'HARVESTER_TOP' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'u_FIFO_syn_AR/NDFF_BUS_SYN_W2R/genblk1[0].u_NDFF_syn/clk': 1104 load(s), 1 driver(s)
+     Net 'u_FIFO_syn_AR/NDFF_BUS_SYN_R2W/genblk1[0].u_NDFF_syn/clk': 2088 load(s), 1 driver(s)
+  Loading target library 'DUAL_64X32X1BM1_WC'
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated black box outputs. (PWR-428)
+1
+#uniquify
+#compile
+#======================================================
+#  (F) Output Reports 
+#======================================================
+report_design  >  Report/$DESIGN\.design
+report_resource >  Report/$DESIGN\.resource
+# report_timing -max_paths 1000 -path_type end >  Report/$DESIGN\.timing
+report_timing -to u_FIFO_syn/u_dual_sram/A0 >  Report/$DESIGN\.timing
+report_area -hierarchy >  Report/$DESIGN\.area
+report_power > Report/$DESIGN\.power
+report_clock > Report/$DESIGN\.clock
+report_port >  Report/$DESIGN\.port
+report_power >  Report/$DESIGN\.power
+#report_reference > Report/$DESIGN\.reference
+#======================================================
+#  (G) Change Naming Rule
+#======================================================
+set bus_inference_style "%s\[%d\]"
+%s[%d]
+set bus_naming_style "%s\[%d\]"
+%s[%d]
+set hdlout_internal_busses true
+true
+change_names -hierarchy -rule verilog
+1
+define_name_rules name_rule -allowed "a-z A-Z 0-9 _" -max_length 255 -type cell
+1
+define_name_rules name_rule -allowed "a-z A-Z 0-9 _[]" -max_length 255 -type net
+1
+define_name_rules name_rule -map {{"\\*cell\\*" "cell"}}
+1
+define_name_rules name_rule -case_insensitive
+1
+change_names -hierarchy -rules name_rule
+1
+#======================================================
+#  (H) Output Results
+#======================================================
+set verilogout_higher_designs_first true
+true
+write -format verilog -output Netlist/$DESIGN\_SYN.v -hierarchy
+Writing verilog file '/RAID2/COURSE/2026_Spring/iclab/iclab132/Lab07_2026/Exercise/02_SYN/Netlist/HARVESTER_TOP_SYN.v'.
+1
+write -format ddc     -hierarchy -output $DESIGN\_SYN.ddc
+Writing ddc file 'HARVESTER_TOP_SYN.ddc'.
+1
+write_sdf -version 3.0 -context verilog -load_delay cell Netlist/$DESIGN\_SYN.sdf -significant_digits 6
+Information: Writing timing information to file '/RAID2/COURSE/2026_Spring/iclab/iclab132/Lab07_2026/Exercise/02_SYN/Netlist/HARVESTER_TOP_SYN.sdf'. (WT-3)
+1
+write_sdc Netlist/$DESIGN\_SYN.sdc
+1
+#======================================================
+#  (I) Finish and Quit
+#======================================================
+report_area
+ 
+****************************************
+Report : area
+Design : HARVESTER_TOP
+Version: T-2022.03
+Date   : Tue Apr 28 15:05:16 2026
+****************************************
+
+Library(s) Used:
+
+    fsa0m_a_generic_core_ss1p62v125c (File: /RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_generic_core_ss1p62v125c.db)
+    DUAL_64X32X1BM1_WC (File: /RAID2/COURSE/2026_Spring/iclab/iclab132/Lab07_2026/Exercise/04_MEM/DUAL_64X32X1BM1_WC.db)
+
+Number of ports:                          922
+Number of nets:                         33001
+Number of cells:                        28678
+Number of combinational cells:          25222
+Number of sequential cells:              3408
+Number of macros/black boxes:               3
+Number of buf/inv:                       2986
+Number of references:                     133
+
+Combinational area:             594111.975733
+Buf/Inv area:                    28798.156620
+Noncombinational area:          202543.288200
+Macro/Black Box area:           510759.515625
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:               1307414.779559
+Total area:                 undefined
+1
+report_timing 
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : HARVESTER_TOP
+Version: T-2022.03
+Date   : Tue Apr 28 15:05:16 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: WCCOM   Library: fsa0m_a_generic_core_ss1p62v125c
+Wire Load Model Mode: top
+
+  Startpoint: in_mode_valid
+              (input port clocked by clk1)
+  Endpoint: u_input_output_in_ct_reg_1_
+            (rising edge-triggered flip-flop clocked by clk1)
+  Path Group: clk1
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  HARVESTER_TOP      enG200K               fsa0m_a_generic_core_ss1p62v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk1 (rise edge)                                  0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                   10.05      10.05 f
+  in_mode_valid (in)                                      0.00      10.05 f
+  U1526/O (AN3B2)                                         1.40      11.45 r
+  U1151/O (INV1)                                          1.04      12.49 f
+  U23857/O (NR2)                                          0.60      13.09 r
+  U23858/O (MOAI1S)                                       0.38      13.47 r
+  u_input_output_in_ct_reg_1_/D (QDFFRBS)                 0.00      13.47 r
+  data arrival time                                                 13.47
+
+  clock clk1 (rise edge)                                 20.10      20.10
+  clock network delay (ideal)                             0.00      20.10
+  clock uncertainty                                      -0.10      20.00
+  u_input_output_in_ct_reg_1_/CK (QDFFRBS)                0.00      20.00 r
+  library setup time                                     -0.22      19.78
+  data required time                                                19.78
+  --------------------------------------------------------------------------
+  data required time                                                19.78
+  data arrival time                                                -13.47
+  --------------------------------------------------------------------------
+  slack (MET)                                                        6.30
+
+
+  Startpoint: u_HARVESTER_state_reg_2_
+              (rising edge-triggered flip-flop clocked by clk2)
+  Endpoint: u_HARVESTER_sq_sum_reg_65_
+            (rising edge-triggered flip-flop clocked by clk2)
+  Path Group: clk2
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  HARVESTER_TOP      enG200K               fsa0m_a_generic_core_ss1p62v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk2 (rise edge)                                  0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_HARVESTER_state_reg_2_/CK (QDFFRBT)                   0.00 #     0.00 r
+  u_HARVESTER_state_reg_2_/Q (QDFFRBT)                    0.51       0.51 f
+  U2273/O (INV8)                                          0.11       0.63 r
+  U8743/O (ND2P)                                          0.10       0.73 f
+  U8744/O (OR2T)                                          0.22       0.95 f
+  U8745/O (NR2F)                                          0.12       1.07 r
+  U8746/O (OR2T)                                          0.19       1.26 r
+  U8747/O (OR2T)                                          0.20       1.46 r
+  U2366/O (BUF6)                                          0.33       1.79 r
+  U11230/O (AN2)                                          0.31       2.10 r
+  U8160/O (BUF6)                                          0.26       2.36 r
+  U14645/O (INV2)                                         0.08       2.43 f
+  U14646/O (INV2)                                         0.19       2.62 r
+  U14764/O (XNR2HS)                                       0.22       2.85 r
+  U1326/O (BUF6)                                          0.40       3.24 r
+  U7933/O (ND2P)                                          0.71       3.95 f
+  U16084/O (AO12)                                         0.50       4.45 f
+  U8490/S (FA1S)                                          0.50       4.96 f
+  U16108/CO (FA1S)                                        0.57       5.53 f
+  U5008/CO (FA1S)                                         0.60       6.14 f
+  U16123/S (FA1S)                                         0.86       7.00 r
+  U16114/O (OR2)                                          0.50       7.50 r
+  U16125/O (ND2P)                                         0.14       7.64 f
+  U16139/O (NR2)                                          0.55       8.19 r
+  U16164/O (ND2)                                          0.37       8.56 f
+  U16184/O (NR2P)                                         0.29       8.85 r
+  U16185/O (ND2P)                                         0.17       9.02 f
+  U16320/O (NR2T)                                         0.31       9.33 r
+  U17464/O (ND2)                                          0.29       9.62 f
+  U1087/O (NR2)                                           0.41      10.03 r
+  U17489/O (INV1S)                                        0.21      10.24 f
+  U1121/O (OAI12HS)                                       0.30      10.54 r
+  U17491/O (XNR2HS)                                       0.22      10.76 r
+  U1551/O (MOAI1H)                                        0.26      11.02 r
+  u_HARVESTER_sq_sum_reg_65_/D (QDFFRBS)                  0.00      11.02 r
+  data arrival time                                                 11.02
+
+  clock clk2 (rise edge)                                 11.30      11.30
+  clock network delay (ideal)                             0.00      11.30
+  clock uncertainty                                      -0.10      11.20
+  u_HARVESTER_sq_sum_reg_65_/CK (QDFFRBS)                 0.00      11.20 r
+  library setup time                                     -0.18      11.02
+  data required time                                                11.02
+  --------------------------------------------------------------------------
+  data required time                                                11.02
+  data arrival time                                                -11.02
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+  Startpoint: u_DRAM_SYS/queue_rdata_ct_reg_2_
+              (rising edge-triggered flip-flop clocked by clk3)
+  Endpoint: r_data_clk3[0]
+            (output port clocked by clk3)
+  Path Group: clk3
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  HARVESTER_TOP      enG200K               fsa0m_a_generic_core_ss1p62v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk3 (rise edge)                                  0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_DRAM_SYS/queue_rdata_ct_reg_2_/CK (QDFFRBS)           0.00 #     0.00 r
+  u_DRAM_SYS/queue_rdata_ct_reg_2_/Q (QDFFRBS)            0.93       0.93 r
+  u_DRAM_SYS/U10/O (INV1S)                                0.80       1.73 f
+  u_DRAM_SYS/U8/O (ND2)                                   0.47       2.20 r
+  u_DRAM_SYS/U7/O (INV1S)                                 0.41       2.61 f
+  u_DRAM_SYS/U13/O (ND2)                                  0.82       3.43 r
+  u_DRAM_SYS/U12/O (INV2)                                 1.10       4.53 f
+  u_DRAM_SYS/U850/O (NR2)                                 0.82       5.35 r
+  u_DRAM_SYS/r_data[0] (CLK_3_MODULE)                     0.00       5.35 r
+  r_data_clk3[0] (out)                                    0.00       5.35 r
+  data arrival time                                                  5.35
+
+  clock clk3 (rise edge)                                 34.70      34.70
+  clock network delay (ideal)                             0.00      34.70
+  clock uncertainty                                      -0.10      34.60
+  output external delay                                 -17.35      17.25
+  data required time                                                17.25
+  --------------------------------------------------------------------------
+  data required time                                                17.25
+  data arrival time                                                 -5.35
+  --------------------------------------------------------------------------
+  slack (MET)                                                       11.90
+
+
+1
+exit
+
+Memory usage for this session 746 Mbytes.
+Memory usage for this session including child processes 939 Mbytes.
+CPU usage for this session 428 seconds ( 0.12 hours ).
+Elapsed time for this session 207 seconds ( 0.06 hours ).
+
+Thank you...
+

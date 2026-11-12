@@ -1,0 +1,2600 @@
+================ PATTERN 0 ================
+Weights: A:2 B:6 C:5 E:4 I:2 L:2 O:4 V:6 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: I(2) and Right: L(2) -> New Subtree ID:-1 Weight:4
+Combine Left: Sub(-1)(4) and Right: A(2) -> New Subtree ID:-2 Weight:6
+Combine Left: E(4) and Right: O(4) -> New Subtree ID:-3 Weight:8
+Combine Left: Sub(-2)(6) and Right: C(5) -> New Subtree ID:-4 Weight:11
+Combine Left: B(6) and Right: V(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(11) and Right: Sub(-3)(8) -> New Subtree ID:-6 Weight:19
+Combine Left: Sub(-6)(19) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:31
+----------------------------------------
+Huffman Codes:
+A: 0001
+B: 10
+C: 001
+E: 010
+I: 00000
+L: 00001
+O: 011
+V: 11
+
+Target String: ILOVE
+Expected Bitstream: 000000000101111010
+
+================ PATTERN 1 ================
+Weights: A:1 B:4 C:6 E:4 I:6 L:2 O:1 V:2 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: A(1) and Right: O(1) -> New Subtree ID:-1 Weight:2
+Combine Left: V(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: Sub(-2)(4) and Right: L(2) -> New Subtree ID:-3 Weight:6
+Combine Left: B(4) and Right: E(4) -> New Subtree ID:-4 Weight:8
+Combine Left: I(6) and Right: Sub(-3)(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(8) and Right: C(6) -> New Subtree ID:-6 Weight:14
+Combine Left: Sub(-6)(14) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:26
+----------------------------------------
+Huffman Codes:
+A: 11010
+B: 000
+C: 01
+E: 001
+I: 10
+L: 111
+O: 11011
+V: 1100
+
+Target String: ILOVE
+Expected Bitstream: 10111110111100001
+
+================ PATTERN 2 ================
+Weights: A:4 B:5 C:1 E:4 I:6 L:2 O:5 V:4 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: L(2) and Right: C(1) -> New Subtree ID:-1 Weight:3
+Combine Left: V(4) and Right: Sub(-1)(3) -> New Subtree ID:-2 Weight:7
+Combine Left: A(4) and Right: E(4) -> New Subtree ID:-3 Weight:8
+Combine Left: B(5) and Right: O(5) -> New Subtree ID:-4 Weight:10
+Combine Left: Sub(-2)(7) and Right: I(6) -> New Subtree ID:-5 Weight:13
+Combine Left: Sub(-4)(10) and Right: Sub(-3)(8) -> New Subtree ID:-6 Weight:18
+Combine Left: Sub(-6)(18) and Right: Sub(-5)(13) -> New Subtree ID:-7 Weight:31
+----------------------------------------
+Huffman Codes:
+A: 010
+B: 000
+C: 1011
+E: 011
+I: 11
+L: 1010
+O: 001
+V: 100
+
+Target String: ILOVE
+Expected Bitstream: 111010001100011
+
+================ PATTERN 3 ================
+Weights: A:2 B:5 C:2 E:2 I:7 L:1 O:1 V:7 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: L(1) and Right: O(1) -> New Subtree ID:-1 Weight:2
+Combine Left: E(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: A(2) and Right: C(2) -> New Subtree ID:-3 Weight:4
+Combine Left: Sub(-2)(4) and Right: Sub(-3)(4) -> New Subtree ID:-4 Weight:8
+Combine Left: V(7) and Right: B(5) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(8) and Right: I(7) -> New Subtree ID:-6 Weight:15
+Combine Left: Sub(-6)(15) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:27
+----------------------------------------
+Huffman Codes:
+A: 0010
+B: 11
+C: 0011
+E: 0000
+I: 01
+L: 00010
+O: 00011
+V: 10
+
+Target String: ILOVE
+Expected Bitstream: 010001000011100000
+
+================ PATTERN 4 ================
+Weights: A:2 B:2 C:3 E:5 I:2 L:4 O:6 V:5 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: B(2) and Right: I(2) -> New Subtree ID:-1 Weight:4
+Combine Left: C(3) and Right: A(2) -> New Subtree ID:-2 Weight:5
+Combine Left: L(4) and Right: Sub(-1)(4) -> New Subtree ID:-3 Weight:8
+Combine Left: V(5) and Right: Sub(-2)(5) -> New Subtree ID:-4 Weight:10
+Combine Left: O(6) and Right: E(5) -> New Subtree ID:-5 Weight:11
+Combine Left: Sub(-4)(10) and Right: Sub(-3)(8) -> New Subtree ID:-6 Weight:18
+Combine Left: Sub(-6)(18) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:29
+----------------------------------------
+Huffman Codes:
+A: 0011
+B: 0110
+C: 0010
+E: 11
+I: 0111
+L: 010
+O: 10
+V: 000
+
+Target String: ILOVE
+Expected Bitstream: 01110101000011
+
+================ PATTERN 5 ================
+Weights: A:3 B:7 C:2 E:2 I:1 L:3 O:6 V:3 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: E(2) and Right: I(1) -> New Subtree ID:-1 Weight:3
+Combine Left: Sub(-1)(3) and Right: C(2) -> New Subtree ID:-2 Weight:5
+Combine Left: L(3) and Right: V(3) -> New Subtree ID:-3 Weight:6
+Combine Left: Sub(-2)(5) and Right: A(3) -> New Subtree ID:-4 Weight:8
+Combine Left: O(6) and Right: Sub(-3)(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(8) and Right: B(7) -> New Subtree ID:-6 Weight:15
+Combine Left: Sub(-6)(15) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:27
+----------------------------------------
+Huffman Codes:
+A: 001
+B: 01
+C: 0001
+E: 00000
+I: 00001
+L: 110
+O: 10
+V: 111
+
+Target String: ILOVE
+Expected Bitstream: 000011101011100000
+
+================ PATTERN 6 ================
+Weights: A:1 B:4 C:5 E:3 I:3 L:1 O:6 V:6 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: A(1) and Right: L(1) -> New Subtree ID:-1 Weight:2
+Combine Left: I(3) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:5
+Combine Left: B(4) and Right: E(3) -> New Subtree ID:-3 Weight:7
+Combine Left: C(5) and Right: Sub(-2)(5) -> New Subtree ID:-4 Weight:10
+Combine Left: O(6) and Right: V(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(10) and Right: Sub(-3)(7) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:29
+----------------------------------------
+Huffman Codes:
+A: 00110
+B: 010
+C: 000
+E: 011
+I: 0010
+L: 00111
+O: 10
+V: 11
+
+Target String: ILOVE
+Expected Bitstream: 0010001111011011
+
+================ PATTERN 7 ================
+Weights: A:5 B:4 C:2 E:3 I:4 L:5 O:2 V:3 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: C(2) and Right: O(2) -> New Subtree ID:-1 Weight:4
+Combine Left: E(3) and Right: V(3) -> New Subtree ID:-2 Weight:6
+Combine Left: I(4) and Right: Sub(-1)(4) -> New Subtree ID:-3 Weight:8
+Combine Left: L(5) and Right: B(4) -> New Subtree ID:-4 Weight:9
+Combine Left: Sub(-2)(6) and Right: A(5) -> New Subtree ID:-5 Weight:11
+Combine Left: Sub(-4)(9) and Right: Sub(-3)(8) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:28
+----------------------------------------
+Huffman Codes:
+A: 11
+B: 001
+C: 0110
+E: 100
+I: 010
+L: 000
+O: 0111
+V: 101
+
+Target String: ICLAB
+Expected Bitstream: 010011000011001
+
+================ PATTERN 8 ================
+Weights: A:2 B:4 C:3 E:7 I:2 L:5 O:3 V:4 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: A(2) and Right: I(2) -> New Subtree ID:-1 Weight:4
+Combine Left: C(3) and Right: O(3) -> New Subtree ID:-2 Weight:6
+Combine Left: V(4) and Right: Sub(-1)(4) -> New Subtree ID:-3 Weight:8
+Combine Left: L(5) and Right: B(4) -> New Subtree ID:-4 Weight:9
+Combine Left: E(7) and Right: Sub(-2)(6) -> New Subtree ID:-5 Weight:13
+Combine Left: Sub(-4)(9) and Right: Sub(-3)(8) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(13) -> New Subtree ID:-7 Weight:30
+----------------------------------------
+Huffman Codes:
+A: 0110
+B: 001
+C: 110
+E: 10
+I: 0111
+L: 000
+O: 111
+V: 010
+
+Target String: ICLAB
+Expected Bitstream: 01111100000110001
+
+================ PATTERN 9 ================
+Weights: A:3 B:6 C:1 E:4 I:6 L:4 O:3 V:1 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: C(1) and Right: V(1) -> New Subtree ID:-1 Weight:2
+Combine Left: O(3) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:5
+Combine Left: L(4) and Right: A(3) -> New Subtree ID:-3 Weight:7
+Combine Left: Sub(-2)(5) and Right: E(4) -> New Subtree ID:-4 Weight:9
+Combine Left: B(6) and Right: I(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(9) and Right: Sub(-3)(7) -> New Subtree ID:-6 Weight:16
+Combine Left: Sub(-6)(16) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:28
+----------------------------------------
+Huffman Codes:
+A: 011
+B: 10
+C: 00010
+E: 001
+I: 11
+L: 010
+O: 0000
+V: 00011
+
+Target String: ICLAB
+Expected Bitstream: 110001001001110
+
+================ PATTERN 10 ================
+Weights: A:5 B:3 C:4 E:3 I:2 L:6 O:6 V:1 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: I(2) and Right: V(1) -> New Subtree ID:-1 Weight:3
+Combine Left: E(3) and Right: Sub(-1)(3) -> New Subtree ID:-2 Weight:6
+Combine Left: C(4) and Right: B(3) -> New Subtree ID:-3 Weight:7
+Combine Left: Sub(-2)(6) and Right: A(5) -> New Subtree ID:-4 Weight:11
+Combine Left: L(6) and Right: O(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(11) and Right: Sub(-3)(7) -> New Subtree ID:-6 Weight:18
+Combine Left: Sub(-6)(18) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:30
+----------------------------------------
+Huffman Codes:
+A: 001
+B: 011
+C: 010
+E: 0000
+I: 00010
+L: 10
+O: 11
+V: 00011
+
+Target String: ILOVE
+Expected Bitstream: 000101011000110000
+
+================ PATTERN 11 ================
+Weights: A:4 B:2 C:4 E:4 I:4 L:1 O:1 V:1 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: O(1) and Right: V(1) -> New Subtree ID:-1 Weight:2
+Combine Left: Sub(-1)(2) and Right: L(1) -> New Subtree ID:-2 Weight:3
+Combine Left: Sub(-2)(3) and Right: B(2) -> New Subtree ID:-3 Weight:5
+Combine Left: E(4) and Right: I(4) -> New Subtree ID:-4 Weight:8
+Combine Left: A(4) and Right: C(4) -> New Subtree ID:-5 Weight:8
+Combine Left: Sub(-5)(8) and Right: Sub(-3)(5) -> New Subtree ID:-6 Weight:13
+Combine Left: Sub(-6)(13) and Right: Sub(-4)(8) -> New Subtree ID:-7 Weight:21
+----------------------------------------
+Huffman Codes:
+A: 000
+B: 011
+C: 001
+E: 10
+I: 11
+L: 0101
+O: 01000
+V: 01001
+
+Target String: ILOVE
+Expected Bitstream: 110101010000100110
+
+================ PATTERN 12 ================
+Weights: A:2 B:2 C:7 E:1 I:2 L:4 O:2 V:2 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: V(2) and Right: E(1) -> New Subtree ID:-1 Weight:3
+Combine Left: I(2) and Right: O(2) -> New Subtree ID:-2 Weight:4
+Combine Left: A(2) and Right: B(2) -> New Subtree ID:-3 Weight:4
+Combine Left: Sub(-3)(4) and Right: Sub(-1)(3) -> New Subtree ID:-4 Weight:7
+Combine Left: L(4) and Right: Sub(-2)(4) -> New Subtree ID:-5 Weight:8
+Combine Left: C(7) and Right: Sub(-4)(7) -> New Subtree ID:-6 Weight:14
+Combine Left: Sub(-6)(14) and Right: Sub(-5)(8) -> New Subtree ID:-7 Weight:22
+----------------------------------------
+Huffman Codes:
+A: 0100
+B: 0101
+C: 00
+E: 0111
+I: 110
+L: 10
+O: 111
+V: 0110
+
+Target String: ILOVE
+Expected Bitstream: 1101011101100111
+
+================ PATTERN 13 ================
+Weights: A:3 B:4 C:4 E:2 I:2 L:1 O:5 V:2 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: V(2) and Right: L(1) -> New Subtree ID:-1 Weight:3
+Combine Left: E(2) and Right: I(2) -> New Subtree ID:-2 Weight:4
+Combine Left: A(3) and Right: Sub(-1)(3) -> New Subtree ID:-3 Weight:6
+Combine Left: C(4) and Right: Sub(-2)(4) -> New Subtree ID:-4 Weight:8
+Combine Left: O(5) and Right: B(4) -> New Subtree ID:-5 Weight:9
+Combine Left: Sub(-4)(8) and Right: Sub(-3)(6) -> New Subtree ID:-6 Weight:14
+Combine Left: Sub(-6)(14) and Right: Sub(-5)(9) -> New Subtree ID:-7 Weight:23
+----------------------------------------
+Huffman Codes:
+A: 010
+B: 11
+C: 000
+E: 0010
+I: 0011
+L: 0111
+O: 10
+V: 0110
+
+Target String: ILOVE
+Expected Bitstream: 001101111001100010
+
+================ PATTERN 14 ================
+Weights: A:2 B:6 C:7 E:2 I:6 L:3 O:3 V:1 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: E(2) and Right: V(1) -> New Subtree ID:-1 Weight:3
+Combine Left: Sub(-1)(3) and Right: A(2) -> New Subtree ID:-2 Weight:5
+Combine Left: L(3) and Right: O(3) -> New Subtree ID:-3 Weight:6
+Combine Left: Sub(-3)(6) and Right: Sub(-2)(5) -> New Subtree ID:-4 Weight:11
+Combine Left: B(6) and Right: I(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(11) and Right: C(7) -> New Subtree ID:-6 Weight:18
+Combine Left: Sub(-6)(18) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:30
+----------------------------------------
+Huffman Codes:
+A: 0011
+B: 10
+C: 01
+E: 00100
+I: 11
+L: 0000
+O: 0001
+V: 00101
+
+Target String: ILOVE
+Expected Bitstream: 11000000010010100100
+
+================ PATTERN 15 ================
+Weights: A:4 B:1 C:2 E:2 I:2 L:3 O:5 V:5 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: I(2) and Right: B(1) -> New Subtree ID:-1 Weight:3
+Combine Left: C(2) and Right: E(2) -> New Subtree ID:-2 Weight:4
+Combine Left: L(3) and Right: Sub(-1)(3) -> New Subtree ID:-3 Weight:6
+Combine Left: A(4) and Right: Sub(-2)(4) -> New Subtree ID:-4 Weight:8
+Combine Left: O(5) and Right: V(5) -> New Subtree ID:-5 Weight:10
+Combine Left: Sub(-4)(8) and Right: Sub(-3)(6) -> New Subtree ID:-6 Weight:14
+Combine Left: Sub(-6)(14) and Right: Sub(-5)(10) -> New Subtree ID:-7 Weight:24
+----------------------------------------
+Huffman Codes:
+A: 000
+B: 0111
+C: 0010
+E: 0011
+I: 0110
+L: 010
+O: 10
+V: 11
+
+Target String: ILOVE
+Expected Bitstream: 011001010110011
+
+================ PATTERN 16 ================
+Weights: A:2 B:2 C:4 E:7 I:3 L:7 O:3 V:1 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: B(2) and Right: V(1) -> New Subtree ID:-1 Weight:3
+Combine Left: Sub(-1)(3) and Right: A(2) -> New Subtree ID:-2 Weight:5
+Combine Left: I(3) and Right: O(3) -> New Subtree ID:-3 Weight:6
+Combine Left: Sub(-2)(5) and Right: C(4) -> New Subtree ID:-4 Weight:9
+Combine Left: L(7) and Right: Sub(-3)(6) -> New Subtree ID:-5 Weight:13
+Combine Left: Sub(-4)(9) and Right: E(7) -> New Subtree ID:-6 Weight:16
+Combine Left: Sub(-6)(16) and Right: Sub(-5)(13) -> New Subtree ID:-7 Weight:29
+----------------------------------------
+Huffman Codes:
+A: 0001
+B: 00000
+C: 001
+E: 01
+I: 110
+L: 10
+O: 111
+V: 00001
+
+Target String: ILOVE
+Expected Bitstream: 110101110000101
+
+================ PATTERN 17 ================
+Weights: A:5 B:6 C:1 E:3 I:4 L:2 O:1 V:3 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: C(1) and Right: O(1) -> New Subtree ID:-1 Weight:2
+Combine Left: L(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: E(3) and Right: V(3) -> New Subtree ID:-3 Weight:6
+Combine Left: I(4) and Right: Sub(-2)(4) -> New Subtree ID:-4 Weight:8
+Combine Left: Sub(-3)(6) and Right: A(5) -> New Subtree ID:-5 Weight:11
+Combine Left: Sub(-4)(8) and Right: B(6) -> New Subtree ID:-6 Weight:14
+Combine Left: Sub(-6)(14) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:25
+----------------------------------------
+Huffman Codes:
+A: 11
+B: 01
+C: 00110
+E: 100
+I: 000
+L: 0010
+O: 00111
+V: 101
+
+Target String: ICLAB
+Expected Bitstream: 0000011000101101
+
+================ PATTERN 18 ================
+Weights: A:6 B:1 C:2 E:3 I:2 L:7 O:5 V:4 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: I(2) and Right: B(1) -> New Subtree ID:-1 Weight:3
+Combine Left: Sub(-1)(3) and Right: C(2) -> New Subtree ID:-2 Weight:5
+Combine Left: V(4) and Right: E(3) -> New Subtree ID:-3 Weight:7
+Combine Left: O(5) and Right: Sub(-2)(5) -> New Subtree ID:-4 Weight:10
+Combine Left: Sub(-3)(7) and Right: A(6) -> New Subtree ID:-5 Weight:13
+Combine Left: Sub(-4)(10) and Right: L(7) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(13) -> New Subtree ID:-7 Weight:30
+----------------------------------------
+Huffman Codes:
+A: 11
+B: 00101
+C: 0011
+E: 101
+I: 00100
+L: 01
+O: 000
+V: 100
+
+Target String: ILOVE
+Expected Bitstream: 0010001000100101
+
+================ PATTERN 19 ================
+Weights: A:3 B:5 C:2 E:6 I:3 L:7 O:2 V:3 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: C(2) and Right: O(2) -> New Subtree ID:-1 Weight:4
+Combine Left: I(3) and Right: V(3) -> New Subtree ID:-2 Weight:6
+Combine Left: Sub(-1)(4) and Right: A(3) -> New Subtree ID:-3 Weight:7
+Combine Left: Sub(-2)(6) and Right: B(5) -> New Subtree ID:-4 Weight:11
+Combine Left: Sub(-3)(7) and Right: E(6) -> New Subtree ID:-5 Weight:13
+Combine Left: Sub(-4)(11) and Right: L(7) -> New Subtree ID:-6 Weight:18
+Combine Left: Sub(-6)(18) and Right: Sub(-5)(13) -> New Subtree ID:-7 Weight:31
+----------------------------------------
+Huffman Codes:
+A: 101
+B: 001
+C: 1000
+E: 11
+I: 0000
+L: 01
+O: 1001
+V: 0001
+
+Target String: ILOVE
+Expected Bitstream: 0000011001000111
+
+================ PATTERN 20 ================
+Weights: A:4 B:1 C:2 E:5 I:4 L:6 O:2 V:3 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: O(2) and Right: B(1) -> New Subtree ID:-1 Weight:3
+Combine Left: Sub(-1)(3) and Right: C(2) -> New Subtree ID:-2 Weight:5
+Combine Left: I(4) and Right: V(3) -> New Subtree ID:-3 Weight:7
+Combine Left: Sub(-2)(5) and Right: A(4) -> New Subtree ID:-4 Weight:9
+Combine Left: L(6) and Right: E(5) -> New Subtree ID:-5 Weight:11
+Combine Left: Sub(-4)(9) and Right: Sub(-3)(7) -> New Subtree ID:-6 Weight:16
+Combine Left: Sub(-6)(16) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:27
+----------------------------------------
+Huffman Codes:
+A: 001
+B: 00001
+C: 0001
+E: 11
+I: 010
+L: 10
+O: 00000
+V: 011
+
+Target String: ILOVE
+Expected Bitstream: 010100000001111
+
+================ PATTERN 21 ================
+Weights: A:4 B:6 C:6 E:4 I:3 L:1 O:5 V:2 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: V(2) and Right: L(1) -> New Subtree ID:-1 Weight:3
+Combine Left: I(3) and Right: Sub(-1)(3) -> New Subtree ID:-2 Weight:6
+Combine Left: A(4) and Right: E(4) -> New Subtree ID:-3 Weight:8
+Combine Left: Sub(-2)(6) and Right: O(5) -> New Subtree ID:-4 Weight:11
+Combine Left: B(6) and Right: C(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(11) and Right: Sub(-3)(8) -> New Subtree ID:-6 Weight:19
+Combine Left: Sub(-6)(19) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:31
+----------------------------------------
+Huffman Codes:
+A: 010
+B: 10
+C: 11
+E: 011
+I: 0000
+L: 00011
+O: 001
+V: 00010
+
+Target String: ILOVE
+Expected Bitstream: 00000001100100010011
+
+================ PATTERN 22 ================
+Weights: A:1 B:5 C:2 E:4 I:5 L:5 O:5 V:3 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: C(2) and Right: A(1) -> New Subtree ID:-1 Weight:3
+Combine Left: V(3) and Right: Sub(-1)(3) -> New Subtree ID:-2 Weight:6
+Combine Left: O(5) and Right: E(4) -> New Subtree ID:-3 Weight:9
+Combine Left: I(5) and Right: L(5) -> New Subtree ID:-4 Weight:10
+Combine Left: Sub(-2)(6) and Right: B(5) -> New Subtree ID:-5 Weight:11
+Combine Left: Sub(-4)(10) and Right: Sub(-3)(9) -> New Subtree ID:-6 Weight:19
+Combine Left: Sub(-6)(19) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:30
+----------------------------------------
+Huffman Codes:
+A: 1011
+B: 11
+C: 1010
+E: 011
+I: 000
+L: 001
+O: 010
+V: 100
+
+Target String: ICLAB
+Expected Bitstream: 0001010001101111
+
+================ PATTERN 23 ================
+Weights: A:4 B:1 C:1 E:7 I:2 L:4 O:2 V:6 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: B(1) and Right: C(1) -> New Subtree ID:-1 Weight:2
+Combine Left: O(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: Sub(-2)(4) and Right: I(2) -> New Subtree ID:-3 Weight:6
+Combine Left: A(4) and Right: L(4) -> New Subtree ID:-4 Weight:8
+Combine Left: V(6) and Right: Sub(-3)(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(8) and Right: E(7) -> New Subtree ID:-6 Weight:15
+Combine Left: Sub(-6)(15) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:27
+----------------------------------------
+Huffman Codes:
+A: 000
+B: 11010
+C: 11011
+E: 01
+I: 111
+L: 001
+O: 1100
+V: 10
+
+Target String: ICLAB
+Expected Bitstream: 1111101100100011010
+
+================ PATTERN 24 ================
+Weights: A:4 B:3 C:7 E:1 I:3 L:3 O:4 V:5 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: L(3) and Right: E(1) -> New Subtree ID:-1 Weight:4
+Combine Left: B(3) and Right: I(3) -> New Subtree ID:-2 Weight:6
+Combine Left: O(4) and Right: Sub(-1)(4) -> New Subtree ID:-3 Weight:8
+Combine Left: V(5) and Right: A(4) -> New Subtree ID:-4 Weight:9
+Combine Left: C(7) and Right: Sub(-2)(6) -> New Subtree ID:-5 Weight:13
+Combine Left: Sub(-4)(9) and Right: Sub(-3)(8) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(13) -> New Subtree ID:-7 Weight:30
+----------------------------------------
+Huffman Codes:
+A: 001
+B: 110
+C: 10
+E: 0111
+I: 111
+L: 0110
+O: 010
+V: 000
+
+Target String: ILOVE
+Expected Bitstream: 11101100100000111
+
+================ PATTERN 25 ================
+Weights: A:7 B:5 C:1 E:1 I:5 L:5 O:1 V:3 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: E(1) and Right: O(1) -> New Subtree ID:-1 Weight:2
+Combine Left: Sub(-1)(2) and Right: C(1) -> New Subtree ID:-2 Weight:3
+Combine Left: V(3) and Right: Sub(-2)(3) -> New Subtree ID:-3 Weight:6
+Combine Left: I(5) and Right: L(5) -> New Subtree ID:-4 Weight:10
+Combine Left: Sub(-3)(6) and Right: B(5) -> New Subtree ID:-5 Weight:11
+Combine Left: Sub(-4)(10) and Right: A(7) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:28
+----------------------------------------
+Huffman Codes:
+A: 01
+B: 11
+C: 1011
+E: 10100
+I: 000
+L: 001
+O: 10101
+V: 100
+
+Target String: ICLAB
+Expected Bitstream: 00010110010111
+
+================ PATTERN 26 ================
+Weights: A:7 B:2 C:3 E:6 I:2 L:2 O:5 V:3 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: I(2) and Right: L(2) -> New Subtree ID:-1 Weight:4
+Combine Left: V(3) and Right: B(2) -> New Subtree ID:-2 Weight:5
+Combine Left: Sub(-1)(4) and Right: C(3) -> New Subtree ID:-3 Weight:7
+Combine Left: O(5) and Right: Sub(-2)(5) -> New Subtree ID:-4 Weight:10
+Combine Left: Sub(-3)(7) and Right: E(6) -> New Subtree ID:-5 Weight:13
+Combine Left: Sub(-4)(10) and Right: A(7) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(13) -> New Subtree ID:-7 Weight:30
+----------------------------------------
+Huffman Codes:
+A: 01
+B: 0011
+C: 101
+E: 11
+I: 1000
+L: 1001
+O: 000
+V: 0010
+
+Target String: ICLAB
+Expected Bitstream: 10001011001010011
+
+================ PATTERN 27 ================
+Weights: A:3 B:7 C:3 E:1 I:7 L:3 O:5 V:2 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: V(2) and Right: E(1) -> New Subtree ID:-1 Weight:3
+Combine Left: L(3) and Right: Sub(-1)(3) -> New Subtree ID:-2 Weight:6
+Combine Left: A(3) and Right: C(3) -> New Subtree ID:-3 Weight:6
+Combine Left: Sub(-3)(6) and Right: O(5) -> New Subtree ID:-4 Weight:11
+Combine Left: I(7) and Right: Sub(-2)(6) -> New Subtree ID:-5 Weight:13
+Combine Left: Sub(-4)(11) and Right: B(7) -> New Subtree ID:-6 Weight:18
+Combine Left: Sub(-6)(18) and Right: Sub(-5)(13) -> New Subtree ID:-7 Weight:31
+----------------------------------------
+Huffman Codes:
+A: 0000
+B: 01
+C: 0001
+E: 1111
+I: 10
+L: 110
+O: 001
+V: 1110
+
+Target String: ICLAB
+Expected Bitstream: 100001110000001
+
+================ PATTERN 28 ================
+Weights: A:1 B:6 C:4 E:4 I:2 L:6 O:2 V:4 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: O(2) and Right: A(1) -> New Subtree ID:-1 Weight:3
+Combine Left: Sub(-1)(3) and Right: I(2) -> New Subtree ID:-2 Weight:5
+Combine Left: E(4) and Right: V(4) -> New Subtree ID:-3 Weight:8
+Combine Left: Sub(-2)(5) and Right: C(4) -> New Subtree ID:-4 Weight:9
+Combine Left: B(6) and Right: L(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(9) and Right: Sub(-3)(8) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:29
+----------------------------------------
+Huffman Codes:
+A: 00001
+B: 10
+C: 001
+E: 010
+I: 0001
+L: 11
+O: 00000
+V: 011
+
+Target String: ILOVE
+Expected Bitstream: 00011100000011010
+
+================ PATTERN 29 ================
+Weights: A:1 B:1 C:3 E:4 I:2 L:6 O:7 V:1 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: B(1) and Right: V(1) -> New Subtree ID:-1 Weight:2
+Combine Left: Sub(-1)(2) and Right: A(1) -> New Subtree ID:-2 Weight:3
+Combine Left: Sub(-2)(3) and Right: I(2) -> New Subtree ID:-3 Weight:5
+Combine Left: E(4) and Right: C(3) -> New Subtree ID:-4 Weight:7
+Combine Left: L(6) and Right: Sub(-3)(5) -> New Subtree ID:-5 Weight:11
+Combine Left: O(7) and Right: Sub(-4)(7) -> New Subtree ID:-6 Weight:14
+Combine Left: Sub(-6)(14) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:25
+----------------------------------------
+Huffman Codes:
+A: 1101
+B: 11000
+C: 011
+E: 010
+I: 111
+L: 10
+O: 00
+V: 11001
+
+Target String: ILOVE
+Expected Bitstream: 111100011001010
+
+================ PATTERN 30 ================
+Weights: A:1 B:7 C:1 E:5 I:1 L:5 O:6 V:1 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: I(1) and Right: V(1) -> New Subtree ID:-1 Weight:2
+Combine Left: A(1) and Right: C(1) -> New Subtree ID:-2 Weight:2
+Combine Left: Sub(-1)(2) and Right: Sub(-2)(2) -> New Subtree ID:-3 Weight:4
+Combine Left: L(5) and Right: Sub(-3)(4) -> New Subtree ID:-4 Weight:9
+Combine Left: O(6) and Right: E(5) -> New Subtree ID:-5 Weight:11
+Combine Left: Sub(-4)(9) and Right: B(7) -> New Subtree ID:-6 Weight:16
+Combine Left: Sub(-6)(16) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:27
+----------------------------------------
+Huffman Codes:
+A: 00110
+B: 01
+C: 00111
+E: 11
+I: 00100
+L: 000
+O: 10
+V: 00101
+
+Target String: ILOVE
+Expected Bitstream: 00100000100010111
+
+================ PATTERN 31 ================
+Weights: A:5 B:5 C:4 E:3 I:7 L:1 O:3 V:1 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: L(1) and Right: V(1) -> New Subtree ID:-1 Weight:2
+Combine Left: O(3) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:5
+Combine Left: C(4) and Right: E(3) -> New Subtree ID:-3 Weight:7
+Combine Left: B(5) and Right: Sub(-2)(5) -> New Subtree ID:-4 Weight:10
+Combine Left: Sub(-3)(7) and Right: A(5) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(10) and Right: I(7) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:29
+----------------------------------------
+Huffman Codes:
+A: 11
+B: 000
+C: 100
+E: 101
+I: 01
+L: 00110
+O: 0010
+V: 00111
+
+Target String: ICLAB
+Expected Bitstream: 011000011011000
+
+================ PATTERN 32 ================
+Weights: A:2 B:5 C:3 E:1 I:3 L:4 O:6 V:5 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: A(2) and Right: E(1) -> New Subtree ID:-1 Weight:3
+Combine Left: I(3) and Right: Sub(-1)(3) -> New Subtree ID:-2 Weight:6
+Combine Left: L(4) and Right: C(3) -> New Subtree ID:-3 Weight:7
+Combine Left: B(5) and Right: V(5) -> New Subtree ID:-4 Weight:10
+Combine Left: O(6) and Right: Sub(-2)(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(10) and Right: Sub(-3)(7) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:29
+----------------------------------------
+Huffman Codes:
+A: 1110
+B: 000
+C: 011
+E: 1111
+I: 110
+L: 010
+O: 10
+V: 001
+
+Target String: ILOVE
+Expected Bitstream: 110010100011111
+
+================ PATTERN 33 ================
+Weights: A:4 B:5 C:2 E:4 I:4 L:2 O:1 V:2 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: V(2) and Right: O(1) -> New Subtree ID:-1 Weight:3
+Combine Left: C(2) and Right: L(2) -> New Subtree ID:-2 Weight:4
+Combine Left: Sub(-2)(4) and Right: Sub(-1)(3) -> New Subtree ID:-3 Weight:7
+Combine Left: E(4) and Right: I(4) -> New Subtree ID:-4 Weight:8
+Combine Left: B(5) and Right: A(4) -> New Subtree ID:-5 Weight:9
+Combine Left: Sub(-4)(8) and Right: Sub(-3)(7) -> New Subtree ID:-6 Weight:15
+Combine Left: Sub(-6)(15) and Right: Sub(-5)(9) -> New Subtree ID:-7 Weight:24
+----------------------------------------
+Huffman Codes:
+A: 11
+B: 10
+C: 0100
+E: 000
+I: 001
+L: 0101
+O: 0111
+V: 0110
+
+Target String: ILOVE
+Expected Bitstream: 001010101110110000
+
+================ PATTERN 34 ================
+Weights: A:5 B:3 C:5 E:3 I:3 L:6 O:5 V:1 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: I(3) and Right: V(1) -> New Subtree ID:-1 Weight:4
+Combine Left: B(3) and Right: E(3) -> New Subtree ID:-2 Weight:6
+Combine Left: O(5) and Right: Sub(-1)(4) -> New Subtree ID:-3 Weight:9
+Combine Left: A(5) and Right: C(5) -> New Subtree ID:-4 Weight:10
+Combine Left: L(6) and Right: Sub(-2)(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(10) and Right: Sub(-3)(9) -> New Subtree ID:-6 Weight:19
+Combine Left: Sub(-6)(19) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:31
+----------------------------------------
+Huffman Codes:
+A: 000
+B: 110
+C: 001
+E: 111
+I: 0110
+L: 10
+O: 010
+V: 0111
+
+Target String: ILOVE
+Expected Bitstream: 0110100100111111
+
+================ PATTERN 35 ================
+Weights: A:1 B:2 C:7 E:1 I:4 L:5 O:6 V:3 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: A(1) and Right: E(1) -> New Subtree ID:-1 Weight:2
+Combine Left: B(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: Sub(-2)(4) and Right: V(3) -> New Subtree ID:-3 Weight:7
+Combine Left: L(5) and Right: I(4) -> New Subtree ID:-4 Weight:9
+Combine Left: Sub(-3)(7) and Right: O(6) -> New Subtree ID:-5 Weight:13
+Combine Left: Sub(-4)(9) and Right: C(7) -> New Subtree ID:-6 Weight:16
+Combine Left: Sub(-6)(16) and Right: Sub(-5)(13) -> New Subtree ID:-7 Weight:29
+----------------------------------------
+Huffman Codes:
+A: 10010
+B: 1000
+C: 01
+E: 10011
+I: 001
+L: 000
+O: 11
+V: 101
+
+Target String: ILOVE
+Expected Bitstream: 0010001110110011
+
+================ PATTERN 36 ================
+Weights: A:3 B:2 C:1 E:3 I:4 L:5 O:2 V:6 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: O(2) and Right: C(1) -> New Subtree ID:-1 Weight:3
+Combine Left: Sub(-1)(3) and Right: B(2) -> New Subtree ID:-2 Weight:5
+Combine Left: A(3) and Right: E(3) -> New Subtree ID:-3 Weight:6
+Combine Left: Sub(-2)(5) and Right: I(4) -> New Subtree ID:-4 Weight:9
+Combine Left: Sub(-3)(6) and Right: L(5) -> New Subtree ID:-5 Weight:11
+Combine Left: Sub(-4)(9) and Right: V(6) -> New Subtree ID:-6 Weight:15
+Combine Left: Sub(-6)(15) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:26
+----------------------------------------
+Huffman Codes:
+A: 100
+B: 0001
+C: 00001
+E: 101
+I: 001
+L: 11
+O: 00000
+V: 01
+
+Target String: ICLAB
+Expected Bitstream: 00100001111000001
+
+================ PATTERN 37 ================
+Weights: A:2 B:1 C:7 E:3 I:4 L:7 O:6 V:1 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: B(1) and Right: V(1) -> New Subtree ID:-1 Weight:2
+Combine Left: A(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: Sub(-2)(4) and Right: E(3) -> New Subtree ID:-3 Weight:7
+Combine Left: O(6) and Right: I(4) -> New Subtree ID:-4 Weight:10
+Combine Left: L(7) and Right: Sub(-3)(7) -> New Subtree ID:-5 Weight:14
+Combine Left: Sub(-4)(10) and Right: C(7) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(14) -> New Subtree ID:-7 Weight:31
+----------------------------------------
+Huffman Codes:
+A: 1100
+B: 11010
+C: 01
+E: 111
+I: 001
+L: 10
+O: 000
+V: 11011
+
+Target String: ICLAB
+Expected Bitstream: 0010110110011010
+
+================ PATTERN 38 ================
+Weights: A:6 B:6 C:1 E:6 I:1 L:2 O:4 V:1 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: I(1) and Right: V(1) -> New Subtree ID:-1 Weight:2
+Combine Left: Sub(-1)(2) and Right: C(1) -> New Subtree ID:-2 Weight:3
+Combine Left: Sub(-2)(3) and Right: L(2) -> New Subtree ID:-3 Weight:5
+Combine Left: Sub(-3)(5) and Right: O(4) -> New Subtree ID:-4 Weight:9
+Combine Left: B(6) and Right: E(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(9) and Right: A(6) -> New Subtree ID:-6 Weight:15
+Combine Left: Sub(-6)(15) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:27
+----------------------------------------
+Huffman Codes:
+A: 01
+B: 10
+C: 00001
+E: 11
+I: 000000
+L: 0001
+O: 001
+V: 000001
+
+Target String: ICLAB
+Expected Bitstream: 0000000000100010110
+
+================ PATTERN 39 ================
+Weights: A:3 B:4 C:4 E:5 I:3 L:1 O:3 V:2 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: V(2) and Right: L(1) -> New Subtree ID:-1 Weight:3
+Combine Left: O(3) and Right: Sub(-1)(3) -> New Subtree ID:-2 Weight:6
+Combine Left: A(3) and Right: I(3) -> New Subtree ID:-3 Weight:6
+Combine Left: B(4) and Right: C(4) -> New Subtree ID:-4 Weight:8
+Combine Left: Sub(-3)(6) and Right: E(5) -> New Subtree ID:-5 Weight:11
+Combine Left: Sub(-4)(8) and Right: Sub(-2)(6) -> New Subtree ID:-6 Weight:14
+Combine Left: Sub(-6)(14) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:25
+----------------------------------------
+Huffman Codes:
+A: 100
+B: 000
+C: 001
+E: 11
+I: 101
+L: 0111
+O: 010
+V: 0110
+
+Target String: ICLAB
+Expected Bitstream: 1010010111100000
+
+================ PATTERN 40 ================
+Weights: A:3 B:4 C:2 E:2 I:1 L:2 O:6 V:5 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: L(2) and Right: I(1) -> New Subtree ID:-1 Weight:3
+Combine Left: C(2) and Right: E(2) -> New Subtree ID:-2 Weight:4
+Combine Left: A(3) and Right: Sub(-1)(3) -> New Subtree ID:-3 Weight:6
+Combine Left: B(4) and Right: Sub(-2)(4) -> New Subtree ID:-4 Weight:8
+Combine Left: Sub(-3)(6) and Right: V(5) -> New Subtree ID:-5 Weight:11
+Combine Left: Sub(-4)(8) and Right: O(6) -> New Subtree ID:-6 Weight:14
+Combine Left: Sub(-6)(14) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:25
+----------------------------------------
+Huffman Codes:
+A: 100
+B: 000
+C: 0010
+E: 0011
+I: 1011
+L: 1010
+O: 01
+V: 11
+
+Target String: ICLAB
+Expected Bitstream: 101100101010100000
+
+================ PATTERN 41 ================
+Weights: A:5 B:1 C:2 E:7 I:3 L:3 O:4 V:2 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: V(2) and Right: B(1) -> New Subtree ID:-1 Weight:3
+Combine Left: Sub(-1)(3) and Right: C(2) -> New Subtree ID:-2 Weight:5
+Combine Left: I(3) and Right: L(3) -> New Subtree ID:-3 Weight:6
+Combine Left: Sub(-2)(5) and Right: O(4) -> New Subtree ID:-4 Weight:9
+Combine Left: Sub(-3)(6) and Right: A(5) -> New Subtree ID:-5 Weight:11
+Combine Left: Sub(-4)(9) and Right: E(7) -> New Subtree ID:-6 Weight:16
+Combine Left: Sub(-6)(16) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:27
+----------------------------------------
+Huffman Codes:
+A: 11
+B: 00001
+C: 0001
+E: 01
+I: 100
+L: 101
+O: 001
+V: 00000
+
+Target String: ILOVE
+Expected Bitstream: 1001010010000001
+
+================ PATTERN 42 ================
+Weights: A:4 B:2 C:3 E:4 I:4 L:2 O:5 V:2 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: L(2) and Right: V(2) -> New Subtree ID:-1 Weight:4
+Combine Left: C(3) and Right: B(2) -> New Subtree ID:-2 Weight:5
+Combine Left: I(4) and Right: Sub(-1)(4) -> New Subtree ID:-3 Weight:8
+Combine Left: A(4) and Right: E(4) -> New Subtree ID:-4 Weight:8
+Combine Left: O(5) and Right: Sub(-2)(5) -> New Subtree ID:-5 Weight:10
+Combine Left: Sub(-3)(8) and Right: Sub(-4)(8) -> New Subtree ID:-6 Weight:16
+Combine Left: Sub(-6)(16) and Right: Sub(-5)(10) -> New Subtree ID:-7 Weight:26
+----------------------------------------
+Huffman Codes:
+A: 010
+B: 111
+C: 110
+E: 011
+I: 000
+L: 0010
+O: 10
+V: 0011
+
+Target String: ILOVE
+Expected Bitstream: 0000010100011011
+
+================ PATTERN 43 ================
+Weights: A:6 B:1 C:1 E:6 I:3 L:3 O:2 V:2 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: B(1) and Right: C(1) -> New Subtree ID:-1 Weight:2
+Combine Left: V(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: L(3) and Right: O(2) -> New Subtree ID:-3 Weight:5
+Combine Left: Sub(-2)(4) and Right: I(3) -> New Subtree ID:-4 Weight:7
+Combine Left: E(6) and Right: Sub(-3)(5) -> New Subtree ID:-5 Weight:11
+Combine Left: Sub(-4)(7) and Right: A(6) -> New Subtree ID:-6 Weight:13
+Combine Left: Sub(-6)(13) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:24
+----------------------------------------
+Huffman Codes:
+A: 01
+B: 00010
+C: 00011
+E: 10
+I: 001
+L: 110
+O: 111
+V: 0000
+
+Target String: ILOVE
+Expected Bitstream: 001110111000010
+
+================ PATTERN 44 ================
+Weights: A:4 B:2 C:2 E:3 I:4 L:2 O:2 V:5 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: L(2) and Right: O(2) -> New Subtree ID:-1 Weight:4
+Combine Left: B(2) and Right: C(2) -> New Subtree ID:-2 Weight:4
+Combine Left: Sub(-2)(4) and Right: E(3) -> New Subtree ID:-3 Weight:7
+Combine Left: I(4) and Right: Sub(-1)(4) -> New Subtree ID:-4 Weight:8
+Combine Left: V(5) and Right: A(4) -> New Subtree ID:-5 Weight:9
+Combine Left: Sub(-4)(8) and Right: Sub(-3)(7) -> New Subtree ID:-6 Weight:15
+Combine Left: Sub(-6)(15) and Right: Sub(-5)(9) -> New Subtree ID:-7 Weight:24
+----------------------------------------
+Huffman Codes:
+A: 11
+B: 0100
+C: 0101
+E: 011
+I: 000
+L: 0010
+O: 0011
+V: 10
+
+Target String: ICLAB
+Expected Bitstream: 00001010010110100
+
+================ PATTERN 45 ================
+Weights: A:1 B:7 C:6 E:1 I:1 L:2 O:6 V:6 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: E(1) and Right: I(1) -> New Subtree ID:-1 Weight:2
+Combine Left: Sub(-1)(2) and Right: A(1) -> New Subtree ID:-2 Weight:3
+Combine Left: Sub(-2)(3) and Right: L(2) -> New Subtree ID:-3 Weight:5
+Combine Left: V(6) and Right: Sub(-3)(5) -> New Subtree ID:-4 Weight:11
+Combine Left: C(6) and Right: O(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(11) and Right: B(7) -> New Subtree ID:-6 Weight:18
+Combine Left: Sub(-6)(18) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:30
+----------------------------------------
+Huffman Codes:
+A: 00101
+B: 01
+C: 10
+E: 001000
+I: 001001
+L: 0011
+O: 11
+V: 000
+
+Target String: ICLAB
+Expected Bitstream: 0010011000110010101
+
+================ PATTERN 46 ================
+Weights: A:5 B:7 C:6 E:2 I:2 L:7 O:1 V:1 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: O(1) and Right: V(1) -> New Subtree ID:-1 Weight:2
+Combine Left: I(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: Sub(-2)(4) and Right: E(2) -> New Subtree ID:-3 Weight:6
+Combine Left: Sub(-3)(6) and Right: A(5) -> New Subtree ID:-4 Weight:11
+Combine Left: L(7) and Right: C(6) -> New Subtree ID:-5 Weight:13
+Combine Left: Sub(-4)(11) and Right: B(7) -> New Subtree ID:-6 Weight:18
+Combine Left: Sub(-6)(18) and Right: Sub(-5)(13) -> New Subtree ID:-7 Weight:31
+----------------------------------------
+Huffman Codes:
+A: 001
+B: 01
+C: 11
+E: 0001
+I: 00000
+L: 10
+O: 000010
+V: 000011
+
+Target String: ICLAB
+Expected Bitstream: 00000111000101
+
+================ PATTERN 47 ================
+Weights: A:1 B:4 C:4 E:3 I:1 L:3 O:6 V:3 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: A(1) and Right: I(1) -> New Subtree ID:-1 Weight:2
+Combine Left: V(3) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:5
+Combine Left: E(3) and Right: L(3) -> New Subtree ID:-3 Weight:6
+Combine Left: B(4) and Right: C(4) -> New Subtree ID:-4 Weight:8
+Combine Left: Sub(-3)(6) and Right: Sub(-2)(5) -> New Subtree ID:-5 Weight:11
+Combine Left: Sub(-4)(8) and Right: O(6) -> New Subtree ID:-6 Weight:14
+Combine Left: Sub(-6)(14) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:25
+----------------------------------------
+Huffman Codes:
+A: 1110
+B: 000
+C: 001
+E: 100
+I: 1111
+L: 101
+O: 01
+V: 110
+
+Target String: ILOVE
+Expected Bitstream: 111110101110100
+
+================ PATTERN 48 ================
+Weights: A:5 B:3 C:2 E:4 I:4 L:6 O:1 V:5 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: C(2) and Right: O(1) -> New Subtree ID:-1 Weight:3
+Combine Left: B(3) and Right: Sub(-1)(3) -> New Subtree ID:-2 Weight:6
+Combine Left: E(4) and Right: I(4) -> New Subtree ID:-3 Weight:8
+Combine Left: A(5) and Right: V(5) -> New Subtree ID:-4 Weight:10
+Combine Left: L(6) and Right: Sub(-2)(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(10) and Right: Sub(-3)(8) -> New Subtree ID:-6 Weight:18
+Combine Left: Sub(-6)(18) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:30
+----------------------------------------
+Huffman Codes:
+A: 000
+B: 110
+C: 1110
+E: 010
+I: 011
+L: 10
+O: 1111
+V: 001
+
+Target String: ILOVE
+Expected Bitstream: 011101111001010
+
+================ PATTERN 49 ================
+Weights: A:7 B:2 C:1 E:4 I:5 L:1 O:4 V:6 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: C(1) and Right: L(1) -> New Subtree ID:-1 Weight:2
+Combine Left: B(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: O(4) and Right: Sub(-2)(4) -> New Subtree ID:-3 Weight:8
+Combine Left: I(5) and Right: E(4) -> New Subtree ID:-4 Weight:9
+Combine Left: A(7) and Right: V(6) -> New Subtree ID:-5 Weight:13
+Combine Left: Sub(-4)(9) and Right: Sub(-3)(8) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(13) -> New Subtree ID:-7 Weight:30
+----------------------------------------
+Huffman Codes:
+A: 10
+B: 0110
+C: 01110
+E: 001
+I: 000
+L: 01111
+O: 010
+V: 11
+
+Target String: ILOVE
+Expected Bitstream: 0000111101011001
+
+================ PATTERN 50 ================
+Weights: A:1 B:3 C:7 E:3 I:2 L:1 O:6 V:5 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: A(1) and Right: L(1) -> New Subtree ID:-1 Weight:2
+Combine Left: I(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: B(3) and Right: E(3) -> New Subtree ID:-3 Weight:6
+Combine Left: V(5) and Right: Sub(-2)(4) -> New Subtree ID:-4 Weight:9
+Combine Left: O(6) and Right: Sub(-3)(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(9) and Right: C(7) -> New Subtree ID:-6 Weight:16
+Combine Left: Sub(-6)(16) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:28
+----------------------------------------
+Huffman Codes:
+A: 00110
+B: 110
+C: 01
+E: 111
+I: 0010
+L: 00111
+O: 10
+V: 000
+
+Target String: ICLAB
+Expected Bitstream: 0010010011100110110
+
+================ PATTERN 51 ================
+Weights: A:5 B:5 C:2 E:5 I:2 L:2 O:1 V:6 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: L(2) and Right: O(1) -> New Subtree ID:-1 Weight:3
+Combine Left: C(2) and Right: I(2) -> New Subtree ID:-2 Weight:4
+Combine Left: Sub(-2)(4) and Right: Sub(-1)(3) -> New Subtree ID:-3 Weight:7
+Combine Left: B(5) and Right: E(5) -> New Subtree ID:-4 Weight:10
+Combine Left: V(6) and Right: A(5) -> New Subtree ID:-5 Weight:11
+Combine Left: Sub(-4)(10) and Right: Sub(-3)(7) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:28
+----------------------------------------
+Huffman Codes:
+A: 11
+B: 000
+C: 0100
+E: 001
+I: 0101
+L: 0110
+O: 0111
+V: 10
+
+Target String: ICLAB
+Expected Bitstream: 01010100011011000
+
+================ PATTERN 52 ================
+Weights: A:1 B:7 C:1 E:6 I:4 L:1 O:3 V:5 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: C(1) and Right: L(1) -> New Subtree ID:-1 Weight:2
+Combine Left: Sub(-1)(2) and Right: A(1) -> New Subtree ID:-2 Weight:3
+Combine Left: O(3) and Right: Sub(-2)(3) -> New Subtree ID:-3 Weight:6
+Combine Left: V(5) and Right: I(4) -> New Subtree ID:-4 Weight:9
+Combine Left: E(6) and Right: Sub(-3)(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(9) and Right: B(7) -> New Subtree ID:-6 Weight:16
+Combine Left: Sub(-6)(16) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:28
+----------------------------------------
+Huffman Codes:
+A: 1111
+B: 01
+C: 11100
+E: 10
+I: 001
+L: 11101
+O: 110
+V: 000
+
+Target String: ICLAB
+Expected Bitstream: 0011110011101111101
+
+================ PATTERN 53 ================
+Weights: A:1 B:1 C:1 E:6 I:3 L:5 O:3 V:5 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: B(1) and Right: C(1) -> New Subtree ID:-1 Weight:2
+Combine Left: Sub(-1)(2) and Right: A(1) -> New Subtree ID:-2 Weight:3
+Combine Left: O(3) and Right: Sub(-2)(3) -> New Subtree ID:-3 Weight:6
+Combine Left: V(5) and Right: I(3) -> New Subtree ID:-4 Weight:8
+Combine Left: Sub(-3)(6) and Right: L(5) -> New Subtree ID:-5 Weight:11
+Combine Left: Sub(-4)(8) and Right: E(6) -> New Subtree ID:-6 Weight:14
+Combine Left: Sub(-6)(14) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:25
+----------------------------------------
+Huffman Codes:
+A: 1011
+B: 10100
+C: 10101
+E: 01
+I: 001
+L: 11
+O: 100
+V: 000
+
+Target String: ICLAB
+Expected Bitstream: 0011010111101110100
+
+================ PATTERN 54 ================
+Weights: A:5 B:6 C:1 E:2 I:1 L:1 O:2 V:2 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: I(1) and Right: L(1) -> New Subtree ID:-1 Weight:2
+Combine Left: Sub(-1)(2) and Right: C(1) -> New Subtree ID:-2 Weight:3
+Combine Left: O(2) and Right: V(2) -> New Subtree ID:-3 Weight:4
+Combine Left: Sub(-2)(3) and Right: E(2) -> New Subtree ID:-4 Weight:5
+Combine Left: Sub(-4)(5) and Right: Sub(-3)(4) -> New Subtree ID:-5 Weight:9
+Combine Left: B(6) and Right: A(5) -> New Subtree ID:-6 Weight:11
+Combine Left: Sub(-6)(11) and Right: Sub(-5)(9) -> New Subtree ID:-7 Weight:20
+----------------------------------------
+Huffman Codes:
+A: 01
+B: 00
+C: 1001
+E: 101
+I: 10000
+L: 10001
+O: 110
+V: 111
+
+Target String: ICLAB
+Expected Bitstream: 100001001100010100
+
+================ PATTERN 55 ================
+Weights: A:5 B:2 C:2 E:2 I:3 L:7 O:7 V:3 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: C(2) and Right: E(2) -> New Subtree ID:-1 Weight:4
+Combine Left: V(3) and Right: B(2) -> New Subtree ID:-2 Weight:5
+Combine Left: Sub(-1)(4) and Right: I(3) -> New Subtree ID:-3 Weight:7
+Combine Left: A(5) and Right: Sub(-2)(5) -> New Subtree ID:-4 Weight:10
+Combine Left: O(7) and Right: Sub(-3)(7) -> New Subtree ID:-5 Weight:14
+Combine Left: Sub(-4)(10) and Right: L(7) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(14) -> New Subtree ID:-7 Weight:31
+----------------------------------------
+Huffman Codes:
+A: 000
+B: 0011
+C: 1100
+E: 1101
+I: 111
+L: 01
+O: 10
+V: 0010
+
+Target String: ICLAB
+Expected Bitstream: 1111100010000011
+
+================ PATTERN 56 ================
+Weights: A:2 B:2 C:2 E:4 I:6 L:2 O:3 V:5 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: C(2) and Right: L(2) -> New Subtree ID:-1 Weight:4
+Combine Left: A(2) and Right: B(2) -> New Subtree ID:-2 Weight:4
+Combine Left: Sub(-2)(4) and Right: O(3) -> New Subtree ID:-3 Weight:7
+Combine Left: E(4) and Right: Sub(-1)(4) -> New Subtree ID:-4 Weight:8
+Combine Left: I(6) and Right: V(5) -> New Subtree ID:-5 Weight:11
+Combine Left: Sub(-4)(8) and Right: Sub(-3)(7) -> New Subtree ID:-6 Weight:15
+Combine Left: Sub(-6)(15) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:26
+----------------------------------------
+Huffman Codes:
+A: 0100
+B: 0101
+C: 0010
+E: 000
+I: 10
+L: 0011
+O: 011
+V: 11
+
+Target String: ILOVE
+Expected Bitstream: 10001101111000
+
+================ PATTERN 57 ================
+Weights: A:4 B:1 C:5 E:1 I:1 L:7 O:2 V:5 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: E(1) and Right: I(1) -> New Subtree ID:-1 Weight:2
+Combine Left: Sub(-1)(2) and Right: B(1) -> New Subtree ID:-2 Weight:3
+Combine Left: Sub(-2)(3) and Right: O(2) -> New Subtree ID:-3 Weight:5
+Combine Left: Sub(-3)(5) and Right: A(4) -> New Subtree ID:-4 Weight:9
+Combine Left: C(5) and Right: V(5) -> New Subtree ID:-5 Weight:10
+Combine Left: Sub(-4)(9) and Right: L(7) -> New Subtree ID:-6 Weight:16
+Combine Left: Sub(-6)(16) and Right: Sub(-5)(10) -> New Subtree ID:-7 Weight:26
+----------------------------------------
+Huffman Codes:
+A: 001
+B: 00001
+C: 10
+E: 000000
+I: 000001
+L: 01
+O: 0001
+V: 11
+
+Target String: ICLAB
+Expected Bitstream: 000001100100100001
+
+================ PATTERN 58 ================
+Weights: A:1 B:7 C:5 E:2 I:3 L:3 O:6 V:2 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: V(2) and Right: A(1) -> New Subtree ID:-1 Weight:3
+Combine Left: Sub(-1)(3) and Right: E(2) -> New Subtree ID:-2 Weight:5
+Combine Left: I(3) and Right: L(3) -> New Subtree ID:-3 Weight:6
+Combine Left: C(5) and Right: Sub(-2)(5) -> New Subtree ID:-4 Weight:10
+Combine Left: O(6) and Right: Sub(-3)(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(10) and Right: B(7) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:29
+----------------------------------------
+Huffman Codes:
+A: 00101
+B: 01
+C: 000
+E: 0011
+I: 110
+L: 111
+O: 10
+V: 00100
+
+Target String: ICLAB
+Expected Bitstream: 1100001110010101
+
+================ PATTERN 59 ================
+Weights: A:1 B:2 C:7 E:1 I:1 L:4 O:6 V:3 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: E(1) and Right: I(1) -> New Subtree ID:-1 Weight:2
+Combine Left: Sub(-1)(2) and Right: A(1) -> New Subtree ID:-2 Weight:3
+Combine Left: Sub(-2)(3) and Right: B(2) -> New Subtree ID:-3 Weight:5
+Combine Left: L(4) and Right: V(3) -> New Subtree ID:-4 Weight:7
+Combine Left: O(6) and Right: Sub(-3)(5) -> New Subtree ID:-5 Weight:11
+Combine Left: C(7) and Right: Sub(-4)(7) -> New Subtree ID:-6 Weight:14
+Combine Left: Sub(-6)(14) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:25
+----------------------------------------
+Huffman Codes:
+A: 1101
+B: 111
+C: 00
+E: 11000
+I: 11001
+L: 010
+O: 10
+V: 011
+
+Target String: ILOVE
+Expected Bitstream: 110010101001111000
+
+================ PATTERN 60 ================
+Weights: A:3 B:4 C:1 E:1 I:5 L:1 O:7 V:6 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: E(1) and Right: L(1) -> New Subtree ID:-1 Weight:2
+Combine Left: Sub(-1)(2) and Right: C(1) -> New Subtree ID:-2 Weight:3
+Combine Left: A(3) and Right: Sub(-2)(3) -> New Subtree ID:-3 Weight:6
+Combine Left: I(5) and Right: B(4) -> New Subtree ID:-4 Weight:9
+Combine Left: V(6) and Right: Sub(-3)(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(9) and Right: O(7) -> New Subtree ID:-6 Weight:16
+Combine Left: Sub(-6)(16) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:28
+----------------------------------------
+Huffman Codes:
+A: 110
+B: 001
+C: 1111
+E: 11100
+I: 000
+L: 11101
+O: 01
+V: 10
+
+Target String: ICLAB
+Expected Bitstream: 000111111101110001
+
+================ PATTERN 61 ================
+Weights: A:2 B:1 C:5 E:2 I:3 L:4 O:1 V:5 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: B(1) and Right: O(1) -> New Subtree ID:-1 Weight:2
+Combine Left: E(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: I(3) and Right: A(2) -> New Subtree ID:-3 Weight:5
+Combine Left: L(4) and Right: Sub(-2)(4) -> New Subtree ID:-4 Weight:8
+Combine Left: V(5) and Right: Sub(-3)(5) -> New Subtree ID:-5 Weight:10
+Combine Left: Sub(-4)(8) and Right: C(5) -> New Subtree ID:-6 Weight:13
+Combine Left: Sub(-6)(13) and Right: Sub(-5)(10) -> New Subtree ID:-7 Weight:23
+----------------------------------------
+Huffman Codes:
+A: 111
+B: 00110
+C: 01
+E: 0010
+I: 110
+L: 000
+O: 00111
+V: 10
+
+Target String: ICLAB
+Expected Bitstream: 1100100011100110
+
+================ PATTERN 62 ================
+Weights: A:1 B:3 C:3 E:2 I:1 L:5 O:7 V:6 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: A(1) and Right: I(1) -> New Subtree ID:-1 Weight:2
+Combine Left: E(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: B(3) and Right: C(3) -> New Subtree ID:-3 Weight:6
+Combine Left: L(5) and Right: Sub(-2)(4) -> New Subtree ID:-4 Weight:9
+Combine Left: V(6) and Right: Sub(-3)(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(9) and Right: O(7) -> New Subtree ID:-6 Weight:16
+Combine Left: Sub(-6)(16) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:28
+----------------------------------------
+Huffman Codes:
+A: 00110
+B: 110
+C: 111
+E: 0010
+I: 00111
+L: 000
+O: 01
+V: 10
+
+Target String: ILOVE
+Expected Bitstream: 0011100001100010
+
+================ PATTERN 63 ================
+Weights: A:6 B:5 C:2 E:4 I:6 L:3 O:1 V:1 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: O(1) and Right: V(1) -> New Subtree ID:-1 Weight:2
+Combine Left: C(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: Sub(-2)(4) and Right: L(3) -> New Subtree ID:-3 Weight:7
+Combine Left: B(5) and Right: E(4) -> New Subtree ID:-4 Weight:9
+Combine Left: A(6) and Right: I(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(9) and Right: Sub(-3)(7) -> New Subtree ID:-6 Weight:16
+Combine Left: Sub(-6)(16) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:28
+----------------------------------------
+Huffman Codes:
+A: 10
+B: 000
+C: 0100
+E: 001
+I: 11
+L: 011
+O: 01010
+V: 01011
+
+Target String: ILOVE
+Expected Bitstream: 110110101001011001
+
+================ PATTERN 64 ================
+Weights: A:6 B:2 C:4 E:1 I:6 L:5 O:2 V:3 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: O(2) and Right: E(1) -> New Subtree ID:-1 Weight:3
+Combine Left: Sub(-1)(3) and Right: B(2) -> New Subtree ID:-2 Weight:5
+Combine Left: C(4) and Right: V(3) -> New Subtree ID:-3 Weight:7
+Combine Left: L(5) and Right: Sub(-2)(5) -> New Subtree ID:-4 Weight:10
+Combine Left: A(6) and Right: I(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(10) and Right: Sub(-3)(7) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:29
+----------------------------------------
+Huffman Codes:
+A: 10
+B: 0011
+C: 010
+E: 00101
+I: 11
+L: 000
+O: 00100
+V: 011
+
+Target String: ILOVE
+Expected Bitstream: 110000010001100101
+
+================ PATTERN 65 ================
+Weights: A:1 B:6 C:6 E:2 I:4 L:2 O:4 V:1 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: A(1) and Right: V(1) -> New Subtree ID:-1 Weight:2
+Combine Left: L(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: Sub(-2)(4) and Right: E(2) -> New Subtree ID:-3 Weight:6
+Combine Left: I(4) and Right: O(4) -> New Subtree ID:-4 Weight:8
+Combine Left: C(6) and Right: Sub(-3)(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(8) and Right: B(6) -> New Subtree ID:-6 Weight:14
+Combine Left: Sub(-6)(14) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:26
+----------------------------------------
+Huffman Codes:
+A: 11010
+B: 01
+C: 10
+E: 111
+I: 000
+L: 1100
+O: 001
+V: 11011
+
+Target String: ICLAB
+Expected Bitstream: 0001011001101001
+
+================ PATTERN 66 ================
+Weights: A:1 B:3 C:3 E:3 I:3 L:7 O:4 V:7 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: I(3) and Right: A(1) -> New Subtree ID:-1 Weight:4
+Combine Left: C(3) and Right: E(3) -> New Subtree ID:-2 Weight:6
+Combine Left: Sub(-1)(4) and Right: B(3) -> New Subtree ID:-3 Weight:7
+Combine Left: Sub(-2)(6) and Right: O(4) -> New Subtree ID:-4 Weight:10
+Combine Left: V(7) and Right: Sub(-3)(7) -> New Subtree ID:-5 Weight:14
+Combine Left: Sub(-4)(10) and Right: L(7) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(14) -> New Subtree ID:-7 Weight:31
+----------------------------------------
+Huffman Codes:
+A: 1101
+B: 111
+C: 0000
+E: 0001
+I: 1100
+L: 01
+O: 001
+V: 10
+
+Target String: ICLAB
+Expected Bitstream: 11000000011101111
+
+================ PATTERN 67 ================
+Weights: A:5 B:3 C:2 E:2 I:2 L:4 O:1 V:1 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: O(1) and Right: V(1) -> New Subtree ID:-1 Weight:2
+Combine Left: I(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: C(2) and Right: E(2) -> New Subtree ID:-3 Weight:4
+Combine Left: Sub(-3)(4) and Right: B(3) -> New Subtree ID:-4 Weight:7
+Combine Left: L(4) and Right: Sub(-2)(4) -> New Subtree ID:-5 Weight:8
+Combine Left: Sub(-4)(7) and Right: A(5) -> New Subtree ID:-6 Weight:12
+Combine Left: Sub(-6)(12) and Right: Sub(-5)(8) -> New Subtree ID:-7 Weight:20
+----------------------------------------
+Huffman Codes:
+A: 01
+B: 001
+C: 0000
+E: 0001
+I: 110
+L: 10
+O: 1110
+V: 1111
+
+Target String: ICLAB
+Expected Bitstream: 11000001001001
+
+================ PATTERN 68 ================
+Weights: A:1 B:5 C:4 E:1 I:3 L:5 O:5 V:4 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: A(1) and Right: E(1) -> New Subtree ID:-1 Weight:2
+Combine Left: I(3) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:5
+Combine Left: C(4) and Right: V(4) -> New Subtree ID:-3 Weight:8
+Combine Left: O(5) and Right: Sub(-2)(5) -> New Subtree ID:-4 Weight:10
+Combine Left: B(5) and Right: L(5) -> New Subtree ID:-5 Weight:10
+Combine Left: Sub(-5)(10) and Right: Sub(-3)(8) -> New Subtree ID:-6 Weight:18
+Combine Left: Sub(-6)(18) and Right: Sub(-4)(10) -> New Subtree ID:-7 Weight:28
+----------------------------------------
+Huffman Codes:
+A: 1110
+B: 000
+C: 010
+E: 1111
+I: 110
+L: 001
+O: 10
+V: 011
+
+Target String: ILOVE
+Expected Bitstream: 110001100111111
+
+================ PATTERN 69 ================
+Weights: A:6 B:2 C:1 E:2 I:7 L:3 O:5 V:2 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: V(2) and Right: C(1) -> New Subtree ID:-1 Weight:3
+Combine Left: B(2) and Right: E(2) -> New Subtree ID:-2 Weight:4
+Combine Left: L(3) and Right: Sub(-1)(3) -> New Subtree ID:-3 Weight:6
+Combine Left: O(5) and Right: Sub(-2)(4) -> New Subtree ID:-4 Weight:9
+Combine Left: A(6) and Right: Sub(-3)(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(9) and Right: I(7) -> New Subtree ID:-6 Weight:16
+Combine Left: Sub(-6)(16) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:28
+----------------------------------------
+Huffman Codes:
+A: 10
+B: 0010
+C: 1111
+E: 0011
+I: 01
+L: 110
+O: 000
+V: 1110
+
+Target String: ICLAB
+Expected Bitstream: 011111110100010
+
+================ PATTERN 70 ================
+Weights: A:7 B:2 C:6 E:2 I:3 L:1 O:6 V:2 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: V(2) and Right: L(1) -> New Subtree ID:-1 Weight:3
+Combine Left: B(2) and Right: E(2) -> New Subtree ID:-2 Weight:4
+Combine Left: I(3) and Right: Sub(-1)(3) -> New Subtree ID:-3 Weight:6
+Combine Left: Sub(-3)(6) and Right: Sub(-2)(4) -> New Subtree ID:-4 Weight:10
+Combine Left: C(6) and Right: O(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(10) and Right: A(7) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:29
+----------------------------------------
+Huffman Codes:
+A: 01
+B: 0010
+C: 10
+E: 0011
+I: 0000
+L: 00011
+O: 11
+V: 00010
+
+Target String: ILOVE
+Expected Bitstream: 00000001111000100011
+
+================ PATTERN 71 ================
+Weights: A:3 B:1 C:6 E:1 I:7 L:6 O:3 V:3 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: B(1) and Right: E(1) -> New Subtree ID:-1 Weight:2
+Combine Left: V(3) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:5
+Combine Left: A(3) and Right: O(3) -> New Subtree ID:-3 Weight:6
+Combine Left: Sub(-3)(6) and Right: Sub(-2)(5) -> New Subtree ID:-4 Weight:11
+Combine Left: C(6) and Right: L(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(11) and Right: I(7) -> New Subtree ID:-6 Weight:18
+Combine Left: Sub(-6)(18) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:30
+----------------------------------------
+Huffman Codes:
+A: 0000
+B: 00110
+C: 10
+E: 00111
+I: 01
+L: 11
+O: 0001
+V: 0010
+
+Target String: ICLAB
+Expected Bitstream: 011011000000110
+
+================ PATTERN 72 ================
+Weights: A:2 B:4 C:6 E:4 I:1 L:6 O:3 V:1 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: I(1) and Right: V(1) -> New Subtree ID:-1 Weight:2
+Combine Left: A(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: Sub(-2)(4) and Right: O(3) -> New Subtree ID:-3 Weight:7
+Combine Left: B(4) and Right: E(4) -> New Subtree ID:-4 Weight:8
+Combine Left: C(6) and Right: L(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(8) and Right: Sub(-3)(7) -> New Subtree ID:-6 Weight:15
+Combine Left: Sub(-6)(15) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:27
+----------------------------------------
+Huffman Codes:
+A: 0100
+B: 000
+C: 10
+E: 001
+I: 01010
+L: 11
+O: 011
+V: 01011
+
+Target String: ILOVE
+Expected Bitstream: 010101101101011001
+
+================ PATTERN 73 ================
+Weights: A:5 B:2 C:2 E:4 I:7 L:4 O:4 V:1 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: C(2) and Right: V(1) -> New Subtree ID:-1 Weight:3
+Combine Left: Sub(-1)(3) and Right: B(2) -> New Subtree ID:-2 Weight:5
+Combine Left: L(4) and Right: O(4) -> New Subtree ID:-3 Weight:8
+Combine Left: Sub(-2)(5) and Right: E(4) -> New Subtree ID:-4 Weight:9
+Combine Left: I(7) and Right: A(5) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(9) and Right: Sub(-3)(8) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:29
+----------------------------------------
+Huffman Codes:
+A: 11
+B: 0001
+C: 00000
+E: 001
+I: 10
+L: 010
+O: 011
+V: 00001
+
+Target String: ILOVE
+Expected Bitstream: 1001001100001001
+
+================ PATTERN 74 ================
+Weights: A:5 B:2 C:2 E:4 I:7 L:3 O:2 V:1 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: O(2) and Right: V(1) -> New Subtree ID:-1 Weight:3
+Combine Left: B(2) and Right: C(2) -> New Subtree ID:-2 Weight:4
+Combine Left: L(3) and Right: Sub(-1)(3) -> New Subtree ID:-3 Weight:6
+Combine Left: E(4) and Right: Sub(-2)(4) -> New Subtree ID:-4 Weight:8
+Combine Left: Sub(-3)(6) and Right: A(5) -> New Subtree ID:-5 Weight:11
+Combine Left: Sub(-4)(8) and Right: I(7) -> New Subtree ID:-6 Weight:15
+Combine Left: Sub(-6)(15) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:26
+----------------------------------------
+Huffman Codes:
+A: 11
+B: 0010
+C: 0011
+E: 000
+I: 01
+L: 100
+O: 1010
+V: 1011
+
+Target String: ILOVE
+Expected Bitstream: 0110010101011000
+
+================ PATTERN 75 ================
+Weights: A:6 B:7 C:2 E:1 I:4 L:1 O:3 V:4 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: E(1) and Right: L(1) -> New Subtree ID:-1 Weight:2
+Combine Left: C(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: Sub(-2)(4) and Right: O(3) -> New Subtree ID:-3 Weight:7
+Combine Left: I(4) and Right: V(4) -> New Subtree ID:-4 Weight:8
+Combine Left: Sub(-3)(7) and Right: A(6) -> New Subtree ID:-5 Weight:13
+Combine Left: Sub(-4)(8) and Right: B(7) -> New Subtree ID:-6 Weight:15
+Combine Left: Sub(-6)(15) and Right: Sub(-5)(13) -> New Subtree ID:-7 Weight:28
+----------------------------------------
+Huffman Codes:
+A: 11
+B: 01
+C: 1000
+E: 10010
+I: 000
+L: 10011
+O: 101
+V: 001
+
+Target String: ILOVE
+Expected Bitstream: 0001001110100110010
+
+================ PATTERN 76 ================
+Weights: A:1 B:4 C:2 E:6 I:1 L:6 O:7 V:4 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: A(1) and Right: I(1) -> New Subtree ID:-1 Weight:2
+Combine Left: C(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: V(4) and Right: Sub(-2)(4) -> New Subtree ID:-3 Weight:8
+Combine Left: L(6) and Right: B(4) -> New Subtree ID:-4 Weight:10
+Combine Left: O(7) and Right: E(6) -> New Subtree ID:-5 Weight:13
+Combine Left: Sub(-4)(10) and Right: Sub(-3)(8) -> New Subtree ID:-6 Weight:18
+Combine Left: Sub(-6)(18) and Right: Sub(-5)(13) -> New Subtree ID:-7 Weight:31
+----------------------------------------
+Huffman Codes:
+A: 01110
+B: 001
+C: 0110
+E: 11
+I: 01111
+L: 000
+O: 10
+V: 010
+
+Target String: ICLAB
+Expected Bitstream: 01111011000001110001
+
+================ PATTERN 77 ================
+Weights: A:3 B:4 C:1 E:2 I:2 L:5 O:2 V:4 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: O(2) and Right: C(1) -> New Subtree ID:-1 Weight:3
+Combine Left: E(2) and Right: I(2) -> New Subtree ID:-2 Weight:4
+Combine Left: A(3) and Right: Sub(-1)(3) -> New Subtree ID:-3 Weight:6
+Combine Left: V(4) and Right: Sub(-2)(4) -> New Subtree ID:-4 Weight:8
+Combine Left: L(5) and Right: B(4) -> New Subtree ID:-5 Weight:9
+Combine Left: Sub(-4)(8) and Right: Sub(-3)(6) -> New Subtree ID:-6 Weight:14
+Combine Left: Sub(-6)(14) and Right: Sub(-5)(9) -> New Subtree ID:-7 Weight:23
+----------------------------------------
+Huffman Codes:
+A: 010
+B: 11
+C: 0111
+E: 0010
+I: 0011
+L: 10
+O: 0110
+V: 000
+
+Target String: ILOVE
+Expected Bitstream: 00111001100000010
+
+================ PATTERN 78 ================
+Weights: A:4 B:3 C:6 E:2 I:4 L:6 O:4 V:1 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: E(2) and Right: V(1) -> New Subtree ID:-1 Weight:3
+Combine Left: B(3) and Right: Sub(-1)(3) -> New Subtree ID:-2 Weight:6
+Combine Left: I(4) and Right: O(4) -> New Subtree ID:-3 Weight:8
+Combine Left: Sub(-2)(6) and Right: A(4) -> New Subtree ID:-4 Weight:10
+Combine Left: C(6) and Right: L(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(10) and Right: Sub(-3)(8) -> New Subtree ID:-6 Weight:18
+Combine Left: Sub(-6)(18) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:30
+----------------------------------------
+Huffman Codes:
+A: 001
+B: 0000
+C: 10
+E: 00010
+I: 010
+L: 11
+O: 011
+V: 00011
+
+Target String: ILOVE
+Expected Bitstream: 010110110001100010
+
+================ PATTERN 79 ================
+Weights: A:4 B:1 C:1 E:6 I:6 L:2 O:5 V:4 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: B(1) and Right: C(1) -> New Subtree ID:-1 Weight:2
+Combine Left: L(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: V(4) and Right: Sub(-2)(4) -> New Subtree ID:-3 Weight:8
+Combine Left: O(5) and Right: A(4) -> New Subtree ID:-4 Weight:9
+Combine Left: E(6) and Right: I(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(9) and Right: Sub(-3)(8) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:29
+----------------------------------------
+Huffman Codes:
+A: 001
+B: 01110
+C: 01111
+E: 10
+I: 11
+L: 0110
+O: 000
+V: 010
+
+Target String: ICLAB
+Expected Bitstream: 1101111011000101110
+
+================ PATTERN 80 ================
+Weights: A:1 B:6 C:1 E:6 I:2 L:6 O:2 V:2 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: A(1) and Right: C(1) -> New Subtree ID:-1 Weight:2
+Combine Left: V(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: I(2) and Right: O(2) -> New Subtree ID:-3 Weight:4
+Combine Left: Sub(-2)(4) and Right: Sub(-3)(4) -> New Subtree ID:-4 Weight:8
+Combine Left: E(6) and Right: L(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(8) and Right: B(6) -> New Subtree ID:-6 Weight:14
+Combine Left: Sub(-6)(14) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:26
+----------------------------------------
+Huffman Codes:
+A: 00010
+B: 01
+C: 00011
+E: 10
+I: 0010
+L: 11
+O: 0011
+V: 0000
+
+Target String: ICLAB
+Expected Bitstream: 001000011110001001
+
+================ PATTERN 81 ================
+Weights: A:7 B:4 C:5 E:3 I:1 L:4 O:1 V:1 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: O(1) and Right: V(1) -> New Subtree ID:-1 Weight:2
+Combine Left: Sub(-1)(2) and Right: I(1) -> New Subtree ID:-2 Weight:3
+Combine Left: E(3) and Right: Sub(-2)(3) -> New Subtree ID:-3 Weight:6
+Combine Left: B(4) and Right: L(4) -> New Subtree ID:-4 Weight:8
+Combine Left: Sub(-3)(6) and Right: C(5) -> New Subtree ID:-5 Weight:11
+Combine Left: Sub(-4)(8) and Right: A(7) -> New Subtree ID:-6 Weight:15
+Combine Left: Sub(-6)(15) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:26
+----------------------------------------
+Huffman Codes:
+A: 01
+B: 000
+C: 11
+E: 100
+I: 1011
+L: 001
+O: 10100
+V: 10101
+
+Target String: ICLAB
+Expected Bitstream: 10111100101000
+
+================ PATTERN 82 ================
+Weights: A:3 B:6 C:5 E:3 I:2 L:5 O:2 V:4 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: I(2) and Right: O(2) -> New Subtree ID:-1 Weight:4
+Combine Left: A(3) and Right: E(3) -> New Subtree ID:-2 Weight:6
+Combine Left: V(4) and Right: Sub(-1)(4) -> New Subtree ID:-3 Weight:8
+Combine Left: C(5) and Right: L(5) -> New Subtree ID:-4 Weight:10
+Combine Left: B(6) and Right: Sub(-2)(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(10) and Right: Sub(-3)(8) -> New Subtree ID:-6 Weight:18
+Combine Left: Sub(-6)(18) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:30
+----------------------------------------
+Huffman Codes:
+A: 110
+B: 10
+C: 000
+E: 111
+I: 0110
+L: 001
+O: 0111
+V: 010
+
+Target String: ILOVE
+Expected Bitstream: 01100010111010111
+
+================ PATTERN 83 ================
+Weights: A:2 B:1 C:5 E:3 I:4 L:2 O:2 V:1 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: B(1) and Right: V(1) -> New Subtree ID:-1 Weight:2
+Combine Left: O(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: A(2) and Right: L(2) -> New Subtree ID:-3 Weight:4
+Combine Left: Sub(-3)(4) and Right: E(3) -> New Subtree ID:-4 Weight:7
+Combine Left: I(4) and Right: Sub(-2)(4) -> New Subtree ID:-5 Weight:8
+Combine Left: Sub(-4)(7) and Right: C(5) -> New Subtree ID:-6 Weight:12
+Combine Left: Sub(-6)(12) and Right: Sub(-5)(8) -> New Subtree ID:-7 Weight:20
+----------------------------------------
+Huffman Codes:
+A: 0000
+B: 1110
+C: 01
+E: 001
+I: 10
+L: 0001
+O: 110
+V: 1111
+
+Target String: ICLAB
+Expected Bitstream: 1001000100001110
+
+================ PATTERN 84 ================
+Weights: A:4 B:5 C:5 E:3 I:1 L:3 O:6 V:1 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: I(1) and Right: V(1) -> New Subtree ID:-1 Weight:2
+Combine Left: L(3) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:5
+Combine Left: A(4) and Right: E(3) -> New Subtree ID:-3 Weight:7
+Combine Left: C(5) and Right: Sub(-2)(5) -> New Subtree ID:-4 Weight:10
+Combine Left: O(6) and Right: B(5) -> New Subtree ID:-5 Weight:11
+Combine Left: Sub(-4)(10) and Right: Sub(-3)(7) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:28
+----------------------------------------
+Huffman Codes:
+A: 010
+B: 11
+C: 000
+E: 011
+I: 00110
+L: 0010
+O: 10
+V: 00111
+
+Target String: ILOVE
+Expected Bitstream: 0011000101000111011
+
+================ PATTERN 85 ================
+Weights: A:3 B:7 C:1 E:4 I:1 L:3 O:3 V:7 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: C(1) and Right: I(1) -> New Subtree ID:-1 Weight:2
+Combine Left: O(3) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:5
+Combine Left: A(3) and Right: L(3) -> New Subtree ID:-3 Weight:6
+Combine Left: Sub(-2)(5) and Right: E(4) -> New Subtree ID:-4 Weight:9
+Combine Left: V(7) and Right: Sub(-3)(6) -> New Subtree ID:-5 Weight:13
+Combine Left: Sub(-4)(9) and Right: B(7) -> New Subtree ID:-6 Weight:16
+Combine Left: Sub(-6)(16) and Right: Sub(-5)(13) -> New Subtree ID:-7 Weight:29
+----------------------------------------
+Huffman Codes:
+A: 110
+B: 01
+C: 00010
+E: 001
+I: 00011
+L: 111
+O: 0000
+V: 10
+
+Target String: ICLAB
+Expected Bitstream: 000110001011111001
+
+================ PATTERN 86 ================
+Weights: A:3 B:4 C:2 E:5 I:4 L:2 O:2 V:3 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: L(2) and Right: O(2) -> New Subtree ID:-1 Weight:4
+Combine Left: V(3) and Right: C(2) -> New Subtree ID:-2 Weight:5
+Combine Left: Sub(-1)(4) and Right: A(3) -> New Subtree ID:-3 Weight:7
+Combine Left: B(4) and Right: I(4) -> New Subtree ID:-4 Weight:8
+Combine Left: E(5) and Right: Sub(-2)(5) -> New Subtree ID:-5 Weight:10
+Combine Left: Sub(-4)(8) and Right: Sub(-3)(7) -> New Subtree ID:-6 Weight:15
+Combine Left: Sub(-6)(15) and Right: Sub(-5)(10) -> New Subtree ID:-7 Weight:25
+----------------------------------------
+Huffman Codes:
+A: 011
+B: 000
+C: 111
+E: 10
+I: 001
+L: 0100
+O: 0101
+V: 110
+
+Target String: ICLAB
+Expected Bitstream: 0011110100011000
+
+================ PATTERN 87 ================
+Weights: A:1 B:1 C:6 E:7 I:6 L:3 O:2 V:1 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: B(1) and Right: V(1) -> New Subtree ID:-1 Weight:2
+Combine Left: Sub(-1)(2) and Right: A(1) -> New Subtree ID:-2 Weight:3
+Combine Left: Sub(-2)(3) and Right: O(2) -> New Subtree ID:-3 Weight:5
+Combine Left: Sub(-3)(5) and Right: L(3) -> New Subtree ID:-4 Weight:8
+Combine Left: C(6) and Right: I(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(8) and Right: E(7) -> New Subtree ID:-6 Weight:15
+Combine Left: Sub(-6)(15) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:27
+----------------------------------------
+Huffman Codes:
+A: 00001
+B: 000000
+C: 10
+E: 01
+I: 11
+L: 001
+O: 0001
+V: 000001
+
+Target String: ILOVE
+Expected Bitstream: 11001000100000101
+
+================ PATTERN 88 ================
+Weights: A:5 B:2 C:4 E:4 I:2 L:5 O:4 V:4 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: B(2) and Right: I(2) -> New Subtree ID:-1 Weight:4
+Combine Left: V(4) and Right: Sub(-1)(4) -> New Subtree ID:-2 Weight:8
+Combine Left: E(4) and Right: O(4) -> New Subtree ID:-3 Weight:8
+Combine Left: L(5) and Right: C(4) -> New Subtree ID:-4 Weight:9
+Combine Left: Sub(-3)(8) and Right: A(5) -> New Subtree ID:-5 Weight:13
+Combine Left: Sub(-4)(9) and Right: Sub(-2)(8) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(13) -> New Subtree ID:-7 Weight:30
+----------------------------------------
+Huffman Codes:
+A: 11
+B: 0110
+C: 001
+E: 100
+I: 0111
+L: 000
+O: 101
+V: 010
+
+Target String: ICLAB
+Expected Bitstream: 0111001000110110
+
+================ PATTERN 89 ================
+Weights: A:3 B:4 C:2 E:3 I:7 L:2 O:5 V:5 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: C(2) and Right: L(2) -> New Subtree ID:-1 Weight:4
+Combine Left: A(3) and Right: E(3) -> New Subtree ID:-2 Weight:6
+Combine Left: B(4) and Right: Sub(-1)(4) -> New Subtree ID:-3 Weight:8
+Combine Left: O(5) and Right: V(5) -> New Subtree ID:-4 Weight:10
+Combine Left: I(7) and Right: Sub(-2)(6) -> New Subtree ID:-5 Weight:13
+Combine Left: Sub(-4)(10) and Right: Sub(-3)(8) -> New Subtree ID:-6 Weight:18
+Combine Left: Sub(-6)(18) and Right: Sub(-5)(13) -> New Subtree ID:-7 Weight:31
+----------------------------------------
+Huffman Codes:
+A: 110
+B: 010
+C: 0110
+E: 111
+I: 10
+L: 0111
+O: 000
+V: 001
+
+Target String: ILOVE
+Expected Bitstream: 100111000001111
+
+================ PATTERN 90 ================
+Weights: A:1 B:3 C:2 E:5 I:2 L:7 O:7 V:3 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: I(2) and Right: A(1) -> New Subtree ID:-1 Weight:3
+Combine Left: Sub(-1)(3) and Right: C(2) -> New Subtree ID:-2 Weight:5
+Combine Left: B(3) and Right: V(3) -> New Subtree ID:-3 Weight:6
+Combine Left: E(5) and Right: Sub(-2)(5) -> New Subtree ID:-4 Weight:10
+Combine Left: O(7) and Right: Sub(-3)(6) -> New Subtree ID:-5 Weight:13
+Combine Left: Sub(-4)(10) and Right: L(7) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(13) -> New Subtree ID:-7 Weight:30
+----------------------------------------
+Huffman Codes:
+A: 00101
+B: 110
+C: 0011
+E: 000
+I: 00100
+L: 01
+O: 10
+V: 111
+
+Target String: ICLAB
+Expected Bitstream: 0010000110100101110
+
+================ PATTERN 91 ================
+Weights: A:2 B:4 C:1 E:2 I:1 L:6 O:3 V:5 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: C(1) and Right: I(1) -> New Subtree ID:-1 Weight:2
+Combine Left: E(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: O(3) and Right: A(2) -> New Subtree ID:-3 Weight:5
+Combine Left: B(4) and Right: Sub(-2)(4) -> New Subtree ID:-4 Weight:8
+Combine Left: V(5) and Right: Sub(-3)(5) -> New Subtree ID:-5 Weight:10
+Combine Left: Sub(-4)(8) and Right: L(6) -> New Subtree ID:-6 Weight:14
+Combine Left: Sub(-6)(14) and Right: Sub(-5)(10) -> New Subtree ID:-7 Weight:24
+----------------------------------------
+Huffman Codes:
+A: 111
+B: 000
+C: 00110
+E: 0010
+I: 00111
+L: 01
+O: 110
+V: 10
+
+Target String: ICLAB
+Expected Bitstream: 001110011001111000
+
+================ PATTERN 92 ================
+Weights: A:2 B:1 C:1 E:4 I:5 L:6 O:4 V:2 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: B(1) and Right: C(1) -> New Subtree ID:-1 Weight:2
+Combine Left: V(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: Sub(-2)(4) and Right: A(2) -> New Subtree ID:-3 Weight:6
+Combine Left: E(4) and Right: O(4) -> New Subtree ID:-4 Weight:8
+Combine Left: Sub(-3)(6) and Right: I(5) -> New Subtree ID:-5 Weight:11
+Combine Left: Sub(-4)(8) and Right: L(6) -> New Subtree ID:-6 Weight:14
+Combine Left: Sub(-6)(14) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:25
+----------------------------------------
+Huffman Codes:
+A: 101
+B: 10010
+C: 10011
+E: 000
+I: 11
+L: 01
+O: 001
+V: 1000
+
+Target String: ICLAB
+Expected Bitstream: 11100110110110010
+
+================ PATTERN 93 ================
+Weights: A:1 B:6 C:1 E:5 I:5 L:6 O:1 V:1 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: O(1) and Right: V(1) -> New Subtree ID:-1 Weight:2
+Combine Left: A(1) and Right: C(1) -> New Subtree ID:-2 Weight:2
+Combine Left: Sub(-1)(2) and Right: Sub(-2)(2) -> New Subtree ID:-3 Weight:4
+Combine Left: I(5) and Right: Sub(-3)(4) -> New Subtree ID:-4 Weight:9
+Combine Left: L(6) and Right: E(5) -> New Subtree ID:-5 Weight:11
+Combine Left: Sub(-4)(9) and Right: B(6) -> New Subtree ID:-6 Weight:15
+Combine Left: Sub(-6)(15) and Right: Sub(-5)(11) -> New Subtree ID:-7 Weight:26
+----------------------------------------
+Huffman Codes:
+A: 00110
+B: 01
+C: 00111
+E: 11
+I: 000
+L: 10
+O: 00100
+V: 00101
+
+Target String: ICLAB
+Expected Bitstream: 00000111100011001
+
+================ PATTERN 94 ================
+Weights: A:2 B:1 C:3 E:1 I:2 L:2 O:7 V:3 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: B(1) and Right: E(1) -> New Subtree ID:-1 Weight:2
+Combine Left: L(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: A(2) and Right: I(2) -> New Subtree ID:-3 Weight:4
+Combine Left: C(3) and Right: V(3) -> New Subtree ID:-4 Weight:6
+Combine Left: Sub(-2)(4) and Right: Sub(-3)(4) -> New Subtree ID:-5 Weight:8
+Combine Left: O(7) and Right: Sub(-4)(6) -> New Subtree ID:-6 Weight:13
+Combine Left: Sub(-6)(13) and Right: Sub(-5)(8) -> New Subtree ID:-7 Weight:21
+----------------------------------------
+Huffman Codes:
+A: 110
+B: 1010
+C: 010
+E: 1011
+I: 111
+L: 100
+O: 00
+V: 011
+
+Target String: ICLAB
+Expected Bitstream: 1110101001101010
+
+================ PATTERN 95 ================
+Weights: A:6 B:2 C:4 E:5 I:3 L:5 O:2 V:4 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: B(2) and Right: O(2) -> New Subtree ID:-1 Weight:4
+Combine Left: Sub(-1)(4) and Right: I(3) -> New Subtree ID:-2 Weight:7
+Combine Left: C(4) and Right: V(4) -> New Subtree ID:-3 Weight:8
+Combine Left: E(5) and Right: L(5) -> New Subtree ID:-4 Weight:10
+Combine Left: Sub(-2)(7) and Right: A(6) -> New Subtree ID:-5 Weight:13
+Combine Left: Sub(-4)(10) and Right: Sub(-3)(8) -> New Subtree ID:-6 Weight:18
+Combine Left: Sub(-6)(18) and Right: Sub(-5)(13) -> New Subtree ID:-7 Weight:31
+----------------------------------------
+Huffman Codes:
+A: 11
+B: 1000
+C: 010
+E: 000
+I: 101
+L: 001
+O: 1001
+V: 011
+
+Target String: ICLAB
+Expected Bitstream: 101010001111000
+
+================ PATTERN 96 ================
+Weights: A:3 B:6 C:2 E:6 I:5 L:5 O:1 V:1 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: O(1) and Right: V(1) -> New Subtree ID:-1 Weight:2
+Combine Left: C(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: Sub(-2)(4) and Right: A(3) -> New Subtree ID:-3 Weight:7
+Combine Left: I(5) and Right: L(5) -> New Subtree ID:-4 Weight:10
+Combine Left: B(6) and Right: E(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(10) and Right: Sub(-3)(7) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:29
+----------------------------------------
+Huffman Codes:
+A: 011
+B: 10
+C: 0100
+E: 11
+I: 000
+L: 001
+O: 01010
+V: 01011
+
+Target String: ILOVE
+Expected Bitstream: 000001010100101111
+
+================ PATTERN 97 ================
+Weights: A:1 B:6 C:3 E:6 I:6 L:4 O:1 V:3 
+Mode: 1 (ICLAB)
+----------------------------------------
+Tree Building Process:
+Combine Left: A(1) and Right: O(1) -> New Subtree ID:-1 Weight:2
+Combine Left: V(3) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:5
+Combine Left: L(4) and Right: C(3) -> New Subtree ID:-3 Weight:7
+Combine Left: I(6) and Right: Sub(-2)(5) -> New Subtree ID:-4 Weight:11
+Combine Left: B(6) and Right: E(6) -> New Subtree ID:-5 Weight:12
+Combine Left: Sub(-4)(11) and Right: Sub(-3)(7) -> New Subtree ID:-6 Weight:18
+Combine Left: Sub(-6)(18) and Right: Sub(-5)(12) -> New Subtree ID:-7 Weight:30
+----------------------------------------
+Huffman Codes:
+A: 00110
+B: 10
+C: 011
+E: 11
+I: 000
+L: 010
+O: 00111
+V: 0010
+
+Target String: ICLAB
+Expected Bitstream: 0000110100011010
+
+================ PATTERN 98 ================
+Weights: A:1 B:1 C:2 E:2 I:2 L:7 O:6 V:7 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: A(1) and Right: B(1) -> New Subtree ID:-1 Weight:2
+Combine Left: I(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: C(2) and Right: E(2) -> New Subtree ID:-3 Weight:4
+Combine Left: Sub(-2)(4) and Right: Sub(-3)(4) -> New Subtree ID:-4 Weight:8
+Combine Left: V(7) and Right: O(6) -> New Subtree ID:-5 Weight:13
+Combine Left: Sub(-4)(8) and Right: L(7) -> New Subtree ID:-6 Weight:15
+Combine Left: Sub(-6)(15) and Right: Sub(-5)(13) -> New Subtree ID:-7 Weight:28
+----------------------------------------
+Huffman Codes:
+A: 00010
+B: 00011
+C: 0010
+E: 0011
+I: 0000
+L: 01
+O: 11
+V: 10
+
+Target String: ILOVE
+Expected Bitstream: 00000111100011
+
+================ PATTERN 99 ================
+Weights: A:1 B:1 C:6 E:7 I:4 L:7 O:3 V:2 
+Mode: 0 (ILOVE)
+----------------------------------------
+Tree Building Process:
+Combine Left: A(1) and Right: B(1) -> New Subtree ID:-1 Weight:2
+Combine Left: V(2) and Right: Sub(-1)(2) -> New Subtree ID:-2 Weight:4
+Combine Left: Sub(-2)(4) and Right: O(3) -> New Subtree ID:-3 Weight:7
+Combine Left: C(6) and Right: I(4) -> New Subtree ID:-4 Weight:10
+Combine Left: L(7) and Right: Sub(-3)(7) -> New Subtree ID:-5 Weight:14
+Combine Left: Sub(-4)(10) and Right: E(7) -> New Subtree ID:-6 Weight:17
+Combine Left: Sub(-6)(17) and Right: Sub(-5)(14) -> New Subtree ID:-7 Weight:31
+----------------------------------------
+Huffman Codes:
+A: 11010
+B: 11011
+C: 000
+E: 01
+I: 001
+L: 10
+O: 111
+V: 1100
+
+Target String: ILOVE
+Expected Bitstream: 00110111110001
+
